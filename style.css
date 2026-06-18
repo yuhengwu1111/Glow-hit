@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght=300;400;500;600;700&display=swap');
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: #f5f5f7;
+    color: #1d1d1f;
+    scroll-behavior: smooth;
+}
+
+.glass-nav {
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    background: rgba(255, 255, 255, 0.75);
+}
+
+.apple-card {
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.02);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.apple-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
+}
+
+.apple-btn-primary {
+    background-color: #0071e3;
+    color: #ffffff;
+    transition: all 0.2s ease;
+}
+.apple-btn-primary:hover {
+    background-color: #0077ed;
+    transform: scale(1.02);
+}
+
+.apple-btn-secondary {
+    background-color: #f5f5f7;
+    color: #1d1d1f;
+    transition: all 0.2s ease;
+}
+.apple-btn-secondary:hover {
+    background-color: #e8e8ed;
+}
+
+/* 模擬八角形與五邊形硬體外觀 */
+.octagon {
+    clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+}
+.pentagon {
+    clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+}
+
+/* 滑動漸變軌跡 */
+input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    background: #e8e8ed;
+    height: 6px;
+    border-radius: 3px;
+    outline: none;
+}
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #0071e3;
+    cursor: pointer;
+    border: 2px solid white;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+}
+
+/* 動態流光效果 */
+.glow-active {
+    filter: drop-shadow(0 0 15px currentColor);
+    animation: pulse-glow 1.5s infinite alternate;
+}
+@keyframes pulse-glow {
+    from { opacity: 0.8; }
+    to { opacity: 1; }
+}
+
+/* 行動端選單過渡 */
+#mobileMenu {
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
