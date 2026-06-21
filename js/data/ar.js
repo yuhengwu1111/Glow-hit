@@ -1,0 +1,20 @@
+window.translations['ar'] = {
+    navHome: "الرئيسية", navProduct: "مواصفات المنتج", navSimulator: "المحاكاة", navScience: "الأدلة العلمية", navAbout: "عرض المشروع", navTry: "جرب الآن",
+    footerTitle: "GlowHit — جدار تفاعلي ذكي", footerCopyright: "© 2026 RoboRAVE. كل الحقوق محفوظة.",
+    footerLink1: "تفاصيل الأجهزة", footerLink2: "أوراق علمية", footerLink3: "عرض أوساكا",
+    heroTitle: "تفاعل بسرعة الضوء.", heroSub: "جدار تفاعلي أنيق ومودولي للتمارين والجمال المنزلي.",
+    exploreBtn: "استكشف الأجهزة", tryBtn: "تشغيل العرض",
+    highlightTitle: "تقنية، لياقة، وجمال", highlightSportTitle: "وضع التدريب الديناميكي",
+    highlightSportDesc: "خوارزميات منخفضة الكمون وحساسات دقيقة لتجربة تدريب غامرة.", highlightSportCTA: "جرب المحاكاة الرياضية",
+    highlightHomeTitle: "وضع الإضاءة المحيطة", highlightHomeDesc: "يتحول إلى إضاءة متوافقة مع Apple Home.", highlightHomeCTA: "ضبط لون Apple Home",
+    homekitTitle: "تكامل Apple Home", homekitDesc: "يعمل كمصباح محيطي عند الخمول.",
+    simTitle: "محطة تحكم GlowHit", simDesc: "اختبر GlowHit في متصفحك.",
+    tabSpeed: "السرعة (Speed)", tabColor: "الكبح (Color)", tabHome: "Apple Home",
+    scoreLabel: "النقاط", timeLabel: "الوقت المتبقي", reactLabel: "متوسط الاستجابة",
+    startBtnText: "ابدأ الاختبار", stopBtnText: "إيقاف",
+    homeHue: "درجة اللون", homeSat: "التشبع", homeBri: "السطوع", homeTemp: "درجة الحرارة اللونية",
+    powerMonitor: "بطارية 2000mAh 5V Type-C", powerDesc: "محاكاة الحمولة الديناميكية لتشغيل 12 وحدة.",
+    currentLoad: "التيار الكلي للشبكة:", loadPercentLabel: "سعة آمنة (بحد أقصى 2000mA)",
+    statusSafe: "تشغيل آمن", statusLimit: "حماية الشبكة مفعّلة",
+    alertEnd: "انتهى الاختبار!", alertScore: "مجموع نقاطك:", alertAvgReact: "متوسط زمن الاستجابة:", alertHits: "إجمالي الضربات الصالحة:", ms: "ملّ\u200cس"
+};

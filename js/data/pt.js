@@ -1,0 +1,20 @@
+window.translations['pt'] = {
+    navHome: "Início", navProduct: "Especificações", navSimulator: "Simulador", navScience: "Ciência", navAbout: "Pitch", navTry: "Experimentar",
+    footerTitle: "GlowHit — Parede modular inteligente", footerCopyright: "© 2026 RoboRAVE. Todos os direitos reservados.",
+    footerLink1: "Detalhes do hardware", footerLink2: "Artigos científicos", footerLink3: "Pitch Osaka",
+    heroTitle: "Reação à velocidade da luz.", heroSub: "Uma parede reativa modular e elegante para treino e estética.",
+    exploreBtn: "Explorar hardware", tryBtn: "Iniciar demo",
+    highlightTitle: "Tecnologia, fitness e estética", highlightSportTitle: "Modo de treino dinâmico",
+    highlightSportDesc: "Algoritmos de baixa latência e micro-sensores para treino de agilidade imersivo.", highlightSportCTA: "Testar simulador esportivo",
+    highlightHomeTitle: "Modo de iluminação ambiente", highlightHomeDesc: "Converte-se em iluminação ambiente compatível com Apple Home.", highlightHomeCTA: "Ajustar cor Home",
+    homekitTitle: "Integração Apple Home", homekitDesc: "Em repouso atua como luz ambiental.",
+    simTitle: "Estação de controlo GlowHit", simDesc: "Experimente GlowHit no seu navegador.",
+    tabSpeed: "Velocidade (Speed)", tabColor: "Inibição (Color)", tabHome: "Apple Home",
+    scoreLabel: "PONTUAÇÃO", timeLabel: "TEMPO", reactLabel: "REAÇÃO MÉD.",
+    startBtnText: "Iniciar teste", stopBtnText: "Parar",
+    homeHue: "Matiz", homeSat: "Saturação", homeBri: "Brilho", homeTemp: "Temperatura",
+    powerMonitor: "Bateria 2000mAh 5V Type-C", powerDesc: "Simulação de carga dinâmica para 12 módulos.",
+    currentLoad: "Corrente total da rede:", loadPercentLabel: "Capacidade segura (máx 2000mA)",
+    statusSafe: "Funcionamento seguro", statusLimit: "Proteção de rede activada",
+    alertEnd: "Teste concluído!", alertScore: "Sua pontuação:", alertAvgReact: "Tempo médio:", alertHits: "Acertos válidos:", ms: "ms"
+};

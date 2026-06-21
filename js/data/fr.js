@@ -1,0 +1,20 @@
+window.translations['fr'] = {
+    navHome: "Accueil", navProduct: "Spécifications", navSimulator: "Simulateur", navScience: "Science", navAbout: "Pitch", navTry: "Essayer",
+    footerTitle: "GlowHit — Mur modulaire intelligent", footerCopyright: "© 2026 RoboRAVE. Tous droits réservés.",
+    footerLink1: "Détails du matériel", footerLink2: "Articles scientifiques", footerLink3: "Pitch Osaka",
+    heroTitle: "Réaction à la vitesse de la lumière.", heroSub: "Un mur réactif modulaire élégant pour l'entraînement et l'esthétique.",
+    exploreBtn: "Explorer le matériel", tryBtn: "Lancer la démo",
+    highlightTitle: "Technologie, fitness et esthétique", highlightSportTitle: "Mode d'entraînement dynamique",
+    highlightSportDesc: "Algorithmes basse latence et micro-capteurs pour une expérience d'agilité immersive.", highlightSportCTA: "Essayer le simulateur sportif",
+    highlightHomeTitle: "Mode éclairage ambiant", highlightHomeDesc: "Se transforme en lumière ambiante compatible Apple Home.", highlightHomeCTA: "Ajuster couleur Home",
+    homekitTitle: "Équipement Apple Home", homekitDesc: "En veille, il devient un éclairage d'ambiance.",
+    simTitle: "Station de contrôle GlowHit", simDesc: "Testez GlowHit dans votre navigateur.",
+    tabSpeed: "Vitesse (Speed)", tabColor: "Inhibition (Color)", tabHome: "Apple Home",
+    scoreLabel: "SCORE", timeLabel: "RELIQUE", reactLabel: "RÉAC. MOY.",
+    startBtnText: "Démarrer le test", stopBtnText: "Arrêter",
+    homeHue: "Teinte", homeSat: "Saturation", homeBri: "Luminosité", homeTemp: "Température",
+    powerMonitor: "Batterie 2000mAh 5V Type-C", powerDesc: "Simulation de charge dynamique pour 12 modules.",
+    currentLoad: "Courant total du réseau:", loadPercentLabel: "Capacité sûre (max 2000mA)",
+    statusSafe: "Fonctionnement sûr", statusLimit: "Protection réseau activée",
+    alertEnd: "Test terminé !", alertScore: "Votre score :", alertAvgReact: "Temps moyen :", alertHits: "Coups valides :", ms: "ms"
+};
