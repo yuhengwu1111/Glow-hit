@@ -114,4 +114,4 @@ window.setSimMode = function(mode) {
         window.initSimWall();
     }
     lucide.createIcons();
-};
+}; 

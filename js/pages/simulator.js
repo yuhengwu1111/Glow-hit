@@ -81,4 +81,4 @@ window.initAmbientWall = function() {
             </div>
         `;
     }
-};
+}; 
