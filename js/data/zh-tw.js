@@ -1,8 +1,19 @@
 window.translations['zh'] = {
-    navHome: "首頁", navProduct: "產品解構", navSimulator: "互動控制台", navScience: "運動科學", navAbout: "創業提案", navTry: "試玩體驗",
+    // 導覽列與頁尾 (Navbar & Footer)
+    navHome: "首頁", 
+    navProduct: "產品解構", 
+    navSimulator: "互動控制台", 
+    navVision: "核心初衷", // 新增
+    navScience: "運動科學", 
+    navAbout: "創業提案", 
+    navTry: "試玩體驗",
     footerTitle: "GlowHit 智慧模組化光點反應牆專案",
     footerCopyright: "© 2026 RoboRAVE 大阪世界錦標賽創業挑戰賽代表隊. 保留所有權利。",
-    footerLink1: "硬體細節", footerLink2: "神經學文獻", footerLink3: "大阪參賽計畫書",
+    footerLink1: "硬體細節", 
+    footerLink2: "神經學文獻", 
+    footerLink3: "大阪參賽計畫書",
+    
+    // 首頁 (Home Page)
     heroTitle: "光速反應，智慧定義",
     heroSub: "一體成型的模組化觸控運動牆，兼具極限體能訓練與智慧家庭美學。",
     exploreBtn: "探索硬體拆解",
@@ -29,6 +40,21 @@ window.translations['zh'] = {
     modeColorDesc: "高壓下大腦決策。看到指定顏色才可打擊，鍛鍊「反應抑制」能力。",
     modeTimer: "計時積分",
     modeTimerDesc: "在限制時間內挑戰打擊極限，數據即時回傳全球 CloudDB 排行榜。",
+    
+    // 核心初衷頁面 (Vision Page - 新增)
+    visionTitle: "為什麼打造 GlowHit？與我們的核心客群",
+    visionSubtitle: "解決都市碎片化運動痛點，跨界融合專業體能鍛鍊與智慧家居空間美學。",
+    visionOriginTitle: "1. 創始初衷與市場痛點",
+    visionOriginDesc: "在寸土寸金的現代城市中，高壓的生活節奏與狹小的居住空間，讓高規格的體能敏捷訓練與優雅的居家室內裝潢長期處於斷層狀態。\n傳統的大型健身器材沉重笨拙、佔用動線，一旦熱情減退，極易淪為昂貴的『高科技高級曬衣架』與堆灰塵死角。\n\n我們開發 GlowHit 的核心初衷，是基於『健康遊戲化（Gamification）』概念。透過高精度微動觸控與千分之一秒級的低延遲無線演算法，將高強度競技反饋揉入 Apple Home 智慧美學燈飾中。運動時，它是激發情潛能的競技牆；靜止時，它是融入北歐奢華或日系極簡風的溫潤氛圍燈，讓科技設備擁有 24 小時不間斷的空間實用價值。",
+    visionAudienceTitle: "2. 核心精準客群定位",
+    visionTA1Title: "極限健身與競技運動愛好者",
+    visionTA1Desc: "需要自主訓練手眼協調、核心爆發力、敏捷跳躍度與毫秒級物理反射速度的拳擊、格鬥及專注力核心玩家。",
+    visionTA2Title: "智慧家居與科技美學追求者",
+    visionTA2Desc: "重視生活細節品味，熱愛 Apple 生態系、自動化調光、Siri 語音控制與前衛科技氛圍的高收入數位游牧群體。",
+    visionTA3Title: "全齡大腦活化與預防醫學群體",
+    visionTA3Desc: "旨在透過趣味、低挫折感的打擊遊戲活化腦神經元，幫助學齡兒童強化專注力，或延緩長者視覺延遲以預防高齡跌倒風險。",
+
+    // 產品拆解頁面 (Product Page)
     explodedTitle: "GlowHit 硬體拆解與工業結構",
     explodedSub: "以極簡極致的工業結構，打造極具韌性的感測與多功能發光美學模組。",
     svgPlate: "中心五角形按壓板",
@@ -57,6 +83,8 @@ window.translations['zh'] = {
     layoutMatrixDesc: "完美對稱，提供標準化的認知辨識與速度極限測試基準環境。",
     layoutRandom: "不規則任意排 (Random DIY)",
     layoutRandomDesc: "打破常規，完全適應不規則居家牆面、走廊或特殊 DIY 運動目標設計。",
+    
+    // 模擬器頁面 (Simulator Page)
     simTitle: "GlowHit 智慧調控與互動模擬器",
     simDesc: "我們在網頁中完整模擬了 GlowHit 的物理回饋！可任選兩種互動模式，體驗極致快感。",
     tabSpeed: "光速反應 (Speed)",
@@ -78,11 +106,8 @@ window.translations['zh'] = {
     loadPercentLabel: "變壓器負載安全餘量 (最大 2000mA 承載)",
     statusSafe: "安全工作範圍 (電網狀態穩定)",
     statusLimit: "電網保護中（已開啟冷卻防護限制）",
-    alertEnd: "測試結束！",
-    alertScore: "您的總得分：",
-    alertAvgReact: "平均反應時間：",
-    alertHits: "命中打擊次數：",
-    ms: "毫秒",
+    
+    // 科學文獻頁面 (Science Page)
     scienceTitle: "反應力訓練的健康科學實證",
     scienceIntro: "GlowHit 的「健康遊戲（Gamification）」不僅僅是體能訓練，更是活化大腦神經、防跌與提升專注力的神經肌肉協調方案。",
     sci1Tag: "神經可塑性與認知負荷調控",
@@ -97,6 +122,8 @@ window.translations['zh'] = {
     sci3Title: "雙重任務神經肌肉協調 (Dual-Task Neuromotor Reactivity)",
     sci3Desc: "發表於 PMC 醫學研究資料庫 (PMC12921918) 的最新手球等運動項目實證指出，使用高靈敏光點反應系統進行「視覺搜尋」結合「三向觸發物理擊打」的雙重任務（Dual-task）感知訓練，能顯著改善青少年選手與一般使用者者的動作反應時間、手眼運動協調（Visuomotor integration）以及對外界干擾的空間注意力控制。",
     sci3Link: "閱讀 PMC12921918 敏捷度與感覺運動整合文獻原文",
+    
+    // 簡報與提案頁面 (Pitch Deck Page)
     aboutTitle: "2026 大阪世界賽創業挑戰賽提案",
     aboutBrief: "我們將代表台灣前往日本大阪，以這款將「智慧家庭」與「運動科學」跨界結合的創新方案，爭取全球頂尖創客大獎！",
     aboutTeam: "提案單位：RoboRAVE 創業團隊 | 聯絡人：吳禹衡 (0919-618-029)",
@@ -110,17 +137,29 @@ window.translations['zh'] = {
     slide2Title: "2. 技術優勢：零死角、超低延遲系統",
     slide2Desc: "內建 ESP32 高效能通訊晶片。我們精密設計了120°等分的3組高精度微動開關，搭配客製五邊形浮動面板。無論您敲擊哪個邊角，都能確保毫秒級無誤差傳遞至系統大腦。",
     slide3Title: "3. 智慧家庭：完美整合 Apple Home",
-    slide3Desc: "不運動時，GlowHit 作為精緻環境照明燈融入生活。使用者可透過 iPhone「家庭」App 或 Siri，無段控制冷暖色溫與RGB色彩氛圍。讓昂貴運動器材不再堆灰塵，天天點亮溫暖角落。",
+    slide3Desc: "不運動時，GlowHit 作為精緻環境照明燈融入生活。使用者可透過 iPhone『家庭』App 或 Siri，無段控制冷暖色溫與RGB色彩氛圍。讓昂貴運動器材不再堆灰塵，天天點亮溫暖角落。",
     slide4Title: "4. 安全防護：展場出國與電源過載軟體保護",
     slide4Desc: "12組模組整組功率達到約 42W。出國完全符合登機 74Wh 航空安檢規範。配合展場專用交流變壓器分流。我們特別研發了主動限流保護機制，在不使用行動電源的情形下依然完美確保電網供電安全。",
     slide5Title: "5. 商業擴充前景與募資承諾",
     slide5Desc: "以超高 C/P 值硬體打擊端為核心。未來，我們計畫推出結合運動日誌、數據圖表與全球排名的專屬 App；並在大阪世界錦標賽上展示完美的 12 片牆體，為台灣創客青年爭光！",
-    thItem: "項目 (Item)", thBudget: "預算分配 (Budget NTD)", thRemarks: "細節說明 (Remarks)",
+    thItem: "項目 (Item)", 
+    thBudget: "預算分配 (Budget NTD)", 
+    thRemarks: "細節說明 (Remarks)",
     tbItem1: "國際賽報名費", tbRemarks1: "大會團隊賽事報名、行政與公證文件規費",
     tbItem2: "單人赴日差旅費", tbRemarks2: "往返大阪廉航機票、展期住宿與當地交通配套",
     tbItem3: "GlowHit 研發與設備費", tbRemarks3: "ESP32 晶片、鋰電池、微動感測及 12 組拼接外殼零件打樣",
     tbItem4: "行銷與現場推廣雜支", tbRemarks4: "大會專屬宣傳手冊、A4 宣傳單、海報與展位裝潢材料物資",
     tbTotal: "總募資預算 (Total Ask)", tbTotalRemarks: "代表隊圓夢與創新方案產品化的關鍵第一步",
-    slideOf: "投影片", slideOfMax: "共 5 頁"
+    slideOf: "投影片", 
+    slideOfMax: "共 5 頁",
+    
+    // 遊戲提示與彈窗 (Alerts)
+    alertEnd: "測試結束！",
+    alertScore: "您的總得分：",
+    alertAvgReact: "平均反應時間：",
+    alertHits: "命中打擊次數：",
+    ms: "毫秒"
 };
+
+// 建立全域指向連結
 window.translations['zh-TW'] = window.translations.zh;

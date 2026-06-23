@@ -12,20 +12,24 @@
 </head>
 <body class="overflow-x-hidden">
 
+    <!-- Translucent Apple Navigation Bar -->
     <nav class="glass-nav fixed w-full top-0 z-50 border-b border-gray-200 px-4 md:px-6 py-4 flex justify-between items-center transition-all duration-300">
         <div class="flex items-center space-x-3 cursor-pointer" onclick="navigate('home')">
             <div class="w-8 h-8 rounded-lg bg-black flex items-center justify-center text-white font-bold text-sm tracking-widest octagon">GH</div>
             <span class="text-xl font-semibold tracking-tight">GlowHit</span>
         </div>
         
+        <!-- Desktop Navigation Menu -->
         <div class="hidden md:flex space-x-8 text-sm font-medium">
             <span class="nav-link text-gray-500 hover:text-black transition cursor-pointer" id="nav-home" onclick="navigate('home')">Home</span>
             <span class="nav-link text-gray-500 hover:text-black transition cursor-pointer" id="nav-product" onclick="navigate('product')">Product</span>
             <span class="nav-link text-gray-500 hover:text-black transition cursor-pointer" id="nav-simulator" onclick="navigate('simulator')">Simulator</span>
+            <span class="nav-link text-gray-500 hover:text-black transition cursor-pointer" id="nav-vision" onclick="navigate('vision')">Vision</span>
             <span class="nav-link text-gray-500 hover:text-black transition cursor-pointer" id="nav-science" onclick="navigate('science')">Science</span>
             <span class="nav-link text-gray-500 hover:text-black transition cursor-pointer" id="nav-about" onclick="navigate('about')">Pitch Deck</span>
         </div>
 
+        <!-- Language Selector & Action Button -->
         <div class="flex items-center space-x-3 md:space-x-4">
             <div class="flex items-center space-x-1 border border-gray-300 rounded-full px-2.5 py-1 bg-white">
                 <i data-lucide="globe" class="w-3.5 h-3.5 text-gray-500"></i>
@@ -47,22 +51,24 @@
                 試玩體驗
             </button>
 
+            <!-- Mobile Hamburger Button - 修正點：改用特定容器包裹以利動態重建圖標 -->
             <button onclick="toggleMobileMenu()" class="md:hidden p-1.5 text-gray-600 hover:text-black focus:outline-none" aria-label="Toggle Menu">
-                <i data-lucide="menu" id="menuIcon" class="w-6 h-6"></i>
+                <span id="menuIconContainer"><i data-lucide="menu" class="w-6 h-6"></i></span>
             </button>
         </div>
     </nav>
 
+    <!-- Mobile Fullscreen Overlay Navigation Menu -->
     <div id="mobileMenu" class="hidden fixed inset-x-0 top-[73px] bottom-0 z-40 glass-nav border-b border-gray-200 md:hidden flex flex-col px-6 py-8 space-y-6 text-xl font-medium transform -translate-y-8 opacity-0">
         <span class="mob-nav-link text-gray-500 hover:text-black transition cursor-pointer py-2 border-b border-gray-100" id="mob-nav-home" onclick="navigate('home'); toggleMobileMenu();">Home</span>
         <span class="mob-nav-link text-gray-500 hover:text-black transition cursor-pointer py-2 border-b border-gray-100" id="mob-nav-product" onclick="navigate('product'); toggleMobileMenu();">Product</span>
         <span class="mob-nav-link text-gray-500 hover:text-black transition cursor-pointer py-2 border-b border-gray-100" id="mob-nav-simulator" onclick="navigate('simulator'); toggleMobileMenu();">Simulator</span>
+        <span class="mob-nav-link text-gray-500 hover:text-black transition cursor-pointer py-2 border-b border-gray-100" id="mob-nav-vision" onclick="navigate('vision'); toggleMobileMenu();">Vision</span>
         <span class="mob-nav-link text-gray-500 hover:text-black transition cursor-pointer py-2 border-b border-gray-100" id="mob-nav-science" onclick="navigate('science'); toggleMobileMenu();">Science</span>
         <span class="mob-nav-link text-gray-500 hover:text-black transition cursor-pointer py-2 border-b border-gray-100" id="mob-nav-about" onclick="navigate('about'); toggleMobileMenu();">Pitch Deck</span>
     </div>
 
-    <main id="app" class="pt-24 pb-16 min-h-screen">
-        </main>
+    <main id="app" class="pt-24 pb-16 min-h-screen"></main>
 
     <footer class="bg-white border-t border-gray-200 py-12 px-6">
         <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center text-xs text-gray-500 space-y-4 md:space-y-0">
@@ -100,6 +106,7 @@
     <script src="js/pages/home.js"></script>
     <script src="js/pages/product.js"></script>
     <script src="js/pages/simulator.js"></script>
+    <script src="js/pages/vision.js"></script> <!-- 新增的分頁組件 -->
     <script src="js/pages/science.js"></script>
     <script src="js/pages/about.js"></script>
 

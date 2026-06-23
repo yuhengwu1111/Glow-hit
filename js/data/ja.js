@@ -1,8 +1,19 @@
-window.translations['jp'] = {
-    navHome: "ホーム", navProduct: "製品構造", navSimulator: "シミュレーター", navScience: "運動科學", navAbout: "起業提案", navTry: "体験する",
-    footerTitle: "GlowHit スマートモジュール式光點反応壁プロジェクト",
+window.translations['ja'] = {
+    // 導覽列與頁尾 (Navbar & Footer)
+    navHome: "ホーム",
+    navProduct: "製品構造",
+    navSimulator: "シミュレーター",
+    navVision: "核心初衷", // 新增
+    navScience: "運動科学",
+    navAbout: "起業提案",
+    navTry: "体験する",
+    footerTitle: "GlowHit スマートモジュール式光点反応壁プロジェクト",
     footerCopyright: "© 2026 RoboRAVE 大阪世界選手権 起業家部門代表チーム. 無断複写・転載を禁じます。",
-    footerLink1: "ハードウェア詳細", footerLink2: "學術文献", footerLink3: "大阪世界大会計画書",
+    footerLink1: "ハードウェア詳細",
+    footerLink2: "學術文献",
+    footerLink3: "大阪世界大会計画書",
+
+    // 首頁 (Home Page)
     heroTitle: "光速の反応、スマートな定義。",
     heroSub: "プロの敏捷性トレーニングとスマートホームの美学を融合させた、モジュール式インタラクティブ・スポーツウォール。",
     exploreBtn: "內部構造を解剖する",
@@ -29,6 +40,21 @@ window.translations['jp'] = {
     modeColorDesc: "高壓下の意思決定力。指定の色だけを狙、不要な動作を制限する脳トレ。ADHDなどの認知改善に。",
     modeTimer: "タイムトライアル",
     modeTimerDesc: "制限時間内に打撃数の極限に挑み、結果はCloudDBを通じてグローバルリーダーボードへ即時同期されます。",
+    
+    // 核心初衷頁面 (Vision Page - 新增)
+    visionTitle: "なぜGlowHitを作るのか？とコアターゲット層",
+    visionSubtitle: "プロの敏捷性トレーニングとスマートホームの美学を融合させ、都市型の運動不足の課題を解決します。",
+    visionOriginTitle: "1. 開発の初衷と市場の課題",
+    visionOriginDesc: "現代の都市部では、居住空間の狭さと高ストレスな生活リズムにより、本格的なアジリティトレーニングと洗練されたインテリアデザインが長年乖離していました。\n従来の大型フィットネス機器は重くて場所を取り、モチベーションが下がるとすぐに高額な「高級ハンガーラック」と化し、埃をかぶる原因になります。\n\nGlowHit開発の核心は「ゲーミフィケーション（健康ゲーム化）」にあります。高精度なマイクロスイッチとミリ秒単位の低遅延ワイヤレスアルゴリズムを統合し、Apple Homeのスマートインテリア照明にシームレスに融合させました。運動時は限界に挑む競技ウォール、静止時は空間を優しく彩る雰囲気間接照明として、24時間空間の価値を高め続けます。",
+    visionAudienceTitle: "2. コアターゲット層の定義",
+    visionTA1Title: "本格的なフィットネス・競技スポーツ愛好家",
+    visionTA1Desc: "ボクシング、格闘技、その他手眼協調性、コアの瞬発力、アジリティ、ミリ秒単位の物理的な反射神経スピードの自律トレーニングを求めるコアプレイヤー。",
+    visionTA2Title: "スマートホームとテクノロジー美学の追求者",
+    visionTA2Desc: "生活の質を重視し、Appleエコシステム、自動調光、Siri音声制御、最先端のデジタルガジェットを愛する高収入なデジタルノマド層。",
+    visionTA3Title: "全世代の脳活性化と予防医学の対象層",
+    visionTA3Desc: "ゲーム感覚で楽しく脳神経を刺激。子供の集中力強化や、高齢者の視覚遅延を改善し転倒を予防する予防医療アプローチ。",
+
+    // 產品拆解頁面 (Product Page)
     explodedTitle: "GlowHit ハードウェア分解と工業設計",
     explodedSub: "極限までシンプルに、打撃に強い構造と滑らかな配光設計を兼ね備えた、モジュール式発光デバイス。",
     svgPlate: "中心五角形押圧板",
@@ -57,6 +83,8 @@ window.translations['jp'] = {
     layoutMatrixDesc: "標準的でバランスに優れたレイアウト。認知的な反応時間テストの最適なベンチマーク環境。",
     layoutRandom: "ランダムなDIY迷路",
     layoutRandomDesc: "不規則な壁や狭い廊下など、家中の限られたスペースに散りばめてユニークなトレーニングを楽しめます。",
+
+    // 模擬器頁面 (Simulator Page)
     simTitle: "GlowHit インタラクティブ調控シミュレーター",
     simDesc: "GlowHitの洗練された触覚フィードバックをブラウザ上で再現。お好みのモードに切り替えて、反応速度を体験してください。",
     tabSpeed: "光速反応 (Speed)",
@@ -73,17 +101,14 @@ window.translations['jp'] = {
     homeBri: "輝度 (Brightness)",
     homeTemp: "模擬色温度 (Color Temp)",
     powerMonitor: "2000mAh 5V Type-C充電式バッテリー",
-    alertEnd: "テストが終了しました！",
-    alertScore: "最終得点：",
-    alertAvgReact: "平均反応速度：",
-    alertHits: "有効打撃回数：",
-    ms: "ミリ秒",
     powerDesc: "5V Type-C 2A充電式バッテリーまたは産業用電源で駆動します。以下は12種類の動作条件における動的負荷シミュレーションです。",
     currentLoad: "現在のネットワーク電流:",
     loadPercentLabel: "安全負荷容量（最大2000mA対応）",
     statusSafe: "安全動作基準（系統状態判定）",
     statusLimit: "系統保護（コールドスタート保護制限）",
-    scienceTitle: "運動科學と認知神経科學的アプローチ",
+
+    // 科學文獻頁面 (Science Page)
+    scienceTitle: "運動科学と認知神経科学的アプローチ",
     scienceIntro: "GlowHitのゲーミフィケーション運動は、単なる運動不足解消に留まらず、認知能力向上や転倒予防、注意力の強化をサポートします。",
     sci1Tag: "神経可塑性とアテンションフォーカス制御",
     sci1Title: "注意制御力とフロー状態 (Attentional Control & Flow)",
@@ -97,8 +122,10 @@ window.translations['jp'] = {
     sci3Title: "認知-運動デュアルタスク協調 (PMC12921918)",
     sci3Desc: "PMC医学データバンク (PMC12921918) に登録された最新研究によると、目標ターゲットの視覚的な「認知」と、三方向の高速「衝撃擊打」を組み合わせた統合デュアルタスク訓練は、運動前神経遅延（Premotor time）を著しく改善し、手眼調和、動作敏捷性、および妨害ノイズに対する選択的空間注意集中力を優位に向上させます。",
     sci3Link: "PMC12921918 敏捷性と感覚運動統合に関する文献を読む",
+
+    // 簡報與提案頁面 (Pitch Deck Page)
     aboutTitle: "2026 大阪世界大会 起業挑戦部門提案",
-    aboutBrief: "スマートホームインテリアと運動科學がクロスオーバーした本製品で、台湾創客スピリットの最高峰を世界へ示します！",
+    aboutBrief: "スマートホームインテリアと運動科学がクロスオーバーした本製品で、台湾創客スピリットの最高峰を世界へ示します！",
     aboutTeam: "提案チーム：RoboRAVE 台灣代表チーム | 代表：呉禹衡 (+886 919-618-029)",
     budgetTitle: "資金調達計画および予算配分 (NTD)",
     milestoneTitle: "プロジェクトのマイルストーン",
@@ -115,12 +142,21 @@ window.translations['jp'] = {
     slide4Desc: "12台で最大消費電力42W。航空安全基準に適合した仕様。展示ブースではACアダプターによる集中給電を行うため、過電流によるダウンとは完全に無縁です。",
     slide5Title: "5. グローバル展開と市場コミットメント",
     slide5Desc: "手頃なエントリーモデルとCloudDBによる世界ランキングを組み合わせて独自の運動SNSを構築。大阪世界大会から未来のヘルステック市場を牽引します。",
-    thItem: "項目", thBudget: "予算 (NTD)", thRemarks: "詳細仕様",
+    thItem: "項目", 
+    thBudget: "予算 (NTD)", 
+    thRemarks: "詳細仕様",
     tbItem1: "国際大会登録費", tbRemarks1: "世界大会チーム登録費用、管理費用、公証書類規費。",
     tbItem2: "渡航費・宿泊費", tbRemarks2: "大阪格安航空券、展示期間中の宿泊ホテル、現地交通費用。",
     tbItem3: "GlowHit 研究開発機材", tbRemarks3: "ESP32チップ、WS2812B幻彩LED、保護リチウム電池、筐体の3Dプロトタイプ材料。",
     tbItem4: "広報・ブース施工費用", tbRemarks4: "大会用パンフレット、製品デモ動画制作、ブース装飾材料。",
     tbTotal: "目標資金総額", tbTotalRemarks: "ユース創客代表チームが世界へと羽ばたく最初の支援要請です。",
-    slideOf: "スライド", slideOfMax: "/ 全5ページ"
+    slideOf: "スライド", 
+    slideOfMax: "/ 全5ページ",
+    
+    // 其他提示音效 (Alerts)
+    alertEnd: "テストが終了しました！",
+    alertScore: "最終得点：",
+    alertAvgReact: "平均反応速度：",
+    alertHits: "有効打撃回数：",
+    ms: "ミリ秒"
 };
-window.translations['ja'] = window.translations.jp;

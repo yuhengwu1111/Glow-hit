@@ -47,31 +47,9 @@ window.renderSimulator = function(app, t) {
         </section>
     `;
     window.initSimWall();
-};
 
-window.initSimWall = function() {
-    const wall = document.getElementById('simulatedWall');
-    if(!wall) return;
-    wall.innerHTML = '';
-    for(let i=0; i<9; i++) {
-        wall.innerHTML += `
-            <div id="pad-${i}" onclick="hitPad(${i})" class="w-16 h-16 sm:w-20 sm:h-20 bg-gray-300 rounded-[1.5rem] octagon cursor-pointer flex items-center justify-center transition-all duration-100 shadow-inner hover:bg-gray-400">
-                <div class="w-8 h-8 sm:w-10 sm:h-10 bg-gray-100 rounded-xl pentagon shadow-sm"></div>
-            </div>
-        `;
-    }
-    window.updatePowerCalculation();
-};
-
-window.initAmbientWall = function() {
-    const wall = document.getElementById('simulatedWall');
-    if(!wall) return;
-    wall.innerHTML = '';
-    for(let i=0; i<9; i++) {
-        wall.innerHTML += `
-            <div id="pad-${i}" class="w-16 h-16 sm:w-20 sm:h-20 bg-gray-900 rounded-[1.5rem] octagon flex items-center justify-center transition-all duration-300 shadow-md">
-                <div class="w-10 h-10 bg-gray-200 rounded-xl pentagon shadow-sm transition-all duration-300" id="inner-pad-${i}"></div>
-            </div>
-        `;
-    }
+    // 修正點：強制將頁面底層狀態機與當前預選標籤（急速打擊 speed）進行校正，避免殘留其他狀態
+    setTimeout(() => {
+        window.setSimMode(window.simMode || 'speed');
+    }, 0);
 };

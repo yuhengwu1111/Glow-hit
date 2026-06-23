@@ -1,8 +1,19 @@
 window.translations['en'] = {
-    navHome: "Home", navProduct: "Product Specs", navSimulator: "Simulator", navScience: "Science Evidence", navAbout: "Pitch Deck", navTry: "Try Now",
+    // Navbar & Footer
+    navHome: "Home", 
+    navProduct: "Product Specs", 
+    navSimulator: "Simulator", 
+    navVision: "Vision & Target", 
+    navScience: "Science Evidence", 
+    navAbout: "Pitch Deck", 
+    navTry: "Try Now",
     footerTitle: "GlowHit Smart Modular Agility Wall Project",
     footerCopyright: "© 2026 RoboRAVE Osaka World Championship Entrepreneur Team. All Rights Reserved.",
-    footerLink1: "Hardware Details", footerLink2: "Scientific Papers", footerLink3: "Osaka Pitch Deck",
+    footerLink1: "Hardware Details", 
+    footerLink2: "Scientific Papers", 
+    footerLink3: "Osaka Pitch Deck",
+    
+    // Home Page
     heroTitle: "Reaction at the Speed of Light.",
     heroSub: "An elegant, modular reactive workout wall. Melding professional athletic training with Apple-inspired home aesthetics.",
     exploreBtn: "Explore Hardware Specs",
@@ -29,6 +40,21 @@ window.translations['en'] = {
     modeColorDesc: "Demands cognitive inhibition. Hit only selected colors under stress to exercise executive decision-making.",
     modeTimer: "Aura Score",
     modeTimerDesc: "Race against the clock to rack up points, syncing your score directly to our global CloudDB leaderboard.",
+    
+    // Vision Page
+    visionTitle: "Why We Build GlowHit & Our Audience",
+    visionSubtitle: "Solving urban fitness limitations by crossing professional agility workflows with premium smart home interior designs.",
+    visionOriginTitle: "1. Origin Story & Pain Points",
+    visionOriginDesc: "In modern high-density cities, hyper-fragmented schedules and restricted domestic footprints force a tough compromise between professional athletic tools and interior aesthetic cohesion.\nTraditional gym machines are bulky and visually intrusive—frequently ending up as expensive, dust-gathering coat racks once the initial excitement fades.\n\nGlowHit was born out of the idea of 'Gamified Health'. By uniting high-sensitivity micro-switches and millisecond-accurate RF processing inside an elegant Apple Home accessory, we eliminated the shelf-life barrier of home workout products. When active, it triggers high-octane sensory coordination; when idle, it lives as a beautiful custom architectural accent light that belongs on your wall 24/7.",
+    visionAudienceTitle: "2. Strategic Target Audience Alignment",
+    visionTA1Title: "Athletes & Agility Builders",
+    visionTA1Desc: "Boxers, martial artists, and fitness enthusiasts tracking visual-motor responses and explosive cognitive coordination metrics.",
+    visionTA2Title: "Smart Home & Design Technologists",
+    visionTA2Desc: "Aesthetic purists fully immersed in the Apple HomeKit ecosystem, automated scene triggers, Siri commands, and interactive lighting design.",
+    visionTA3Title: "All-Age Neuroplasticity & Wellness",
+    visionTA3Desc: "Children developing focused baseline attention spans, and senior citizens reducing motor delay pathways to actively prevent everyday fall risks.",
+
+    // Product Page
     explodedTitle: "GlowHit Hardware Anatomy",
     explodedSub: "Clean aesthetic industrial architecture crafted for durable tactile feedback and brilliant ambient glows.",
     svgPlate: "Pentagonal Trigger Plate",
@@ -57,6 +83,8 @@ window.translations['en'] = {
     layoutMatrixDesc: "Perfect symmetry providing standard conditions for cognitive classification and peak reflex tests.",
     layoutRandom: "Asymmetrical DIY Maze",
     layoutRandomDesc: "Breaks boundaries to match uneven domestic hallways, corners, or unique custom fitness environments.",
+    
+    // Simulator Page
     simTitle: "GlowHit Interactive Control Station",
     simDesc: "Experience the tactile joy of GlowHit right in your browser. Choose a mode below to test your reflexes.",
     tabSpeed: "Light Speed (Speed)",
@@ -78,11 +106,8 @@ window.translations['en'] = {
     loadPercentLabel: "Safe load capacity (maximum supported 2000mA)",
     statusSafe: "Safe operating standards (grid status judgment)",
     statusLimit: "Grid protection (cold start protection limit)",
-    alertEnd: "Test Finished!",
-    alertScore: "Your Total Score: ",
-    alertAvgReact: "Average Reaction Time: ",
-    alertHits: "Total Valid Hits: ",
-    ms: "ms",
+    
+    // Science Page
     scienceTitle: "Scientific Evidence of Agility Training",
     scienceIntro: "GlowHit's gamified movement paradigm is backed by international clinical research, helping to enhance executive functions, reduce fall risks, and boost neuroplasticity.",
     sci1Tag: "Neuroplasticity & Attentional Focus Control",
@@ -97,6 +122,8 @@ window.translations['en'] = {
     sci3Title: "Dual-Task Neuromotor Coordination (PMC12921918)",
     sci3Desc: "A latest clinical study indexed in PMC (PMC12921918) demonstrates that dual-task cognitive-motor drills combining visual search cues with tactile hit execution significantly optimize premotor reaction times, spatial attention parameters, and general hand-eye-body integration (Visuomotor Integration) across diverse cohort groups.",
     sci3Link: "Read PMC12921918 Agility & Coordination Literature",
+    
+    // Pitch Deck Page
     aboutTitle: "RoboRAVE Osaka 2026 Pitch Deck",
     aboutBrief: "Representing Taiwan in Osaka, Japan under the Entrepreneurial category. Bringing a revolutionary product that redefines the intersection of smart home design and health tech.",
     aboutTeam: "Pitch Team: RoboRAVE Taiwan | Representative: Yu-Heng Wu (+886 919-618-029)",
@@ -115,11 +142,21 @@ window.translations['en'] = {
     slide4Desc: "A 12-module setup draws around 42W. Fully compliant with IATA flight security (up to 74Wh batteries). Paired with exhibition-grade AC power distribution, and featuring an active current-limiting protection mechanism to ensure grid supply safety even without external power banks.",
     slide5Title: "5. Market Scaling & Fundraising Commitment",
     slide5Desc: "With an affordable entry model, we plan to release dedicated mobile apps syncing real-time fitness scores to a global DB, proudly bringing Taiwan's makers onto the Osaka world stage.",
-    thItem: "Item", thBudget: "Budget (NTD)", thRemarks: "Remarks",
+    thItem: "Item", 
+    thBudget: "Budget (NTD)", 
+    thRemarks: "Remarks",
     tbItem1: "International Registration", tbRemarks1: "Team registration fees, administration, and public notary documentation.",
     tbItem2: "Solo Travel & Accommodation", tbRemarks2: "Round-trip flights to Osaka, Japanese hotel stay, and local transport.",
     tbItem3: "GlowHit R&D / Equipment", tbRemarks3: "ESP32 microprocessors, WS2812B LEDs, Li-ion batteries, and 3D housing prints.",
     tbItem4: "Marketing & Booth Assembly", tbRemarks4: "Brochures, high-quality showcase posters, video editing, and booth setup.",
     tbTotal: "Total Funding Ask", tbTotalRemarks: "The pivotal step to empower youth maker innovation into real products.",
-    slideOf: "Slide", slideOfMax: "of 5"
+    slideOf: "Slide", 
+    slideOfMax: "of 5",
+    
+    // Alerts
+    alertEnd: "Test Finished!",
+    alertScore: "Your Total Score: ",
+    alertAvgReact: "Average Reaction Time: ",
+    alertHits: "Total Valid Hits: ",
+    ms: "ms"
 };
