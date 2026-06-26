@@ -16,7 +16,8 @@ function buildZhCnTranslations(source) {
         '當':'当','前':'前','網':'网','電':'电','負':'负','載':'载','餘':'余','量':'量','範':'范','圍':'围',
         '確':'确','認':'认','識':'识','試':'试','體':'体','優':'优','化':'化','計':'计','畫':'画','書':'书',
         '協':'协','議':'议','構':'构','運':'运','營':'营','脈':'脉','衝':'冲','擊':'击','準':'准','確':'确',
-        '無':'无','誤':'误','傳':'传','遞':'递','腦':'脑','決':'决','策':'策','抑':'抑','制':'制','計':'计'
+        '無':'无','誤':'误','傳':'传','遞':'递','腦':'脑','決':'决','策':'策','抑':'抑','制':'制','計':'计','潛':'潜',
+        '輩':'辈','復':'复','健':'健','跌':'跌','導':'导','與':'与','兒':'儿','童':'童','機':'机','構':'构'
     };
     const replaceAll = (value) => {
         if (typeof value !== 'string') return value;
@@ -30,8 +31,10 @@ function buildZhCnTranslations(source) {
     for (const key in source) {
         result[key] = replaceAll(source[key]);
     }
+    if (result.modesTitle === "四大沉浸式互動模式") {
+        result.modesTitle = "三大沉浸式互动模式";
+    }
     return result;
 }
 
-// 動態讀取繁體字典並完整映射為簡體
 window.translations['zh-CN'] = buildZhCnTranslations(window.translations.zh);

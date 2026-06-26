@@ -3,7 +3,7 @@ window.translations['zh'] = {
     navHome: "首頁", 
     navProduct: "產品解構", 
     navSimulator: "互動控制台", 
-    navVision: "核心初衷", // 新增
+    navVision: "核心初衷", 
     navScience: "運動科學", 
     navAbout: "創業提案", 
     navTry: "試玩體驗",
@@ -31,35 +31,33 @@ window.translations['zh'] = {
     homekitDesc: "靜態待機時自動轉化為環境氛圍燈。支援 Siri 與 Apple Home 連動，無縫調整 RGB 色彩與冷暖色溫。",
     espTitle: "ESP32 低延遲控制核心",
     espDesc: "配備高效能雙模通訊晶片，結合高靈敏度微動開關，打擊感測無死角，帶來毫秒級完美響應。",
-    modesTitle: "四大沉浸式互動模式",
+    modesTitle: "三大沉浸式互動模式",
     modeSpeed: "光速反應",
     modeSpeedDesc: "隨機點亮極限光點，測試並記錄毫秒級的物理反應速度。",
-    modeRhythm: "節奏律動",
-    modeRhythmDesc: "將運動結合音樂，靶位隨節奏亮起，讓居家體能鍛鍊充滿樂趣。",
     modeColor: "紅藍辨識",
     modeColorDesc: "高壓下大腦決策。看到指定顏色才可打擊，鍛鍊「反應抑制」能力。",
     modeTimer: "計時積分",
-    modeTimerDesc: "在限制時間內挑戰打擊極限，數據即時回傳全球 CloudDB 排行榜。",
+    modeTimerDesc: "在限制時間內挑戰打擊極限。",
     
-    // 核心初衷頁面 (Vision Page - 新增)
+    // 核心初衷頁面 (Vision Page - 配合全新客群改寫)
     visionTitle: "為什麼打造 GlowHit？與我們的核心客群",
-    visionSubtitle: "解決都市碎片化運動痛點，跨界融合專業體能鍛鍊與智慧家居空間美學。",
+    visionSubtitle: "為了解決長輩出門運動不便與小孩沉迷螢幕的痛點，跨界打造的全齡健康橋樑。",
     visionOriginTitle: "1. 創始初衷與市場痛點",
-    visionOriginDesc: "在寸土寸金的現代城市中，高壓的生活節奏與狹小的居住空間，讓高規格的體能敏捷訓練與優雅的居家室內裝潢長期處於斷層狀態。\n傳統的大型健身器材沉重笨拙、佔用動線，一旦熱情減退，極易淪為昂貴的『高科技高級曬衣架』與堆灰塵死角。\n\n我們開發 GlowHit 的核心初衷，是基於『健康遊戲化（Gamification）』概念。透過高精度微動觸控與千分之一秒級的低延遲無線演算法，將高強度競技反饋揉入 Apple Home 智慧美學燈飾中。運動時，它是激發情潛能的競技牆；靜止時，它是融入北歐奢華或日系極簡風的溫潤氛圍燈，讓科技設備擁有 24 小時不間斷的空間實用價值。",
-    visionAudienceTitle: "2. 核心精準客群定位",
-    visionTA1Title: "極限健身與競技運動愛好者",
-    visionTA1Desc: "需要自主訓練手眼協調、核心爆發力、敏捷跳躍度與毫秒級物理反射速度的拳擊、格鬥及專注力核心玩家。",
-    visionTA2Title: "智慧家居與科技美學追求者",
-    visionTA2Desc: "重視生活細節品味，熱愛 Apple 生態系、自動化調光、Siri 語音控制與前衛科技氛圍的高收入數位游牧群體。",
-    visionTA3Title: "全齡大腦活化與預防醫學群體",
-    visionTA3Desc: "旨在透過趣味、低挫折感的打擊遊戲活化腦神經元，幫助學齡兒童強化專注力，或延緩長者視覺延遲以預防高齡跌倒風險。",
+    visionOriginDesc: "在現代都市生活中，我們深切發現了兩個普遍存在於每個家庭的迫切痛點：\n\n【長輩出門運動不便】：許多高齡長者因為行動不便、天氣變化、或外出交通風險，難以維持前往健身房或戶外鍛鍊的規律。長期缺乏動態反應刺激，會導致視覺延遲與大腦指令神經鏈加速老化。\n\n【小孩缺乏 physical 放電工具】：學齡兒童過度沉迷於手機、平板等 3D 電子螢幕，缺乏物理實體空間的肢體活動，極易導致手眼協調發育不全與注意力渙散。\n\n我們開發 GlowHit 的初衷，就是為了解決這兩個問題。我們不需要長輩大費周章出門，在自家庭院或客廳牆面就能安全、趣味地利用這套裝置訓練物理反應力、活化周邊視野；同時，小孩子能完全把它當成一個實體的遊玩放電工具，在遊戲打擊中快樂運動，建立全家共融的健康生活。",
+    visionAudienceTitle: "2. 核心精準客群與雙向效益",
+    visionTA1Title: "銀髮長者（防跌倒與反應復健）",
+    visionTA1Desc: "長輩因行動不便在家時，透過安全、無重力負載的光點打擊訓練「選擇性步法反應時間（CSRT）」，縮短神經延遲，活化视野，有效降低高齡跌倒與骨折的風險。",
+    visionTA2Title: "學齡兒童（實體無螢幕遊戲工具）",
+    visionTA2Desc: "擺脫傷眼的虛擬螢幕，小孩子可以將其當成高互動性的遊玩工具，在客廳進行打擊競賽，在快樂遊戲的放電過程中激發手眼協調與大腦專注力發育。",
+    visionTA3Title: "智慧科技家庭（不閒置的空間美學）",
+    visionTA3Desc: "完美接入 Apple Home 與 Siri。不運動時化身為高奢典雅的室內環境氛圍燈，不佔動線、不堆灰塵，解決傳統昂貴健身器材容易閒置的硬傷。",
 
     // 產品拆解頁面 (Product Page)
     explodedTitle: "GlowHit 硬體拆解與工業結構",
     explodedSub: "以極簡極致的工業結構，打造極具韌性的感測與多功能發光美學模組。",
     svgPlate: "中心五角形按壓板",
     svgDiffuser: "磨砂導光上蓋",
-    svgSwitches: "3組 120° 微動開關",
+    svgSwitches: "微動開關",
     svgMCU: "ESP32 + WS2812B 整合板",
     svgBattery: "2000mAh 安全電池",
     svgLego: "模組化底座",
@@ -74,7 +72,7 @@ window.translations['zh'] = {
     partBattery: "2000mAh 鋰電池組",
     partBatteryDesc: "整合安全保護板，支援 5V Type-C 快速充電，滿足長效續航。",
     partLego: "模組化底座",
-    partLegoDesc: "穩固的工業風底座，預留模組化孔位，實現免螺絲快拆與無限拼接布局。",
+    partLegoDesc: "穩固底座，預留模組化孔位，實現快拆與無限拼接布局。",
     layoutTitle: "空間適應力：隨心所欲的陣列布局",
     layoutSub: "根據場地、牆面空間或訓練指標，任意更改排列架構，完美適配多種專業方案。",
     layoutHoneycomb: "蜂巢狀 (Honeycomb)",
@@ -126,10 +124,10 @@ window.translations['zh'] = {
     // 簡報與提案頁面 (Pitch Deck Page)
     aboutTitle: "2026 大阪世界賽創業挑戰賽提案",
     aboutBrief: "我們將代表台灣前往日本大阪，以這款將「智慧家庭」與「運動科學」跨界結合的創新方案，爭取全球頂尖創客大獎！",
-    aboutTeam: "提案單位：RoboRAVE 創業團隊 | 聯絡人：吳禹衡 (0919-618-029)",
+    aboutTeam: "",
     budgetTitle: "赴日參賽與設備研發資金規劃",
     milestoneTitle: "專案里程碑與發展規劃",
-    milestone1: "2025/12 - 第一代物理原型機研製成功，完成 ESP32 與 HomeSpan 通訊協議架構。",
+    milestone1: "2025/12 - 第一代物理原型機研製成功，完成 ESP32 與 HomeSpan 通訊協議架喚。",
     milestone2: "2026/04 - 導入觸碰感應整合，完成 LEGO 快拆結構優化，推出第二代便攜控制中樞。",
     milestone3: "2026/08 - 赴日本大阪現場 Pitch 與 12 組拼接展示牆實地體驗營運。",
     slide1Title: "1. 智慧模組化光點反應牆：起源與願景",
@@ -161,5 +159,4 @@ window.translations['zh'] = {
     ms: "毫秒"
 };
 
-// 建立全域指向連結
 window.translations['zh-TW'] = window.translations.zh;
