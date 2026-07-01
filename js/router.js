@@ -24,13 +24,12 @@ window.navigate = function(page) {
     const app = document.getElementById('app');
     const t = window.translations[window.currentLang];
 
-    // 全域語系字串同步更新
+    // 全域語系字串同步更新 (已精簡 About 關聯節點)
     if (document.getElementById('nav-home')) document.getElementById('nav-home').textContent = t.navHome;
     if (document.getElementById('nav-product')) document.getElementById('nav-product').textContent = t.navProduct;
     if (document.getElementById('nav-simulator')) document.getElementById('nav-simulator').textContent = t.navSimulator;
     if (document.getElementById('nav-vision')) document.getElementById('nav-vision').textContent = t.navVision;
     if (document.getElementById('nav-science')) document.getElementById('nav-science').textContent = t.navScience;
-    if (document.getElementById('nav-about')) document.getElementById('nav-about').textContent = t.navAbout;
     if (document.getElementById('globalCtaBtn')) document.getElementById('globalCtaBtn').textContent = t.navTry;
 
     if (document.getElementById('mob-nav-home')) document.getElementById('mob-nav-home').textContent = t.navHome;
@@ -38,7 +37,6 @@ window.navigate = function(page) {
     if (document.getElementById('mob-nav-simulator')) document.getElementById('mob-nav-simulator').textContent = t.navSimulator;
     if (document.getElementById('mob-nav-vision')) document.getElementById('mob-nav-vision').textContent = t.navVision;
     if (document.getElementById('mob-nav-science')) document.getElementById('mob-nav-science').textContent = t.navScience;
-    if (document.getElementById('mob-nav-about')) document.getElementById('mob-nav-about').textContent = t.navAbout;
 
     if (document.getElementById('footerTitle')) document.getElementById('footerTitle').textContent = t.footerTitle;
     if (document.getElementById('footerCopyright')) document.getElementById('footerCopyright').textContent = t.footerCopyright;
@@ -50,9 +48,8 @@ window.navigate = function(page) {
         case 'home': window.renderHome(app, t); break;
         case 'product': window.renderProduct(app, t); break;
         case 'simulator': window.renderSimulator(app, t); break;
-        case 'vision': window.renderVision(app, t); break;
+        case 'vision': window.renderVision(app, t); break; // 包含客群與里程碑
         case 'science': window.renderScience(app, t); break;
-        case 'about': window.renderAbout(app, t); break;
         default: window.renderHome(app, t);
     }
     lucide.createIcons();
@@ -62,7 +59,6 @@ window.setSimMode = function(mode) {
     window.simMode = mode;
     const t = window.translations[window.currentLang];
     
-    // 同步更新 UI Tab 按鈕樣式
     document.querySelectorAll('[id^="tab-"]').forEach(btn => {
         btn.classList.remove('bg-white', 'text-black', 'shadow-sm');
         btn.classList.add('text-gray-500');
@@ -77,7 +73,6 @@ window.setSimMode = function(mode) {
     const homePanel = document.getElementById('homeControlPanel');
     const dash = document.getElementById('gameDashboard');
 
-    // 重置定時器與局數狀態
     if(window.gameInterval) {
         clearInterval(window.gameInterval);
         window.gameInterval = null;
@@ -99,11 +94,9 @@ window.setSimMode = function(mode) {
             startBtn.classList.remove('hidden');
             startBtn.textContent = t.startBtnText;
         }
-        // ✨ 【核心修正點】補上正確的 .classList 方法，阻斷控制台編譯錯誤
         if(homePanel) homePanel.classList.add('hidden'); 
         if(dash) dash.classList.remove('opacity-40');
         
-        // 安全重置儀表板數據
         const sVal = document.getElementById('scoreVal');
         const tVal = document.getElementById('timeVal');
         const rVal = document.getElementById('reactVal');
@@ -114,4 +107,4 @@ window.setSimMode = function(mode) {
         window.initSimWall();
     }
     lucide.createIcons();
-}; 
+};
