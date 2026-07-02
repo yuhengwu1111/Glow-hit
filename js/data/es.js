@@ -4,7 +4,7 @@ window.translations['es'] = {
     footerTitle: "GlowHit — Muro modular inteligente", footerCopyright: "© 2026 RoboRAVE. Todos los derechos reservados.",
     footerLink1: "Detalles de hardware", footerLink2: "Artículos científicos", footerLink3: "Pitch de Osaka",
 
-    // Home Page
+    // Home
     heroTitle: "Reacción a la velocidad de la luz.",
     heroSub: "Un elegante muro reactivo modular que combina entrenamiento y estética doméstica.",
     exploreBtn: "Explorar hardware", tryBtn: "Probar demo",
@@ -22,7 +22,7 @@ window.translations['es'] = {
     espTitle: "ESP32 — Núcleo de control",
     espDesc: "Soporta Wi‑Fi y BLE con microinterruptores de alta sensibilidad que ofrecen respuesta en milisegundos.",
 
-    // Modes
+    // Play Modes Showroom
     modesTitle: "Tres modos inmersivos",
     modeSpeed: "Reacción ultrarrápida",
     modeSpeedDesc: "Enciende aleatoriamente puntos objetivo para medir y registrar tu tiempo de reacción con precisión de milisegundos.",
@@ -30,6 +30,8 @@ window.translations['es'] = {
     modeColorDesc: "Exige inhibición cognitiva: golpea solo los colores indicados para entrenar el control ejecutivo.",
     modeTimer: "Contrarreloj",
     modeTimerDesc: "Desafía el reloj para acumular puntos dentro de un tiempo límite.",
+    modeFloor: "Cazador de Luz y Sombra",
+    modeFloorDesc: "Módulos independientes inalámbricos, colocación ilimitada. Permite que los niños corran, salten, identifiquen colores y presionen en el espacio físico, ¡estimulando plenamente la condición física y la percepción espacial!",
 
     // Vision
     visionTitle: "¿Por qué creamos GlowHit? y Público Objetivo",
@@ -47,20 +49,22 @@ window.translations['es'] = {
     // Product Page
     explodedTitle: "Anatomía del hardware GlowHit",
     explodedSub: "Estructura industrial minimalista y resistente, creada para módulos de detección robustos y una estética luminosa versátil.",
-    svgPlate: "Placa de activación pentagonal", svgDiffuser: "Cubierta difusora opalina", svgSwitches: "Microinterruptor", svgMCU: "ESP32 + WS2812B integrada", svgBattery: "Batería 2000mAh", svgLego: "Base modular",
-    partPlate: "Placa de presión pentagonal", partPlateDesc: "Panel ergonómico que distribuye uniformemente la presión del impacto hacia los microinterruptores.",
+    svgPlate: "Placa de presión circular", svgDiffuser: "Cubierta difusora opalina", svgSwitches: "Microinterruptor", svgMCU: "Chip ESP32", svgBattery: "Batería de seguridad 3000mAh", svgLego: "Base modular",
+    partPlate: "Placa de presión circular", partPlateDesc: "Placa de presión, distribuye uniformemente el impacto hacia abajo para activar los microinterruptores.",
     partDiffuser: "Cubierta difusora", partDiffuserDesc: "Material guía de luz translúcido que convierte la iluminación WS2812B en un brillo cálido, saturado y sin deslumbrar.",
-    partSwitches: "Micro-sensores", partSwitchesDesc: "Microinterruptores de alta sensibilidad que garantizan detección sin puntos muertos ni falsas activaciones.",
+    partSwitches: "Micro-sensores", partSwitchesDesc: "Microinterruptores de alta sensibilidad que garantizan detección sin puntos muertos.",
     partMCU: "Controlador ESP32", partMCUDesc: "Unidad central con Wi‑Fi/BLE, diseñada para manejo de alta velocidad y expansión modular.",
-    partBattery: "Batería 2000mAh", partBatteryDesc: "Protección integrada y carga rápida 5V Type-C para autonomía prolongada.",
-    partLego: "Base modular", partLegoDesc: "Base industrial sólida con puntos de acoplamiento modulares para ensamblaje rápido sin tornillos.",
+    partBattery: "Paquete de batería de litio de 3000mAh", partBatteryDesc: "Protección integrada y carga rápida 5V Type-C para autonomía prolongada.",
+    partLego: "Base modular", partLegoDesc: "Base sólida con puntos de acoplamiento modulares para ensamblaje rápido y configuraciones infinitas.",
+
+    // Layout
     layoutTitle: "Adaptabilidad espacial: múltiples configuraciones",
     layoutSub: "Cambia la disposición para ajustarla a cualquier entorno o rutina.",
     layoutHoneycomb: "Panales (Honeycomb)", layoutHoneycombDesc: "Alta densidad para entrenamiento de agilidad cercano.",
     layoutMatrix: "Matriz (Matrix)", layoutMatrixDesc: "Simetría para pruebas estandarizadas de reacción.",
     layoutRandom: "Distribución aleatoria (DIY)", layoutRandomDesc: "Flexible para paredes irregulares y diseños creativos.",
 
-    // Simulator Page
+    // Simulator
     simTitle: "GlowHit estación de control interactivo", simDesc: "Reproducimos completamente en la web la retroalimentación física de GlowHit: elige un modo y prueba tu reflejo.",
     tabSpeed: "Reacción a la velocidad de la luz (Speed)", tabColor: "Reconocimiento de color (Inhibition)", tabHome: "Modo Apple Home",
     scoreLabel: "PUNTOS", timeLabel: "TIEMPO", reactLabel: "REACCIÓN PROM.",
@@ -70,26 +74,20 @@ window.translations['es'] = {
     currentLoad: "Corriente total de la red:", loadPercentLabel: "Margen seguro de carga del transformador (máx 2000mA)",
     statusSafe: "Operación segura (sistema estable)", statusLimit: "Protección de red activa (límite de enfriamiento habilitado)",
 
-    // Science Page (✨ 100% 完整西文翻譯)
-    scienceTitle: "Evidencia científica de la salud en el entrenamiento de reactividad",
-    scienceIntro: "El enfoque de «gamificación de la salud» de GlowHit no es solo entrenamiento físico; es un programa de coordinación neuromuscular que activa la neuroplasticidad cerebral, previene caídas y mejora la concentración.",
-    sci1Tag: "Neuroplasticidad y regulación de la carga cognitiva",
-    sci1Title: "Control atencional y experiencia de flujo (Attentional Control & Flow)",
-    sci1Desc: "Un estudio reciente publicado en Frontiers in Psychology (2025) explora los efectos en el cerebro del entrenamiento reactivo con una alta carga cognitiva y de agilidad física. La investigación demuestra que la participación regular en estas actividades, que requieren un escaneo visual rápido e impactos físicos, mejora significativamente la «estabilidad atencional (Attentional Stability)» del cerebro. El mecanismo clave radica en la «experiencia de flujo (Flow Experience)» inducida por el movimiento, lo que permite al cerebro mantener un enfoque estable de las señales neuronales incluso bajo un estado de alta excitación.",
-    sci1Link: "Leer el artículo original sobre el estudio de la atención en Frontiers in Psychology (2025)",
-    sci2Tag: "Propiocepción y medicina preventiva contra caídas en adultos mayores",
-    sci2Title: "Tiempo de reacción de paso selectivo (Choice Step Reaction Time)",
-    sci2Desc: "La capacidad de los adultos mayores para evitar pérdidas de equilibrio, caídas y fracturas está fuertemente correlacionada con el «Choice Step Reaction Time (CSRT)». El muro reactivo GlowHit reduce drásticamente el retraso neurológico entre la señal visual cerebral y el movimiento de las extremidades inferiores (Premotor Time), activando la capacidad de respuesta del campo visual periférico.",
-    sci2Link: "Leer la literatura clínica sobre la prevención de caídas en adultos mayores mediante CSRT en PMC",
-    sci3Tag: "Reactividad neuromuscular y agilidad en la coordinación ojo-mano",
-    sci3Title: "Coordinación neuromotora en tareas duales (Dual-Task Neuromotor Reactivity)",
-    sci3Desc: "Un estudio empírico reciente indexado en la base de datos de investigación médica PMC (PMC12921918) sobre disciplinas deportivas como el balonmano demuestra que un entrenamiento cognitivo-motor de tarea dual (Dual-task), que combina la «búsqueda visual» con «impactos físicos multidireccionales» utilizando un sistema reactivo de puntos de luz de alta sensibilidad, optimiza significativamente el tiempo de reacción motera, la integración visuomotora y el control de la atención espacial frente a distracciones externas tanto en jóvenes atletas como en usuarios generales.",
-    sci3Link: "Leer el artículo original de PMC12921918 sobre agilidad e integración sensoriomotora",
+    // Science
+    scienceTitle: "Evidencia científica del entrenamiento de agilidad",
+    scienceIntro: "El enfoque gamificado de GlowHit no es solo entrenamiento físico; es una intervención de coordinación neuromuscular que activa la neuroplasticidad, reduce el riesgo de caídas y mejora la atención.",
+    sci1Tag: "Neuroplasticidad y carga cognitiva", sci1Title: "Control atencional y experiencia de flujo (Attentional Control & Flow)",
+    sci1Desc: "Publicado en Frontiers in Psychology (2025), un estudio reciente analiza cómo el entrenamiento reactivo con alta demanda cognitiva y agilidad física afecta el cerebro. La participación regular en tareas que requieren escaneo visual rápido y golpes físicos mejora significativamente la 'estabilidad atencional' (Attentional Stability). El mecanismo clave es la inducción de estados de 'Flow', que ayudan al cerebro a mantener un foco neural estable incluso bajo alta excitación.", sci1Link: "Leer estudio (Frontiers, 2025)",
+    sci2Tag: "Propiocepción y prevención de caídas en mayores", sci2Title: "Tiempo de reacción de paso selectivo (Choice Step Reaction Time, CSRT)",
+    sci2Desc: "La capacidad para evitar caídas y fracturas en personas mayores se correlaciona fuertemente con el CSRT. GlowHit puede reducir el retraso nervioso desde la señal visual hasta la acción en las extremidades inferiores (Premotor Time), activando respuestas del campo visual periférico y mejorando los ajustes posturales rápidos.", sci2Link: "Leer investigación CSRT (Evaluating Fall Risk en PMC)",
+    sci3Tag: "Reactividad neuromuscular y coordinación visuomotora", sci3Title: "Coordinación neuromotora en tareas duales (Dual-Task Neuromotor Reactivity)",
+    sci3Desc: "Un estudio indexado en PMC (PMC12921918) demuestra que entrenamientos dual‑task que combinan búsqueda visual con ejecución física de impactos en múltiples direcciones mejoran significativamente los tiempos de reacción premotor, la integración visuomotora y el control espacial de la atención frente a distracciones, tanto en atletas jóvenes como en usuarios generales.", sci3Link: "Leer PMC12921918",
 
     // Pitch Deck
     aboutTitle: "Pitch Deck — RoboRAVE Osaka 2026", aboutBrief: "Representando a Taiwán con un producto que cruza smart‑home y ciencia del deporte.",
     aboutTeam: "Equipo: RoboRAVE Taiwan | Contacto: Yu‑Heng Wu (+886 919‑618‑029)",
-    milestoneTitle: "Hitos",
+    budgetTitle: "Presupuesto & Recursos", milestoneTitle: "Hitos",
     milestone1: "2025/12 - Prototipo gen‑1 completo.", milestone2: "2026/04 - Integración táctil y optimización modular.", milestone3: "2026/08 - Demo en Osaka con 12 módulos.",
     slide1Title: "1. Muro modular inteligente: Origen & visión", slide1Desc: "GlowHit revive el ejercicio mediante gamificación y funciona también como luz decorativa.",
     slide2Title: "2. Ventaja técnica: baja latencia", slide2Desc: "ESP32 con 3 micro‑interruptores para captura confiable y sin deadzone.",
