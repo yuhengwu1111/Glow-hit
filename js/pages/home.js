@@ -1,6 +1,5 @@
 window.renderHome = function(app, t) {
     app.innerHTML = `
-        <!-- Hero Section -->
         <section class="max-w-6xl mx-auto px-6 text-center pt-12 md:pt-20">
             <h1 class="text-5xl md:text-7xl font-bold tracking-tight text-black transition-all duration-700">
                 ${t.heroTitle}
@@ -18,14 +17,11 @@ window.renderHome = function(app, t) {
                 </button>
             </div>
 
-            <!-- Hero Visual Render (Animate Octagon Plate) -->
             <div class="mt-16 relative flex justify-center items-center">
                 <div class="w-72 h-72 md:w-80 md:h-80 bg-gray-950 rounded-[4rem] octagon flex items-center justify-center shadow-2xl relative transition-all duration-500 hover:scale-105" id="heroPlate">
-                    <!-- WS2812 Halo simulated ring -->
                     <div class="absolute inset-2 octagon border-4 border-dashed border-cyan-400 opacity-60 animate-spin" style="animation-duration: 25s"></div>
                     <div class="absolute inset-4 octagon border-4 border-cyan-500/80 blur-sm"></div>
                     
-                    <!-- Five-axis floating sensor button -->
                     <div class="w-40 h-40 bg-gray-100 rounded-[2rem] pentagon flex items-center justify-center shadow-lg cursor-pointer transition-transform duration-100 active:scale-95 z-10" onclick="window.playSound('hit')">
                         <i data-lucide="zap" class="w-12 h-12 text-cyan-500 animate-pulse"></i>
                     </div>
@@ -33,7 +29,6 @@ window.renderHome = function(app, t) {
             </div>
         </section>
 
-        <!-- Dual Mode Highlight Section -->
         <section class="max-w-6xl mx-auto px-6 mt-32">
             <h2 class="text-3xl md:text-4xl font-bold text-center tracking-tight mb-16">${t.highlightTitle}</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -69,7 +64,6 @@ window.renderHome = function(app, t) {
             </div>
         </section>
 
-        <!-- Bento Grid Details -->
         <section class="max-w-6xl mx-auto px-6 mt-32">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div class="apple-card p-8 md:col-span-1">
@@ -90,22 +84,13 @@ window.renderHome = function(app, t) {
             </div>
         </section>
 
-        <!-- Four Modes Showroom -->
         <section class="max-w-6xl mx-auto px-6 mt-32">
             <h2 class="text-3xl md:text-4xl font-bold text-center tracking-tight mb-16">${t.modesTitle}</h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 
                 <div class="bg-white p-6 rounded-3xl shadow-sm border border-gray-100 flex flex-col justify-between">
                     <div>
                         <div class="w-10 h-10 rounded-full bg-cyan-50 flex items-center justify-center mb-4 text-cyan-500 font-bold">1</div>
-                        <h5 class="font-bold text-lg mb-2">${t.modeSpeed}</h5>
-                        <p class="text-sm text-gray-500 leading-relaxed">${t.modeSpeedDesc}</p>
-                    </div>
-                </div>
-
-                <div class="bg-white p-6 rounded-3xl shadow-sm border border-gray-100 flex flex-col justify-between">
-                    <div>
-                        <div class="w-10 h-10 rounded-full bg-indigo-50 flex items-center justify-center mb-4 text-indigo-500 font-bold">2</div>
                         <h5 class="font-bold text-lg mb-2">${t.modeColor}</h5>
                         <p class="text-sm text-gray-500 leading-relaxed">${t.modeColorDesc}</p>
                     </div>
@@ -113,16 +98,15 @@ window.renderHome = function(app, t) {
 
                 <div class="bg-white p-6 rounded-3xl shadow-sm border border-gray-100 flex flex-col justify-between">
                     <div>
-                        <div class="w-10 h-10 rounded-full bg-orange-50 flex items-center justify-center mb-4 text-orange-500 font-bold">3</div>
-                        <h5 class="font-bold text-lg mb-2">${t.modeTimer}</h5>
-                        <p class="text-sm text-gray-500 leading-relaxed">${t.modeTimerDesc}</p>
+                        <div class="w-10 h-10 rounded-full bg-indigo-50 flex items-center justify-center mb-4 text-indigo-500 font-bold">2</div>
+                        <h5 class="font-bold text-lg mb-2">${t.modeSpeed}</h5>
+                        <p class="text-sm text-gray-500 leading-relaxed">${t.modeSpeedDesc}</p>
                     </div>
                 </div>
 
-                <!-- ✨ 新增的玩法展示卡片 -->
                 <div class="bg-white p-6 rounded-3xl shadow-sm border border-gray-100 flex flex-col justify-between">
                     <div>
-                        <div class="w-10 h-10 rounded-full bg-emerald-50 flex items-center justify-center mb-4 text-emerald-500 font-bold">4</div>
+                        <div class="w-10 h-10 rounded-full bg-emerald-50 flex items-center justify-center mb-4 text-emerald-500 font-bold">3</div>
                         <h5 class="font-bold text-lg mb-2">${t.modeFloor}</h5>
                         <p class="text-sm text-gray-500 leading-relaxed">${t.modeFloorDesc}</p>
                     </div>

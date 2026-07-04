@@ -6,7 +6,7 @@
     <title>GlowHit | 智慧模組化光點反應牆 | Smart Modular Agility Wall</title>
     
     <!-- 設定書籤與分頁圖示 -->
-    <link rel="icon" href="assets/icons/LOGO.png" type="image/png">
+    <link class="brand-favicon" rel="icon" href="assets/icons/LOGO.png" type="image/png">
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -23,18 +23,17 @@
     <nav class="glass-nav fixed w-full top-0 z-50 border-b border-gray-200 px-4 md:px-6 py-3 flex justify-between items-center transition-all duration-300">
         <!-- 左側品牌區塊 -->
         <div class="flex items-center space-x-4 cursor-pointer" onclick="navigate('home')">
-            <!-- ✨ 核心修正點：將 Logo 尺寸從 w-8 h-8 放大至 w-12 h-12 (48px)，視覺更顯眼 -->
             <img src="assets/icons/LOGO.png" alt="GlowHit Logo" class="w-12 h-12 object-contain transform transition-transform hover:scale-105">
             <span class="text-xl font-semibold tracking-tight text-gray-900">GlowHit</span>
         </div>
         
-        <!-- Desktop Navigation Menu -->
+        <!-- Desktop Navigation Menu (✨ 順序已校正：科學 -> 初衷) -->
         <div class="hidden md:flex space-x-8 text-sm font-medium">
             <span class="nav-link text-gray-500 hover:text-black transition cursor-pointer" id="nav-home" onclick="navigate('home')">Home</span>
             <span class="nav-link text-gray-500 hover:text-black transition cursor-pointer" id="nav-product" onclick="navigate('product')">Product</span>
             <span class="nav-link text-gray-500 hover:text-black transition cursor-pointer" id="nav-simulator" onclick="navigate('simulator')">Simulator</span>
-            <span class="nav-link text-gray-500 hover:text-black transition cursor-pointer" id="nav-vision" onclick="navigate('vision')">Vision</span>
             <span class="nav-link text-gray-500 hover:text-black transition cursor-pointer" id="nav-science" onclick="navigate('science')">Science</span>
+            <span class="nav-link text-gray-500 hover:text-black transition cursor-pointer" id="nav-vision" onclick="navigate('vision')">Vision</span>
         </div>
 
         <!-- Language Selector & Action Button -->
@@ -66,13 +65,13 @@
         </div>
     </nav>
 
-    <!-- Mobile Fullscreen Overlay Navigation Menu -->
+    <!-- Mobile Fullscreen Overlay Navigation Menu (✨ 行動端同步更新排序) -->
     <div id="mobileMenu" class="hidden fixed inset-x-0 top-[77px] bottom-0 z-40 glass-nav border-b border-gray-200 md:hidden flex flex-col px-6 py-8 space-y-6 text-xl font-medium transform -translate-y-8 opacity-0">
         <span class="mob-nav-link text-gray-500 hover:text-black transition cursor-pointer py-2 border-b border-gray-100" id="mob-nav-home" onclick="navigate('home'); toggleMobileMenu();">Home</span>
         <span class="mob-nav-link text-gray-500 hover:text-black transition cursor-pointer py-2 border-b border-gray-100" id="mob-nav-product" onclick="navigate('product'); toggleMobileMenu();">Product</span>
         <span class="mob-nav-link text-gray-500 hover:text-black transition cursor-pointer py-2 border-b border-gray-100" id="mob-nav-simulator" onclick="navigate('simulator'); toggleMobileMenu();">Simulator</span>
-        <span class="mob-nav-link text-gray-500 hover:text-black transition cursor-pointer py-2 border-b border-gray-100" id="mob-nav-vision" onclick="navigate('vision'); toggleMobileMenu();">Vision</span>
         <span class="mob-nav-link text-gray-500 hover:text-black transition cursor-pointer py-2 border-b border-gray-100" id="mob-nav-science" onclick="navigate('science'); toggleMobileMenu();">Science</span>
+        <span class="mob-nav-link text-gray-500 hover:text-black transition cursor-pointer py-2 border-b border-gray-100" id="mob-nav-vision" onclick="navigate('vision'); toggleMobileMenu();">Vision</span>
     </div>
 
     <!-- Main Content App Mount -->
