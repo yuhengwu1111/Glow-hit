@@ -132,4 +132,4 @@ window.renderProduct = function(app, t) {
         </section>
     `;
     lucide.createIcons();
-};
+}; 
