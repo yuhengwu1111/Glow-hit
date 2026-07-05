@@ -23,7 +23,7 @@ window.translations['zh'] = {
     highlightSportDesc: "系統會不規則性地亮起不同顏色的燈光模組，使用者必須拍打指定顏色或位置的模組，進而達到運動的效果。可用於日常反應力訓練。",
     highlightSportCTA: "立即模擬運動測試",
     highlightHomeTitle: "靜態-居家智能氛圍燈",
-    highlightHomeDesc: "運動結束，一鍵無縫化身為牆面燈飾。完美接入 Apple Home 家庭生態系。日後更可延生燈光感應模組，實現自動開啟。",
+    highlightHomeDesc: "運動結束，一鍵無縫化身為牆面燈飾。完美接入 Apple Home 家庭生態系。日後更可延生燈光感應模組，實現自動開啟。 ",
     highlightHomeCTA: "調度 Apple Home 色調",
     legoTitle: "模組化具有無限擴充性",
     legoDesc: "結構以模組化概念進行開發，使用者可根據空間與預算，自由拼接為蜂巢狀、矩陣式 or 不規則布局。",
