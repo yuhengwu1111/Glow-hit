@@ -27,7 +27,7 @@
             <span class="text-xl font-semibold tracking-tight text-gray-900">GlowHit</span>
         </div>
         
-        <!-- Desktop Navigation Menu (✨ 順序已校正：科學 -> 初衷) -->
+        <!-- Desktop Navigation Menu -->
         <div class="hidden md:flex space-x-8 text-sm font-medium">
             <span class="nav-link text-gray-500 hover:text-black transition cursor-pointer" id="nav-home" onclick="navigate('home')">Home</span>
             <span class="nav-link text-gray-500 hover:text-black transition cursor-pointer" id="nav-product" onclick="navigate('product')">Product</span>
@@ -65,7 +65,7 @@
         </div>
     </nav>
 
-    <!-- Mobile Fullscreen Overlay Navigation Menu (✨ 行動端同步更新排序) -->
+    <!-- Mobile Fullscreen Overlay Navigation Menu -->
     <div id="mobileMenu" class="hidden fixed inset-x-0 top-[77px] bottom-0 z-40 glass-nav border-b border-gray-200 md:hidden flex flex-col px-6 py-8 space-y-6 text-xl font-medium transform -translate-y-8 opacity-0">
         <span class="mob-nav-link text-gray-500 hover:text-black transition cursor-pointer py-2 border-b border-gray-100" id="mob-nav-home" onclick="navigate('home'); toggleMobileMenu();">Home</span>
         <span class="mob-nav-link text-gray-500 hover:text-black transition cursor-pointer py-2 border-b border-gray-100" id="mob-nav-product" onclick="navigate('product'); toggleMobileMenu();">Product</span>
@@ -84,7 +84,13 @@
         <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center text-xs text-gray-500 space-y-4 md:space-y-0">
             <div>
                 <p class="font-semibold text-gray-700" id="footerTitle">GlowHit 智慧模組化光點反應牆專案</p>
-                <p class="mt-1" id="footerCopyright">© 2026 RoboRAVE 大阪世界錦標賽創業挑戰賽代表隊. All Rights Reserved.</p>
+                
+                <!-- ✨ 核心修正點：優化結構，嵌入絕對安全的標準 SEO 反向連結，不影響多國語系渲染 -->
+                <div class="mt-1 flex flex-wrap items-center gap-x-2 gap-y-1">
+                    <span id="footerCopyright">© 2026 RoboRAVE 大阪世界錦標賽創業挑戰賽代表隊. All Rights Reserved.</span>
+                    <span class="text-gray-300 hidden sm:inline">|</span>
+                    <a href="https://dctpro.com/tw/" target="_blank" rel="noopener noreferrer" class="text-blue-500 hover:text-blue-600 font-medium hover:underline transition-colors">DCT PRO</a>
+                </div>
             </div>
             <div class="flex space-x-6 text-gray-400">
                 <span class="hover:underline cursor-pointer" id="footerLink1" onclick="navigate('product')">硬體細節</span>
