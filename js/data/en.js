@@ -52,7 +52,7 @@ window.translations['en'] = {
     visionTA2Title: "School-aged children (away from screens)",
     visionTA2Desc: "To break free from prolonged screen time and lack of focus, children can use screens as highly interactive play tools, engaging in striking competitions in the living room. This fun and engaging gameplay stimulates hand-eye coordination and brain development.",
     visionTA3Title: "Smart technology home (multifunctional intelligent space)",
-    visionTA3Desc: "It integrates perfectly with Apple Home, transforming into a luxurious and elegant indoor ambient light when not in use. It can also be expanded into smart home lighting, overcoming the limitation of ordinary exercise equipment having only a single function.",
+    visionTA3Desc: "When not in use, it transforms into a luxurious and elegant indoor ambient light, and can also be expanded into smart home lighting, overcoming the limitation of general exercise equipment having only a single function.",
 
     // Product Page
     explodedTitle: "GlowHit Hardware Anatomy",
@@ -85,8 +85,8 @@ window.translations['en'] = {
     // Simulator Page
     simTitle: "GlowHit Interactive Control Station",
     simDesc: "Experience the tactile joy of GlowHit right in your browser. Choose a mode below to test your reflexes.",
-    tabSpeed: "Light Speed (Speed)",
-    tabColor: "Inhibition (Color Match)",
+    tabSpeed: "Light speed reaction",
+    tabColor: "Red and blue identification",
     tabHome: "Home Decor",
     scoreLabel: "SCORE",
     timeLabel: "REMAINING",
