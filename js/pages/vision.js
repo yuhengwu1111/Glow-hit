@@ -1,84 +1,63 @@
 window.renderVision = function(app, t) {
     app.innerHTML = `
-        <section class="max-w-4xl mx-auto px-6 pt-12">
-            <div class="text-center mb-16">
-                <span class="text-xs font-bold uppercase tracking-widest text-blue-600">Brand Vision & Market Strategy</span>
-                <h2 class="text-3xl md:text-5xl font-bold tracking-tight mt-2">${t.visionTitle}</h2>
-                <p class="text-gray-500 mt-4 max-w-2xl mx-auto">${t.visionSubtitle}</p>
+        <section class="max-w-4xl mx-auto px-4 md:px-6 pt-8 md:pt-12">
+            <!-- Section Header -->
+            <div class="text-center mb-10 md:mb-16">
+                <span class="text-xs font-bold uppercase tracking-widest text-indigo-600">Core Vision & Target Audience</span>
+                <h2 class="text-3xl md:text-4xl font-bold tracking-tight mt-2 text-gray-900">${t.visionTitle}</h2>
+                <p class="text-gray-500 mt-3 md:mt-4 text-sm md:text-base max-w-2xl mx-auto">${t.visionSubtitle}</p>
             </div>
 
-            <div class="space-y-12">
-                <!-- Why We Do This (創始初衷) -->
-                <div class="apple-card p-8 relative overflow-hidden">
-                    <div class="absolute -top-10 -right-10 w-32 h-32 bg-yellow-500/5 rounded-full blur-2xl"></div>
-                    <h3 class="text-2xl font-bold mb-4 flex items-center space-x-3 text-gray-900">
-                        <i data-lucide="lightbulb" class="w-6 h-6 text-yellow-500"></i>
-                        <span>${t.visionOriginTitle}</span>
-                    </h3>
-                    <p class="text-gray-600 leading-relaxed text-sm md:text-base whitespace-pre-line">${t.visionOriginDesc}</p>
-                </div>
+            <!-- Section 1: Core Vision & Home Pain Points -->
+            <div class="bg-white border border-gray-100 p-6 md:p-8 rounded-2xl shadow-sm text-left mb-8 md:mb-12">
+                <h3 class="text-xl font-bold text-gray-900 mb-4 flex items-center space-x-2">
+                    <i data-lucide="target" class="w-5 h-5 text-indigo-500"></i>
+                    <span>${t.visionOriginTitle}</span>
+                </h3>
+                <p class="text-sm md:text-base text-gray-600 leading-relaxed whitespace-pre-line">${t.visionOriginDesc}</p>
+            </div>
 
-                <!-- Core Target Audience (客群效益) -->
-                <div class="apple-card p-8">
-                    <h3 class="text-2xl font-bold mb-6 flex items-center space-x-3 text-gray-900">
-                        <i data-lucide="users" class="w-6 h-6 text-blue-500"></i>
-                        <span>${t.visionAudienceTitle}</span>
-                    </h3>
-                    
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        <!-- TA 1: 老人 -->
-                        <div class="bg-gray-50 p-6 rounded-2xl border border-gray-100 transition hover:bg-gray-100/70">
-                            <div class="w-10 h-10 rounded-xl bg-orange-100 flex items-center justify-center mb-4 text-orange-500">
-                                <i data-lucide="heart-pulse" class="w-5 h-5"></i>
-                            </div>
-                            <h4 class="font-bold text-lg mb-2 text-gray-800">${t.visionTA1Title}</h4>
-                            <p class="text-xs text-gray-500 leading-relaxed">${t.visionTA1Desc}</p>
+            <!-- Section 2: Precise Target Customer Alignment & Benefits -->
+            <div class="space-y-6">
+                <h3 class="text-xl font-bold text-gray-900 text-left flex items-center space-x-2">
+                    <i data-lucide="users" class="w-5 h-5 text-indigo-500"></i>
+                    <span>${t.visionAudienceTitle}</span>
+                </h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- TA 1: Seniors -->
+                    <div class="bg-white border border-gray-100 p-6 rounded-2xl shadow-sm text-left transition-all duration-300 hover:shadow-md">
+                        <div class="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center mb-4">
+                            <i data-lucide="heart-pulse" class="w-5 h-5 text-blue-500"></i>
                         </div>
+                        <h4 class="font-bold text-gray-900 text-base mb-2">${t.visionTA1Title}</h4>
+                        <p class="text-xs md:text-sm text-gray-500 leading-relaxed">${t.visionTA1Desc}</p>
+                    </div>
 
-                        <!-- TA 2: 小孩 -->
-                        <div class="bg-gray-50 p-6 rounded-2xl border border-gray-100 transition hover:bg-gray-100/70">
-                            <div class="w-10 h-10 rounded-xl bg-indigo-100 flex items-center justify-center mb-4 text-indigo-500">
-                                <i data-lucide="smile" class="w-5 h-5"></i>
-                            </div>
-                            <h4 class="font-bold text-lg mb-2 text-gray-800">${t.visionTA2Title}</h4>
-                            <p class="text-xs text-gray-500 leading-relaxed">${t.visionTA2Desc}</p>
+                    <!-- TA 2: Kids -->
+                    <div class="bg-white border border-gray-100 p-6 rounded-2xl shadow-sm text-left transition-all duration-300 hover:shadow-md">
+                        <div class="w-10 h-10 rounded-xl bg-emerald-50 flex items-center justify-center mb-4">
+                            <i data-lucide="smartphone-off" class="w-5 h-5 text-emerald-500"></i>
                         </div>
+                        <h4 class="font-bold text-gray-900 text-base mb-2">${t.visionTA2Title}</h4>
+                        <p class="text-xs md:text-sm text-gray-500 leading-relaxed">${t.visionTA2Desc}</p>
+                    </div>
 
-                        <!-- TA 3: 智慧家庭 -->
-                        <div class="bg-gray-50 p-6 rounded-2xl border border-gray-100 transition hover:bg-gray-100/70">
-                            <div class="w-10 h-10 rounded-xl bg-emerald-100 flex items-center justify-center mb-4 text-emerald-500">
-                                <i data-lucide="home" class="w-5 h-5"></i>
-                            </div>
-                            <h4 class="font-bold text-lg mb-2 text-gray-800">${t.visionTA3Title}</h4>
-                            <p class="text-xs text-gray-500 leading-relaxed">${t.visionTA3Desc}</p>
+                    <!-- TA 3: Smart Tech Homes -->
+                    <div class="bg-white border border-gray-100 p-6 rounded-2xl shadow-sm text-left transition-all duration-300 hover:shadow-md">
+                        <div class="w-10 h-10 rounded-xl bg-purple-50 flex items-center justify-center mb-4">
+                            <i data-lucide="layout-grid" class="w-5 h-5 text-purple-500"></i>
                         </div>
+                        <h4 class="font-bold text-gray-900 text-base mb-2">${t.visionTA3Title}</h4>
+                        <p class="text-xs md:text-sm text-gray-500 leading-relaxed">${t.visionTA3Desc}</p>
                     </div>
                 </div>
-
-                <!-- ✨ 【里程碑完美併入此頁最底層】專案發展規劃與未來藍圖 -->
-                <div class="apple-card p-8 mt-12">
-                    <h3 class="text-2xl font-bold tracking-tight mb-6 flex items-center space-x-2">
-                        <i data-lucide="milestone" class="w-6 h-6 text-indigo-500"></i>
-                        <span>${t.milestoneTitle}</span>
-                    </h3>
-                    <div class="space-y-6">
-                        <div class="flex items-start space-x-4">
-                            <div class="w-3.5 h-3.5 rounded-full bg-emerald-500 mt-1"></div>
-                            <p class="text-sm text-gray-600 leading-relaxed">${t.milestone1}</p>
-                        </div>
-                        <div class="flex items-start space-x-4">
-                            <div class="w-3.5 h-3.5 rounded-full bg-emerald-500 mt-1"></div>
-                            <p class="text-sm text-gray-600 leading-relaxed">${t.milestone2}</p>
-                        </div>
-                        <div class="flex items-start space-x-4">
-                            <div class="w-3.5 h-3.5 rounded-full bg-indigo-500 mt-1 animate-pulse"></div>
-                            <p class="text-sm text-gray-600 font-semibold leading-relaxed">${t.milestone3}</p>
-                        </div>
-                    </div>
-                </div>
-
             </div>
         </section>
     `;
-    lucide.createIcons();
+
+    // 重新驅動 Lucide 圖標渲染
+    if (typeof lucide !== 'undefined' && lucide.createIcons) {
+        lucide.createIcons();
+    }
 };
