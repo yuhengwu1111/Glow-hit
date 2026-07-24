@@ -1,11 +1,4 @@
 window.renderVideo = function(app, t) {
-    
-    // 🔑 請在這裡貼上你的 YouTube 影片代碼 (例如 https://youtu.be/abc123XYZ 的 abc123XYZ)
-    const youtubeVideoId = "P0g7m6jCZzs"; 
-
-    // 使用無 Cookie 的增強安全網址
-    const embedUrl = `https://www.youtube-nocookie.com/embed/${youtubeVideoId}?rel=0&enablejsapi=1`;
-
     app.innerHTML = `
         <section class="max-w-5xl mx-auto px-4 md:px-6 pt-8 md:pt-12">
             
@@ -16,20 +9,21 @@ window.renderVideo = function(app, t) {
                 <p class="text-gray-500 mt-3 text-sm md:text-base max-w-2xl mx-auto">${t.videoSubtitle || '感受智慧燈光、極速反應訓練與居家美學交織的全新生活體驗。'}</p>
             </div>
 
-            <!-- 🎬 YouTube 影音播放器容器 -->
+            <!-- 🎬 原生 HTML5 高清影音播放器容器 -->
             <div class="bg-gray-950 border border-gray-800 rounded-3xl p-3 md:p-6 shadow-2xl mb-12 relative overflow-hidden">
                 <div class="absolute -top-32 -left-32 w-80 h-80 bg-indigo-500/20 rounded-full blur-3xl"></div>
                 <div class="absolute -bottom-32 -right-32 w-80 h-80 bg-blue-500/20 rounded-full blur-3xl"></div>
                 
                 <div class="relative w-full aspect-video rounded-2xl overflow-hidden shadow-2xl border border-gray-800 bg-black flex items-center justify-center">
-                    <iframe 
-                        src="${embedUrl}" 
-                        title="GlowHit Official Promo Video"
-                        class="w-full h-full border-0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                        referrerpolicy="strict-origin-when-cross-origin"
-                        allowfullscreen>
-                    </iframe>
+                    <video 
+                        controls 
+                        playsinline 
+                        preload="metadata"
+                        class="w-full h-full object-cover">
+                        <!-- 請將影片檔案存放在 assets/video/promo.mp4 -->
+                        <source src="assets/video/promo.mp4" type="video/mp4">
+                        您的瀏覽器不支援 HTML5 影片播放。
+                    </video>
                 </div>
             </div>
 
