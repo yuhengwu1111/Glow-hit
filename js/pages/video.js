@@ -1,11 +1,10 @@
 window.renderVideo = function(app, t) {
     
-    // 🔑【請在此處替換】只需貼上 YouTube 影片 ID（例如：dQw4w9WgXcQ）
-    const youtubeId = "P0g7m6jCZzs"; 
+    // 🔑 請在這裡貼上你的 YouTube 影片代碼 (例如 https://youtu.be/abc123XYZ 的 abc123XYZ)
+    const youtubeVideoId = "P0g7m6jCZzs"; 
 
-    // 自動合成標準內嵌與觀看網址
-    const embedUrl = `https://www.youtube.com/embed/${youtubeId}?rel=0&modestbranding=1`;
-    const watchUrl = `https://www.youtube.com/watch?v=${youtubeId}`;
+    // 使用無 Cookie 的增強安全網址
+    const embedUrl = `https://www.youtube-nocookie.com/embed/${youtubeVideoId}?rel=0&enablejsapi=1`;
 
     app.innerHTML = `
         <section class="max-w-5xl mx-auto px-4 md:px-6 pt-8 md:pt-12">
@@ -18,7 +17,7 @@ window.renderVideo = function(app, t) {
             </div>
 
             <!-- 🎬 YouTube 影音播放器容器 -->
-            <div class="bg-gray-950 border border-gray-800 rounded-3xl p-3 md:p-6 shadow-2xl mb-4 relative overflow-hidden">
+            <div class="bg-gray-950 border border-gray-800 rounded-3xl p-3 md:p-6 shadow-2xl mb-12 relative overflow-hidden">
                 <div class="absolute -top-32 -left-32 w-80 h-80 bg-indigo-500/20 rounded-full blur-3xl"></div>
                 <div class="absolute -bottom-32 -right-32 w-80 h-80 bg-blue-500/20 rounded-full blur-3xl"></div>
                 
@@ -28,16 +27,10 @@ window.renderVideo = function(app, t) {
                         title="GlowHit Official Promo Video"
                         class="w-full h-full border-0" 
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        referrerpolicy="strict-origin-when-cross-origin"
                         allowfullscreen>
                     </iframe>
                 </div>
-            </div>
-
-            <!-- YouTube 備用跳轉連結（防止本地測試被阻擋） -->
-            <div class="text-center mb-12">
-                <a href="${watchUrl}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-xs text-gray-400 hover:text-indigo-600 transition-colors">
-                    <i data-lucide="external-link" class="w-3.5 h-3.5 mr-1"></i> 若播放器顯示錯誤，點此前往 YouTube 原生頁面觀看
-                </a>
             </div>
 
             <!-- 影片特色解說區塊 (雙欄排版) -->
