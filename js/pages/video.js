@@ -1,4 +1,8 @@
 window.renderVideo = function(app, t) {
+    
+    // 💡 貼上你的線上影片直連網址 (必須是 .mp4 格式的網路連結)
+    const videoUrl = "https://drive.google.com/file/d/1vtRQ83GPJKAze2iN0WVmAcxq-Dh66TOr/view?usp=sharing"; 
+
     app.innerHTML = `
         <section class="max-w-5xl mx-auto px-4 md:px-6 pt-8 md:pt-12">
             
@@ -9,7 +13,7 @@ window.renderVideo = function(app, t) {
                 <p class="text-gray-500 mt-3 text-sm md:text-base max-w-2xl mx-auto">${t.videoSubtitle || '感受智慧燈光、極速反應訓練與居家美學交織的全新生活體驗。'}</p>
             </div>
 
-            <!-- 🎬 原生 HTML5 高清影音播放器容器 -->
+            <!-- 🎬 線上網址影音播放器容器 -->
             <div class="bg-gray-950 border border-gray-800 rounded-3xl p-3 md:p-6 shadow-2xl mb-12 relative overflow-hidden">
                 <div class="absolute -top-32 -left-32 w-80 h-80 bg-indigo-500/20 rounded-full blur-3xl"></div>
                 <div class="absolute -bottom-32 -right-32 w-80 h-80 bg-blue-500/20 rounded-full blur-3xl"></div>
@@ -20,9 +24,8 @@ window.renderVideo = function(app, t) {
                         playsinline 
                         preload="metadata"
                         class="w-full h-full object-cover">
-                        <!-- 請將影片檔案存放在 assets/video/promo.mp4 -->
-                        <source src="assets/video/promo.mp4" type="video/mp4">
-                        您的瀏覽器不支援 HTML5 影片播放。
+                        <source src="${videoUrl}" type="video/mp4">
+                        您的瀏覽器不支援 HTML5 影片播放或網址無效。
                     </video>
                 </div>
             </div>
