@@ -1,7 +1,11 @@
 window.renderVideo = function(app, t) {
     
-    // 💡 貼上你的線上影片直連網址 (必須是 .mp4 格式的網路連結)
-    const videoUrl = "https://drive.google.com/file/d/1vtRQ83GPJKAze2iN0WVmAcxq-Dh66TOr/view?usp=sharing"; 
+    // 🔑【請在此處替換】只需貼上 YouTube 影片 ID（例如：dQw4w9WgXcQ）
+    const youtubeId = "P0g7m6jCZzs"; 
+
+    // 自動合成標準內嵌與觀看網址
+    const embedUrl = `https://www.youtube.com/embed/${youtubeId}?rel=0&modestbranding=1`;
+    const watchUrl = `https://www.youtube.com/watch?v=${youtubeId}`;
 
     app.innerHTML = `
         <section class="max-w-5xl mx-auto px-4 md:px-6 pt-8 md:pt-12">
@@ -13,21 +17,27 @@ window.renderVideo = function(app, t) {
                 <p class="text-gray-500 mt-3 text-sm md:text-base max-w-2xl mx-auto">${t.videoSubtitle || '感受智慧燈光、極速反應訓練與居家美學交織的全新生活體驗。'}</p>
             </div>
 
-            <!-- 🎬 線上網址影音播放器容器 -->
-            <div class="bg-gray-950 border border-gray-800 rounded-3xl p-3 md:p-6 shadow-2xl mb-12 relative overflow-hidden">
+            <!-- 🎬 YouTube 影音播放器容器 -->
+            <div class="bg-gray-950 border border-gray-800 rounded-3xl p-3 md:p-6 shadow-2xl mb-4 relative overflow-hidden">
                 <div class="absolute -top-32 -left-32 w-80 h-80 bg-indigo-500/20 rounded-full blur-3xl"></div>
                 <div class="absolute -bottom-32 -right-32 w-80 h-80 bg-blue-500/20 rounded-full blur-3xl"></div>
                 
                 <div class="relative w-full aspect-video rounded-2xl overflow-hidden shadow-2xl border border-gray-800 bg-black flex items-center justify-center">
-                    <video 
-                        controls 
-                        playsinline 
-                        preload="metadata"
-                        class="w-full h-full object-cover">
-                        <source src="${videoUrl}" type="video/mp4">
-                        您的瀏覽器不支援 HTML5 影片播放或網址無效。
-                    </video>
+                    <iframe 
+                        src="${embedUrl}" 
+                        title="GlowHit Official Promo Video"
+                        class="w-full h-full border-0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        allowfullscreen>
+                    </iframe>
                 </div>
+            </div>
+
+            <!-- YouTube 備用跳轉連結（防止本地測試被阻擋） -->
+            <div class="text-center mb-12">
+                <a href="${watchUrl}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-xs text-gray-400 hover:text-indigo-600 transition-colors">
+                    <i data-lucide="external-link" class="w-3.5 h-3.5 mr-1"></i> 若播放器顯示錯誤，點此前往 YouTube 原生頁面觀看
+                </a>
             </div>
 
             <!-- 影片特色解說區塊 (雙欄排版) -->
