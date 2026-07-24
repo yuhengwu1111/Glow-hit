@@ -19,7 +19,7 @@
 </head>
 <body class="overflow-x-hidden">
 
-    <!-- Translucent Apple Navigation Bar -->
+    <!-- Translucent Navigation Bar -->
     <nav class="glass-nav fixed w-full top-0 z-50 border-b border-gray-200 px-4 md:px-6 py-3 flex justify-between items-center transition-all duration-300">
         <!-- 左側品牌區塊 -->
         <div class="flex items-center space-x-4 cursor-pointer" onclick="navigate('home')">
@@ -32,8 +32,9 @@
             <span class="nav-link text-gray-500 hover:text-black transition cursor-pointer" id="nav-home" onclick="navigate('home')">Home</span>
             <span class="nav-link text-gray-500 hover:text-black transition cursor-pointer" id="nav-product" onclick="navigate('product')">Product</span>
             <span class="nav-link text-gray-500 hover:text-black transition cursor-pointer" id="nav-simulator" onclick="navigate('simulator')">Simulator</span>
-            <span class="nav-link text-gray-500 hover:text-black transition cursor-pointer" id="nav-science" onclick="navigate('science')">Science</span>
             <span class="nav-link text-gray-500 hover:text-black transition cursor-pointer" id="nav-vision" onclick="navigate('vision')">Vision</span>
+            <span class="nav-link text-gray-500 hover:text-black transition cursor-pointer" id="nav-brand" onclick="navigate('brand')">Brand</span>
+            <span class="nav-link text-gray-500 hover:text-black transition cursor-pointer" id="nav-video" onclick="navigate('video')">Video</span>
         </div>
 
         <!-- Language Selector & Action Button -->
@@ -70,8 +71,9 @@
         <span class="mob-nav-link text-gray-500 hover:text-black transition cursor-pointer py-2 border-b border-gray-100" id="mob-nav-home" onclick="navigate('home'); toggleMobileMenu();">Home</span>
         <span class="mob-nav-link text-gray-500 hover:text-black transition cursor-pointer py-2 border-b border-gray-100" id="mob-nav-product" onclick="navigate('product'); toggleMobileMenu();">Product</span>
         <span class="mob-nav-link text-gray-500 hover:text-black transition cursor-pointer py-2 border-b border-gray-100" id="mob-nav-simulator" onclick="navigate('simulator'); toggleMobileMenu();">Simulator</span>
-        <span class="mob-nav-link text-gray-500 hover:text-black transition cursor-pointer py-2 border-b border-gray-100" id="mob-nav-science" onclick="navigate('science'); toggleMobileMenu();">Science</span>
         <span class="mob-nav-link text-gray-500 hover:text-black transition cursor-pointer py-2 border-b border-gray-100" id="mob-nav-vision" onclick="navigate('vision'); toggleMobileMenu();">Vision</span>
+        <span class="mob-nav-link text-gray-500 hover:text-black transition cursor-pointer py-2 border-b border-gray-100" id="mob-nav-brand" onclick="navigate('brand'); toggleMobileMenu();">Brand</span>
+        <span class="mob-nav-link text-gray-500 hover:text-black transition cursor-pointer py-2 border-b border-gray-100" id="mob-nav-video" onclick="navigate('video'); toggleMobileMenu();">Video</span>
     </div>
 
     <!-- Main Content App Mount -->
@@ -84,18 +86,15 @@
         <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center text-xs text-gray-500 space-y-4 md:space-y-0">
             <div>
                 <p class="font-semibold text-gray-700" id="footerTitle">GlowHit 智慧模組化光點反應牆專案</p>
-                
-                <!-- ✨ 核心修正點：優化結構，嵌入絕對安全的標準 SEO 反向連結，不影響多國語系渲染 -->
                 <div class="mt-1 flex flex-wrap items-center gap-x-2 gap-y-1">
-                    <span id="footerCopyright">© 2026 RoboRAVE 大阪世界錦標賽創業挑戰賽代表隊. All Rights Reserved.</span>
+                    <span id="footerCopyright">© 2026 QQ2 代表隊. 保留所有權利。</span>
                     <span class="text-gray-300 hidden sm:inline">|</span>
                     <a href="https://dctpro.com/tw/" target="_blank" rel="noopener noreferrer" class="text-blue-500 hover:text-blue-600 font-medium hover:underline transition-colors">DCT PRO</a>
                 </div>
             </div>
             <div class="flex space-x-6 text-gray-400">
                 <span class="hover:underline cursor-pointer" id="footerLink1" onclick="navigate('product')">硬體細節</span>
-                <span class="hover:underline cursor-pointer" id="footerLink2" onclick="navigate('science')">神經學文獻</span>
-                <span class="hover:underline cursor-pointer" id="footerLink3" onclick="navigate('vision')">大阪參賽計畫書</span>
+                <span class="hover:underline cursor-pointer" id="footerLink3" onclick="navigate('vision')">核心初衷</span>
             </div>
         </div>
     </footer>
@@ -127,6 +126,8 @@
     <script src="js/pages/simulator.js"></script>
     <script src="js/pages/vision.js"></script> 
     <script src="js/pages/science.js"></script>
+    <script src="js/pages/brand.js"></script>
+    <script src="js/pages/video.js"></script>
 
     <!-- ROUTER & APP ENTRY -->
     <script src="js/router.js"></script>

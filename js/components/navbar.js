@@ -1,28 +1,32 @@
-window.isMobileMenuOpen = false;
+window.updateNavbarText = function() {
+    const langSelect = document.getElementById('langSelect');
+    const langKey = langSelect ? langSelect.value : 'zh-TW';
+    const t = window.translations[langKey] || window.translations.zh || window.translations.en;
 
-window.toggleMobileMenu = function() {
-    const menu = document.getElementById('mobileMenu');
-    const container = document.getElementById('menuIconContainer');
-    window.isMobileMenuOpen = !window.isMobileMenuOpen;
-    
-    if (window.isMobileMenuOpen) {
-        menu.classList.remove('hidden');
-        setTimeout(() => {
-            menu.classList.remove('-translate-y-8', 'opacity-0');
-            menu.classList.add('translate-y-0', 'opacity-100');
-        }, 10);
-        // 修正點：清空容器並重建原始 <i> 標籤，讓 Lucide 能夠重新識別並渲染成 X 圖標
-        if (container) container.innerHTML = `<i data-lucide="x" class="w-6 h-6"></i>`;
-    } else {
-        menu.classList.remove('translate-y-0', 'opacity-100');
-        menu.classList.add('-translate-y-8', 'opacity-0');
-        setTimeout(() => {
-            if (!window.isMobileMenuOpen) {
-                menu.classList.add('hidden');
-            }
-        }, 300);
-        // 修正點：還原為漢堡選單圖標
-        if (container) container.innerHTML = `<i data-lucide="menu" class="w-6 h-6"></i>`;
+    const navMap = {
+        'nav-home': t.navHome || '首頁',
+        'nav-product': t.navProduct || '產品解構',
+        'nav-simulator': t.navSimulator || '互動控制台',
+        'nav-vision': t.navVision || '核心初衷',
+        'nav-brand': t.navBrand || '品牌理念',
+        'nav-video': t.navVideo || '形象影片',
+        
+        'mob-nav-home': t.navHome || '首頁',
+        'mob-nav-product': t.navProduct || '產品解構',
+        'mob-nav-simulator': t.navSimulator || '互動控制台',
+        'mob-nav-vision': t.navVision || '核心初衷',
+        'mob-nav-brand': t.navBrand || '品牌理念',
+        'mob-nav-video': t.navVideo || '形象影片',
+
+        'globalCtaBtn': t.navTry || '試玩體驗'
+    };
+
+    for (const [id, text] of Object.entries(navMap)) {
+        const el = document.getElementById(id);
+        if (el) el.innerText = text;
     }
-    lucide.createIcons();
+
+    if (document.getElementById('footerTitle') && t.footerTitle) {
+        document.getElementById('footerTitle').innerText = t.footerTitle;
+    }
 };

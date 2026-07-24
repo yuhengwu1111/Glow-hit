@@ -1,110 +1,82 @@
+window.currentPage = 'home';
+
 window.navigate = function(page) {
-    window.scrollTo({ top: 0, behavior: 'instant' });
-    
-    document.querySelectorAll('.nav-link').forEach(el => {
-        el.classList.remove('text-black', 'font-semibold');
-        el.classList.add('text-gray-500');
-    });
-    const activeNav = document.getElementById(`nav-${page}`);
-    if (activeNav) {
-        activeNav.classList.remove('text-gray-500');
-        activeNav.classList.add('text-black', 'font-semibold');
-    }
-
-    document.querySelectorAll('.mob-nav-link').forEach(el => {
-        el.classList.remove('text-black', 'font-semibold');
-        el.classList.add('text-gray-500');
-    });
-    const activeMobNav = document.getElementById(`mob-nav-${page}`);
-    if (activeMobNav) {
-        activeMobNav.classList.remove('text-gray-500');
-        activeMobNav.classList.add('text-black', 'font-semibold');
-    }
-
+    window.currentPage = page;
     const app = document.getElementById('app');
-    const t = window.translations[window.currentLang];
-
-    // 全域語系字串同步更新 (已精簡 About 關聯節點)
-    if (document.getElementById('nav-home')) document.getElementById('nav-home').textContent = t.navHome;
-    if (document.getElementById('nav-product')) document.getElementById('nav-product').textContent = t.navProduct;
-    if (document.getElementById('nav-simulator')) document.getElementById('nav-simulator').textContent = t.navSimulator;
-    if (document.getElementById('nav-vision')) document.getElementById('nav-vision').textContent = t.navVision;
-    if (document.getElementById('nav-science')) document.getElementById('nav-science').textContent = t.navScience;
-    if (document.getElementById('globalCtaBtn')) document.getElementById('globalCtaBtn').textContent = t.navTry;
-
-    if (document.getElementById('mob-nav-home')) document.getElementById('mob-nav-home').textContent = t.navHome;
-    if (document.getElementById('mob-nav-product')) document.getElementById('mob-nav-product').textContent = t.navProduct;
-    if (document.getElementById('mob-nav-simulator')) document.getElementById('mob-nav-simulator').textContent = t.navSimulator;
-    if (document.getElementById('mob-nav-vision')) document.getElementById('mob-nav-vision').textContent = t.navVision;
-    if (document.getElementById('mob-nav-science')) document.getElementById('mob-nav-science').textContent = t.navScience;
-
-    if (document.getElementById('footerTitle')) document.getElementById('footerTitle').textContent = t.footerTitle;
-    if (document.getElementById('footerCopyright')) document.getElementById('footerCopyright').textContent = t.footerCopyright;
-    if (document.getElementById('footerLink1')) document.getElementById('footerLink1').textContent = t.footerLink1;
-    if (document.getElementById('footerLink2')) document.getElementById('footerLink2').textContent = t.footerLink2;
-    if (document.getElementById('footerLink3')) document.getElementById('footerLink3').textContent = t.footerLink3;
-
-    switch(page) {
-        case 'home': window.renderHome(app, t); break;
-        case 'product': window.renderProduct(app, t); break;
-        case 'simulator': window.renderSimulator(app, t); break;
-        case 'vision': window.renderVision(app, t); break; // 包含客群與里程碑
-        case 'science': window.renderScience(app, t); break;
-        default: window.renderHome(app, t);
-    }
-    lucide.createIcons();
-};
-
-window.setSimMode = function(mode) {
-    window.simMode = mode;
-    const t = window.translations[window.currentLang];
+    if (!app) return;
     
-    document.querySelectorAll('[id^="tab-"]').forEach(btn => {
-        btn.classList.remove('bg-white', 'text-black', 'shadow-sm');
-        btn.classList.add('text-gray-500');
-    });
-    const activeTab = document.getElementById(`tab-${mode}`);
-    if(activeTab) {
-        activeTab.classList.add('bg-white', 'text-black', 'shadow-sm');
-        activeTab.classList.remove('text-gray-500');
+    // 1. 抓取當前語言字典
+    const langSelect = document.getElementById('langSelect');
+    const langKey = langSelect ? langSelect.value : 'zh-TW';
+    const t = window.translations[langKey] || window.translations.zh || window.translations.en;
+
+    // 2. 切換分頁時，強制停止後台正在執行的遊戲倒數與計時器
+    if (window.GlowHitEngine && window.GlowHitEngine.isActive) {
+        window.GlowHitEngine.endGame();
     }
-
-    const startBtn = document.getElementById('startGameBtn');
-    const homePanel = document.getElementById('homeControlPanel');
-    const dash = document.getElementById('gameDashboard');
-
-    if(window.gameInterval) {
+    if (window.gameInterval) {
         clearInterval(window.gameInterval);
         window.gameInterval = null;
     }
-    window.gameScore = 0;
-    window.totalHits = 0;
-    window.reactionSum = 0;
-    window.gameTimeLeft = 30;
-    window.targetId = null;
 
-    if (mode === 'home') {
-        if(startBtn) startBtn.classList.add('hidden');
-        if(homePanel) homePanel.classList.remove('hidden');
-        if(dash) dash.classList.add('opacity-40');
-        window.initAmbientWall();
-        window.updateHomeColor();
-    } else {
-        if(startBtn) {
-            startBtn.classList.remove('hidden');
-            startBtn.textContent = t.startBtnText;
-        }
-        if(homePanel) homePanel.classList.add('hidden'); 
-        if(dash) dash.classList.remove('opacity-40');
-        
-        const sVal = document.getElementById('scoreVal');
-        const tVal = document.getElementById('timeVal');
-        const rVal = document.getElementById('reactVal');
-        if (sVal) sVal.textContent = '0';
-        if (tVal) tVal.textContent = '30s';
-        if (rVal) rVal.textContent = `0${t.ms}`;
-        
-        window.initSimWall();
+    // 3. 即時同步導覽列與選單多語系文字
+    if (window.updateNavbarText) {
+        window.updateNavbarText();
     }
-    lucide.createIcons();
+
+    // 4. 更新導覽列高亮選取狀態
+    const navLinks = document.querySelectorAll('.nav-link, .mob-nav-link');
+    navLinks.forEach(link => {
+        link.classList.remove('text-black', 'font-bold');
+        link.classList.add('text-gray-500');
+    });
+
+    const activeNav = document.getElementById(`nav-${page}`);
+    const activeMobNav = document.getElementById(`mob-nav-${page}`);
+    if (activeNav) {
+        activeNav.classList.remove('text-gray-500');
+        activeNav.classList.add('text-black', 'font-bold');
+    }
+    if (activeMobNav) {
+        activeMobNav.classList.remove('text-gray-500');
+        activeMobNav.classList.add('text-black', 'font-bold');
+    }
+
+    // 5. 平滑捲動至視窗頂部
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    // 6. 路由分頁視圖渲染分流
+    switch (page) {
+        case 'home':
+            if (window.renderHome) window.renderHome(app, t);
+            break;
+        case 'product':
+            if (window.renderProduct) window.renderProduct(app, t);
+            break;
+        case 'simulator':
+            if (window.renderSimulator) window.renderSimulator(app, t);
+            break;
+        case 'science':
+            if (window.renderScience) window.renderScience(app, t);
+            break;
+        case 'vision':
+            if (window.renderVision) window.renderVision(app, t);
+            break;
+        case 'brand':
+            if (window.renderBrand) window.renderBrand(app, t);
+            break;
+        case 'video':
+            if (window.renderVideo) window.renderVideo(app, t);
+            break;
+        default:
+            if (window.renderHome) window.renderHome(app, t);
+            break;
+    }
+
+    // 7. 全域自動防護鎖：確保 DOM 渲染完畢後 100% 正確驅動 Lucide Icons 顯示
+    setTimeout(() => {
+        if (typeof lucide !== 'undefined' && lucide.createIcons) {
+            lucide.createIcons();
+        }
+    }, 50);
 };
