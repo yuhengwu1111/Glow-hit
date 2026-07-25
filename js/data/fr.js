@@ -3,7 +3,7 @@ window.translations['fr'] = {
     navHome: "Accueil", 
     navProduct: "Produit", 
     navSimulator: "Simulateur", 
-    navVision: "Vision Core", 
+    navVision: "Intention originale fondamentale", 
     navScience: "Science du sport", 
     navBrand: "Marque",
     navVideo: "Vidéo",
@@ -13,7 +13,7 @@ window.translations['fr'] = {
     footerCopyright: "© 2026 Glowhit. Tous droits réservés.",
     footerLink1: "Composants", 
     footerLink2: "Science du sport", 
-    footerLink3: "Vision Core",
+    footerLink3: "Intention originale fondamentale",
     
     // Page d'accueil
     heroTitle: "Suivez la lumière, vivez intelligemment.",

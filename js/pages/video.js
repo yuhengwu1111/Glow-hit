@@ -1,10 +1,11 @@
 window.renderVideo = function(app, t) {
     
-    // 🔑 請在這裡貼上你的 YouTube 影片代碼 (例如 https://youtu.be/abc123XYZ 的 abc123XYZ)
+    // 🔑 YouTube 影片代碼
     const youtubeVideoId = "P0g7m6jCZzs"; 
 
-    // 使用無 Cookie 的增強安全網址
+    // 使用無 Cookie 的增強安全網址與原生觀看網址
     const embedUrl = `https://www.youtube-nocookie.com/embed/${youtubeVideoId}?rel=0&enablejsapi=1`;
+    const watchUrl = `https://www.youtube.com/watch?v=${youtubeVideoId}`;
 
     app.innerHTML = `
         <section class="max-w-5xl mx-auto px-4 md:px-6 pt-8 md:pt-12">
@@ -17,7 +18,7 @@ window.renderVideo = function(app, t) {
             </div>
 
             <!-- 🎬 YouTube 影音播放器容器 -->
-            <div class="bg-gray-950 border border-gray-800 rounded-3xl p-3 md:p-6 shadow-2xl mb-12 relative overflow-hidden">
+            <div class="bg-gray-950 border border-gray-800 rounded-3xl p-3 md:p-6 shadow-2xl mb-4 relative overflow-hidden">
                 <div class="absolute -top-32 -left-32 w-80 h-80 bg-indigo-500/20 rounded-full blur-3xl"></div>
                 <div class="absolute -bottom-32 -right-32 w-80 h-80 bg-blue-500/20 rounded-full blur-3xl"></div>
                 
@@ -31,6 +32,15 @@ window.renderVideo = function(app, t) {
                         allowfullscreen>
                     </iframe>
                 </div>
+            </div>
+
+            <!-- 🔗 防故障 YouTube 備用跳轉按鈕 -->
+            <div class="text-center mb-12">
+                <a href="${watchUrl}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center space-x-2 text-xs md:text-sm font-medium text-indigo-600 hover:text-indigo-800 bg-indigo-50 hover:bg-indigo-100 px-4 py-2 rounded-full transition-colors shadow-sm">
+                    <i data-lucide="youtube" class="w-4 h-4 text-red-600"></i>
+                    <span>若影片無法播放，請點此前往 YouTube 觀看</span>
+                    <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                </a>
             </div>
 
             <!-- 影片特色解說區塊 (雙欄排版) -->
