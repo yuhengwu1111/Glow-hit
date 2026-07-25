@@ -38,7 +38,7 @@ window.renderVideo = function(app, t) {
             <div class="text-center mb-12">
                 <a href="${watchUrl}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center space-x-2 text-xs md:text-sm font-medium text-indigo-600 hover:text-indigo-800 bg-indigo-50 hover:bg-indigo-100 px-4 py-2 rounded-full transition-colors shadow-sm">
                     <i data-lucide="youtube" class="w-4 h-4 text-red-600"></i>
-                    <span>若影片無法播放，請點此前往 YouTube 觀看</span>
+                    <span>If the video cannot be played, please click here to watch it on YouTube.</span>
                     <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
                 </a>
             </div>
