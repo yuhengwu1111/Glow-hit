@@ -68,4 +68,4 @@ window.renderVideo = function(app, t) {
     if (typeof lucide !== 'undefined' && lucide.createIcons) {
         lucide.createIcons();
     }
-};
+}; 
