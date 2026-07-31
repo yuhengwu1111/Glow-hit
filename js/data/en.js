@@ -36,7 +36,7 @@ window.translations['en'] = {
     
     // Play Modes Showroom
     modesTitle: "Three Immersive Play Modes",
-    modeColor: "Red and blue identification",
+    modeColor: "Tap the Color",
     modeColorDesc: "The system randomly generates different colors, and users can only tap on lights of the specified colors. This game can deeply train brain decision-making and reaction speed, and the system will provide ranking scores after the game ends.",
     modeSpeed: "Light speed reaction",
     modeSpeedDesc: "The light modules will light up randomly, and users must quickly tap the lit modules. This comprehensively trains the user's eyesight, concentration, and reaction speed. Speed ​​data and rankings will be provided after the game ends.",
@@ -88,7 +88,7 @@ window.translations['en'] = {
     simTitle: "GlowHit Interactive Control Station",
     simDesc: "Experience the tactile joy of GlowHit right in your browser. Choose a mode below to test your reflexes.",
     tabSpeed: "Light speed reaction",
-    tabColor: "Red and blue identification",
+    tabColor: "Tap the Color",
     tabHome: "Home Decor",
     scoreLabel: "SCORE",
     timeLabel: "REMAINING",
