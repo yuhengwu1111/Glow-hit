@@ -1,39 +1,34 @@
 <!DOCTYPE html>
-<html lang="zh-TW" class="scroll-smooth">
+<html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- SEO & 社群分享 (Open Graph / Twitter Card) -->
     <title>GlowHit | 智慧模組化光點反應牆 | Smart Modular Agility Wall</title>
-    <meta name="description" content="GlowHit 結合 ESP32 毫秒級反應訓練與居家氛圍燈光，專為長者運動、兒童專注力訓練與現代智慧家庭打造。">
-    <meta property="og:title" content="GlowHit | 智慧模組化光點反應牆">
-    <meta property="og:description" content="逐動光影，智享生活。極速反應訓練與居家美学無縫結合。">
-    <meta property="og:image" content="assets/icons/LOGO.png">
-    <meta property="og:type" content="website">
-
+    
+    <!-- 設定書籤與分頁圖示 -->
     <link class="brand-favicon" rel="icon" href="assets/icons/LOGO.png" type="image/png">
 
-    <!-- Tailwind CSS & Lucide Icons -->
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
-    
     <!-- Custom Styles -->
     <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/simulator.css">
     <link rel="stylesheet" href="css/animations.css">
 </head>
-<body class="overflow-x-hidden antialiased bg-gray-50/50">
+<body class="overflow-x-hidden">
 
     <!-- Translucent Navigation Bar -->
-    <nav class="glass-nav fixed w-full top-0 z-50 transition-all duration-300 px-4 md:px-8 py-3.5 flex justify-between items-center">
-        <div class="flex items-center space-x-3.5 cursor-pointer group" onclick="navigate('home')">
-            <img src="assets/icons/LOGO.png" alt="GlowHit Logo" class="w-10 h-10 object-contain transform transition-transform group-hover:scale-105 duration-300">
-            <span class="text-xl font-bold tracking-tight text-gray-900 group-hover:text-indigo-600 transition-colors">GlowHit</span>
+    <nav class="glass-nav fixed w-full top-0 z-50 border-b border-gray-200 px-4 md:px-6 py-3 flex justify-between items-center transition-all duration-300">
+        <!-- 左側品牌區塊 -->
+        <div class="flex items-center space-x-4 cursor-pointer" onclick="navigate('home')">
+            <img src="assets/icons/LOGO.png" alt="GlowHit Logo" class="w-12 h-12 object-contain transform transition-transform hover:scale-105">
+            <span class="text-xl font-semibold tracking-tight text-gray-900">GlowHit</span>
         </div>
         
-        <!-- Desktop Menu -->
-        <div class="hidden md:flex space-x-8 text-sm font-medium tracking-wide">
+        <!-- Desktop Navigation Menu -->
+        <div class="hidden md:flex space-x-8 text-sm font-medium">
             <span class="nav-link text-gray-500 hover:text-black transition cursor-pointer" id="nav-home" onclick="navigate('home')">Home</span>
             <span class="nav-link text-gray-500 hover:text-black transition cursor-pointer" id="nav-product" onclick="navigate('product')">Product</span>
             <span class="nav-link text-gray-500 hover:text-black transition cursor-pointer" id="nav-simulator" onclick="navigate('simulator')">Simulator</span>
@@ -42,79 +37,99 @@
             <span class="nav-link text-gray-500 hover:text-black transition cursor-pointer" id="nav-video" onclick="navigate('video')">Video</span>
         </div>
 
+        <!-- Language Selector & Action Button -->
         <div class="flex items-center space-x-3 md:space-x-4">
-            <div class="flex items-center space-x-1.5 border border-gray-200/80 rounded-full px-3 py-1 bg-white/80 shadow-sm">
+            <div class="flex items-center space-x-1 border border-gray-300 rounded-full px-2.5 py-1 bg-white">
                 <i data-lucide="globe" class="w-3.5 h-3.5 text-gray-500"></i>
                 <select id="langSelect" onchange="changeLanguage()" class="bg-transparent text-xs font-medium outline-none cursor-pointer text-gray-700">
                     <option value="zh-TW">繁體中文</option>
                     <option value="en">English</option>
                     <option value="zh-CN">简体中文</option>
+                    <option value="es">Español</option>
                     <option value="ja">日本語</option>
                     <option value="ko">한국어</option>
-                    <option value="es">Español</option>
-                    <option value="de">Deutsch</option>
                     <option value="fr">Français</option>
+                    <option value="de">Deutsch</option>
                     <option value="pt">Português</option>
                     <option value="ar">العربية</option>
                 </select>
             </div>
             
-            <button onclick="navigate('simulator')" id="globalCtaBtn" class="hidden sm:inline-flex items-center text-xs font-semibold px-4.5 py-2 rounded-full apple-btn-primary shadow-sm">
+            <button onclick="navigate('simulator')" id="globalCtaBtn" class="hidden sm:inline-flex items-center text-xs font-semibold px-4 py-2 rounded-full apple-btn-primary">
                 試玩體驗
             </button>
 
-            <!-- Mobile Menu Btn -->
-            <button onclick="toggleMobileMenu()" class="md:hidden p-1.5 text-gray-600 hover:text-black focus:outline-none">
+            <!-- Mobile Hamburger Button -->
+            <button onclick="toggleMobileMenu()" class="md:hidden p-1.5 text-gray-600 hover:text-black focus:outline-none" aria-label="Toggle Menu">
                 <span id="menuIconContainer"><i data-lucide="menu" class="w-6 h-6"></i></span>
             </button>
         </div>
     </nav>
 
-    <!-- Mobile Menu Overlay -->
-    <div id="mobileMenu" class="hidden fixed inset-x-0 top-[65px] bottom-0 z-40 glass-nav md:hidden flex flex-col px-8 py-8 space-y-6 text-lg font-medium transform -translate-y-8 opacity-0 transition-all duration-300">
-        <span class="mob-nav-link text-gray-600 hover:text-black transition cursor-pointer py-2 border-b border-gray-100" id="mob-nav-home" onclick="navigate('home'); toggleMobileMenu();">Home</span>
-        <span class="mob-nav-link text-gray-600 hover:text-black transition cursor-pointer py-2 border-b border-gray-100" id="mob-nav-product" onclick="navigate('product'); toggleMobileMenu();">Product</span>
-        <span class="mob-nav-link text-gray-600 hover:text-black transition cursor-pointer py-2 border-b border-gray-100" id="mob-nav-simulator" onclick="navigate('simulator'); toggleMobileMenu();">Simulator</span>
-        <span class="mob-nav-link text-gray-600 hover:text-black transition cursor-pointer py-2 border-b border-gray-100" id="mob-nav-vision" onclick="navigate('vision'); toggleMobileMenu();">Vision</span>
-        <span class="mob-nav-link text-gray-600 hover:text-black transition cursor-pointer py-2 border-b border-gray-100" id="mob-nav-brand" onclick="navigate('brand'); toggleMobileMenu();">Brand</span>
-        <span class="mob-nav-link text-gray-600 hover:text-black transition cursor-pointer py-2 border-b border-gray-100" id="mob-nav-video" onclick="navigate('video'); toggleMobileMenu();">Video</span>
+    <!-- Mobile Fullscreen Overlay Navigation Menu -->
+    <div id="mobileMenu" class="hidden fixed inset-x-0 top-[77px] bottom-0 z-40 glass-nav border-b border-gray-200 md:hidden flex flex-col px-6 py-8 space-y-6 text-xl font-medium transform -translate-y-8 opacity-0">
+        <span class="mob-nav-link text-gray-500 hover:text-black transition cursor-pointer py-2 border-b border-gray-100" id="mob-nav-home" onclick="navigate('home'); toggleMobileMenu();">Home</span>
+        <span class="mob-nav-link text-gray-500 hover:text-black transition cursor-pointer py-2 border-b border-gray-100" id="mob-nav-product" onclick="navigate('product'); toggleMobileMenu();">Product</span>
+        <span class="mob-nav-link text-gray-500 hover:text-black transition cursor-pointer py-2 border-b border-gray-100" id="mob-nav-simulator" onclick="navigate('simulator'); toggleMobileMenu();">Simulator</span>
+        <span class="mob-nav-link text-gray-500 hover:text-black transition cursor-pointer py-2 border-b border-gray-100" id="mob-nav-vision" onclick="navigate('vision'); toggleMobileMenu();">Vision</span>
+        <span class="mob-nav-link text-gray-500 hover:text-black transition cursor-pointer py-2 border-b border-gray-100" id="mob-nav-brand" onclick="navigate('brand'); toggleMobileMenu();">Brand</span>
+        <span class="mob-nav-link text-gray-500 hover:text-black transition cursor-pointer py-2 border-b border-gray-100" id="mob-nav-video" onclick="navigate('video'); toggleMobileMenu();">Video</span>
     </div>
 
-    <!-- Main Content Entry -->
-    <main id="app" class="pt-20 pb-16 min-h-screen"></main>
+    <!-- Main Content App Mount -->
+    <main id="app" class="pt-24 pb-16 min-h-screen">
+        <!-- Dynamic content will be rendered here -->
+    </main>
 
     <!-- Global Footer -->
-    <footer class="bg-white border-t border-gray-100 py-12 px-6">
+    <footer class="bg-white border-t border-gray-200 py-12 px-6">
         <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center text-xs text-gray-500 space-y-4 md:space-y-0">
             <div>
-                <p class="font-semibold text-gray-800" id="footerTitle">GlowHit 智慧模組化光點反應牆專案</p>
+                <p class="font-semibold text-gray-700" id="footerTitle">GlowHit 智慧模組化光點反應牆專案</p>
                 <div class="mt-1 flex flex-wrap items-center gap-x-2 gap-y-1">
                     <span id="footerCopyright">© 2026 Glowhit. 保留所有權利。</span>
                     <span class="text-gray-300 hidden sm:inline">|</span>
-                    <a href="https://dctpro.com/tw/" target="_blank" rel="noopener noreferrer" class="text-indigo-600 hover:text-indigo-700 font-medium transition-colors">Dacian technology</a>
+                    <a href="https://dctpro.com/tw/" target="_blank" rel="noopener noreferrer" class="text-blue-500 hover:text-blue-600 font-medium hover:underline transition-colors">Dacian technology</a>
                 </div>
             </div>
-            <div class="flex space-x-6 text-gray-400 font-medium">
-                <span class="hover:text-gray-700 cursor-pointer transition-colors" id="footerLink1" onclick="navigate('product')">硬體細節</span>
-                <span class="hover:text-gray-700 cursor-pointer transition-colors" id="footerLink3" onclick="navigate('vision')">核心初衷</span>
+            <div class="flex space-x-6 text-gray-400">
+                <span class="hover:underline cursor-pointer" id="footerLink1" onclick="navigate('product')">硬體細節</span>
+                <span class="hover:underline cursor-pointer" id="footerLink3" onclick="navigate('vision')">核心初衷</span>
             </div>
         </div>
     </footer>
 
-    <!-- JS Files -->
+    <!-- DATA LAYER -->
     <script>window.translations = {};</script>
     <script src="js/data/zh-tw.js"></script>
-    
+    <script src="js/data/en.js"></script>
+    <script src="js/data/zh-cn.js"></script>
+    <script src="js/data/ja.js"></script>
+    <script src="js/data/es.js"></script>
+    <script src="js/data/fr.js"></script>
+    <script src="js/data/de.js"></script>
+    <script src="js/data/pt.js"></script>
+    <script src="js/data/ko.js"></script>
+    <script src="js/data/ar.js"></script>
+
+    <!-- COMPONENTS -->
     <script src="js/components/navbar.js"></script>
+    <script src="js/components/footer.js"></script>
     <script src="js/components/language-switcher.js"></script>
-    
+    <script src="js/components/reaction-engine.js"></script>
+    <script src="js/components/homekit-mode.js"></script>
+    <script src="js/components/power-monitor.js"></script>
+
+    <!-- PAGES -->
     <script src="js/pages/home.js"></script>
     <script src="js/pages/product.js"></script>
     <script src="js/pages/simulator.js"></script>
     <script src="js/pages/vision.js"></script> 
+    <script src="js/pages/science.js"></script>
     <script src="js/pages/brand.js"></script>
     <script src="js/pages/video.js"></script>
 
+    <!-- ROUTER & APP ENTRY -->
     <script src="js/router.js"></script>
     <script src="js/app.js"></script>
 </body>
