@@ -44,18 +44,15 @@ window.navigate = function(page) {
 
     // 5. 平滑捲動至視窗頂部
     window.scrollTo({ top: 0, behavior: 'smooth' });
-    function navigate(pageId) {
-    // ...原本的頁面渲染邏輯...
 
-   if (typeof gtag === 'function') {
+    // 📊 發送單頁虛擬頁面切換事件給 GA4
+    if (typeof gtag === 'function') {
         gtag('event', 'page_view', {
-            page_title: pageId,
-            page_path: '/Glow-hit/' + pageId,
-            page_location: window.location.origin + window.location.pathname + '#' + pageId
+            page_title: page,
+            page_path: '/Glow-hit/' + page,
+            page_location: window.location.origin + window.location.pathname + '#' + page
         });
     }
-    }
- 
 
     // 6. 路由分頁視圖渲染分流
     switch (page) {
