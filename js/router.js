@@ -47,11 +47,10 @@ window.navigate = function(page) {
     function navigate(pageId) {
     // ...原本的頁面渲染邏輯...
 
-    // 📊 發送虛擬頁面瀏覽紀錄給 GA4
-    if (typeof gtag === 'function') {
+   if (typeof gtag === 'function') {
         gtag('event', 'page_view', {
             page_title: pageId,
-            page_path: '/' + pageId,
+            page_path: '/Glow-hit/' + pageId,
             page_location: window.location.origin + window.location.pathname + '#' + pageId
         });
     }
