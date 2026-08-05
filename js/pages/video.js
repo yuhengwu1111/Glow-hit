@@ -1,7 +1,7 @@
 window.renderVideo = function(app, t) {
     
     // 🔑 YouTube 影片代碼
-    const youtubeVideoId = "P0g7m6jCZzs"; 
+    const youtubeVideoId = "KYSqtENvZfw"; 
 
     // 使用無 Cookie 的增強安全網址與原生觀看網址
     const embedUrl = `https://www.youtube-nocookie.com/embed/${youtubeVideoId}?rel=0&enablejsapi=1`;
