@@ -44,6 +44,19 @@ window.navigate = function(page) {
 
     // 5. 平滑捲動至視窗頂部
     window.scrollTo({ top: 0, behavior: 'smooth' });
+    function navigate(pageId) {
+    // ...原本的頁面渲染邏輯...
+
+    // 📊 發送虛擬頁面瀏覽紀錄給 GA4
+    if (typeof gtag === 'function') {
+        gtag('event', 'page_view', {
+            page_title: pageId,
+            page_path: '/' + pageId,
+            page_location: window.location.origin + window.location.pathname + '#' + pageId
+        });
+    }
+    }
+ 
 
     // 6. 路由分頁視圖渲染分流
     switch (page) {
