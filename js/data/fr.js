@@ -1,3 +1,5 @@
+window.translations = window.translations || {};
+
 window.translations['fr'] = {
     // Navigation et Pied de page
     navHome: "Accueil", 
@@ -36,10 +38,10 @@ window.translations['fr'] = {
     
     // Modes interactifs
     modesTitle: "3 modes interactifs immersifs",
-    modeColor: "Reconnaissance de couleur (Rouge/Bleu)",
-    modeColorDesc: "Le système génère des couleurs aléatoires ; les utilisateurs ne doivent frapper que la couleur cible. Entraîne la prise de décision et la vitesse cognitive avec un score final.",
-    modeSpeed: "Réaction à la vitesse de la lumière",
+    modeSpeed: "Vitesse de la lumière",
     modeSpeedDesc: "Les modules s'allument aléatoirement en succession rapide. Frappez rapidement les modules actifs pour entraîner votre vue, votre concentration et votre agilité ultime.",
+    modeColor: "Reconnaissance Rouge/Bleu",
+    modeColorDesc: "Le système génère des couleurs aléatoires ; les utilisateurs ne doivent frapper que la couleur cible. Entraîne la prise de décision et la vitesse cognitive avec un score final.",
     modeFloor: "Chasseur d'ombres et de lumières",
     modeFloorDesc: "Les modules sans fil peuvent être placés librement n'importe où. Brisez les limites de l'espace pour concevoir des parcours personnalisés combinant vision, concentration et agilité !",
     
@@ -106,34 +108,49 @@ window.translations['fr'] = {
     layoutHoneycomb: "Alvéoles (Honeycomb)",
     layoutHoneycombDesc: "Disposition dense, idéale pour l'entraînement à la réaction rapide à courte distance.",
     layoutMatrix: "Matrice (Matrix)",
-    layoutMatrixDesc: "Parfaitement symétrique, offre un cadre standardisé pour les tests de vitesse et de kognition.",
+    layoutMatrixDesc: "Parfaitement symétrique, offre un cadre standardisé pour les tests de vitesse et de cognition.",
     layoutRandom: "Disposition libre / DIY (Random DIY)",
     layoutRandomDesc: "S'adapte aux murs irréguliers, aux couloirs ou à des parcours d'entraînement personnalisés.",
     
     // Simulateur
     simTitle: "Simulateur interactif et contrôle intelligent GlowHit",
     simDesc: "Nous avons simulé le retour physique de GlowHit directement dans votre navigateur ! Choisissez un mode.",
-    tabSpeed: "Vitesse de la lumière (Speed)",
-    tabColor: "Reconnaissance (Inhibition)",
+    tabSpeed: "Vitesse de la lumière",
+    tabColor: "Reconnaissance Rouge/Bleu",
+    tabHunt: "Chasseur d'ombres et de lumières",
     tabHome: "Mode Éclairage",
     scoreLabel: "Score",
     timeLabel: "Temps restant",
     reactLabel: "Réaction moyenne",
-    startBtnText: "Commencer le jeu",
+    startBtnText: "Commencer le défi 10s",
     stopBtnText: "Arrêter le test",
+    leaderboardTitle: "TOP 10 Mondial",
+    refresh: "Actualiser",
+    loading: "Chargement du classement...",
+    noRecords: "Aucun record pour le moment. Soyez le premier !",
+    scoreUnit: "pts",
     homeTitle: "Contrôle de l'éclairage",
-    homeHue: "Teinte (Hue)",
-    homeSat: "Saturation (Saturation)",
-    homeBri: "Luminosité (Brightness)",
-    homeTemp: "Température de couleur (Color Temp)",
+    homeHue: "Teinte (0-255)",
+    homeSat: "Saturation (0-255)",
+    homeBri: "Luminosité (0-255)",
+    homeTemp: "Température de couleur (0=HSV)",
+    homeRainbow: "Dégradé Arc-en-ciel (30ms)",
     powerMonitor: "Batterie rechargeable 3000mAh 5V Type-C",
     powerDesc: "Alimenté par une batterie stable 5V Type-C 2A. Ci-dessous la simulation de charge dynamique avec 1 module actif.",
     currentLoad: "Courant total du système :",
     loadPercentLabel: "Marge de sécurité du bloc d'alimentation (Charge Max 2000mA)",
     statusSafe: "Plage de fonctionnement sûre",
     statusLimit: "Protection réseau active",
-    
-    // Alertes et Pop-ups
+    modalEnd: "Défi de 10s terminé !",
+    modalFinalScore: "Score Final",
+    modalAvgReact: "Réaction Moyenne",
+    modalHits: "Frappes Réussies",
+    modalNamePlaceholder: "Pseudo / Équipe (Max 24 car.)",
+    modalRetryBtn: "Réessayer",
+    modalSubmitBtn: "Enregistrer le Score",
+    modalSaving: "Enregistrement...",
+
+    // Alertes
     alertEnd: "Test terminé !",
     alertScore: "Votre score total :",
     alertAvgReact: "Temps de réaction moyen :",

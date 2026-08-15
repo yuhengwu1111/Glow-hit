@@ -1,3 +1,5 @@
+window.translations = window.translations || {};
+
 window.translations['pt'] = {
     // Navegação e Rodapé
     navHome: "Início", 
@@ -36,10 +38,10 @@ window.translations['pt'] = {
     
     // Modos Interativos
     modesTitle: "3 Modos Interativos Imersivos",
-    modeColor: "Discriminação de Cores (Vermelho/Azul)",
-    modeColorDesc: "O sistema gera cores aleatórias; os usuários devem tocar apenas nas cores indicadas. Treina a tomada de decisão cerebral e a velocidade de reação com pontuação final.",
-    modeSpeed: "Reação na Velocidade da Luz",
+    modeSpeed: "Velocidade da Luz",
     modeSpeedDesc: "Os módulos acendem aleatoriamente em rápida sucessão. Os usuários devem tocar nos módulos o mais rápido possível para treinar visão, foco e agilidade limite.",
+    modeColor: "Discriminação de Cores",
+    modeColorDesc: "O sistema gera cores aleatórias; os usuários devem tocar apenas nas cores indicadas. Treina a tomada de decisão cerebral e a velocidade de reação com pontuação final.",
     modeFloor: "Caçador de Sombras e Luz",
     modeFloorDesc: "Os módulos sem fio podem ser dispostos livremente em diferentes locais. Quebre os limites de espaço para planejar rotas de desafio personalizadas que combinam agilidade visual, foco e deslocamento físico!",
     
@@ -56,7 +58,7 @@ window.translations['pt'] = {
     visionTA3Title: "Casas Inteligentes (Espaço Multifuncional)",
     visionTA3Desc: "Transforma-se em iluminação ambiente elegante quando não está em uso, expandindo a iluminação residencial e superando as limitações dos equipamentos de ginástica tradicionais.",
 
-    // Página de Conceito da Marca
+    // Conceito da Marca
     brandTitle: "Filosofia da Marca GlowHit e do LOGO",
     brandSubtitle: "Um símbolo visual que une estética tecnológica, ciência do esporte e casas inteligentes.",
     brandNameTitle: "Origem do Nome: Glow + Hit",
@@ -113,27 +115,42 @@ window.translations['pt'] = {
     // Simulador
     simTitle: "Simulador de Controle Inteligente GlowHit",
     simDesc: "Simulamos o feedback físico do GlowHit diretamente no navegador! Escolha os modos para testar.",
-    tabSpeed: "Velocidade da Luz (Speed)",
-    tabColor: "Reconhecimento (Inhibition)",
+    tabSpeed: "Velocidade da Luz",
+    tabColor: "Discriminação de Cores",
+    tabHunt: "Caçador de Sombras e Luz",
     tabHome: "Modo Iluminação",
     scoreLabel: "Pontuação",
     timeLabel: "Tempo Restante",
     reactLabel: "Reação Média",
-    startBtnText: "Iniciar Jogo",
+    startBtnText: "Iniciar Desafio 10s",
     stopBtnText: "Parar Teste",
+    leaderboardTitle: "TOP 10 Global",
+    refresh: "Atualizar",
+    loading: "Carregando classificação...",
+    noRecords: "Sem registros ainda. Seja o primeiro!",
+    scoreUnit: "pts",
     homeTitle: "Controle de Iluminação",
-    homeHue: "Matiz (Hue)",
-    homeSat: "Saturação (Saturation)",
-    homeBri: "Brilho Inteligente (Brightness)",
-    homeTemp: "Temperatura de Cor (Color Temp)",
+    homeHue: "Matiz (0-255)",
+    homeSat: "Saturação (0-255)",
+    homeBri: "Brilho (0-255)",
+    homeTemp: "Temperatura de Cor (0=HSV)",
+    homeRainbow: "Fluxo Arco-íris (30ms)",
     powerMonitor: "Bateria Recarregável 3000mAh 5V Type-C",
     powerDesc: "Alimentado por bateria estável 5V Type-C 2A. Simulação de carga dinâmica com 1 módulo em operação abaixo.",
     currentLoad: "Corrente Total do Sistema:",
     loadPercentLabel: "Margem de Segurança da Fonte (Carga Máxima 2000mA)",
     statusSafe: "Faixa de Operação Segura",
     statusLimit: "Proteção de Rede Ativa",
+    modalEnd: "Desafio de 10s Concluído!",
+    modalFinalScore: "Pontuação Final",
+    modalAvgReact: "Reação Média",
+    modalHits: "Toques Válidos",
+    modalNamePlaceholder: "Insira apelido / equipe (Máx 24 car.)",
+    modalRetryBtn: "Tentar Novamente",
+    modalSubmitBtn: "Registrar Recorde",
+    modalSaving: "Salvando...",
     
-    // Alertas e Pop-ups
+    // Alertas
     alertEnd: "Teste Concluído!",
     alertScore: "Sua Pontuação Total:",
     alertAvgReact: "Tempo Médio de Reação:",

@@ -1,3 +1,5 @@
+window.translations = window.translations || {};
+
 window.translations['en'] = {
     // Navbar & Footer
     navHome: "Home", 
@@ -39,15 +41,15 @@ window.translations['en'] = {
     modeColor: "Tap the Color",
     modeColorDesc: "The system randomly generates different colors, and users can only tap on lights of the specified colors. This game can deeply train brain decision-making and reaction speed, and the system will provide ranking scores after the game ends.",
     modeSpeed: "Light speed reaction",
-    modeSpeedDesc: "The light modules will light up randomly, and users must quickly tap the lit modules. This comprehensively trains the user's eyesight, concentration, and reaction speed. Speed ​​data and rankings will be provided after the game ends.",
+    modeSpeedDesc: "The light modules will light up randomly, and users must quickly tap the lit modules. This comprehensively trains the user's eyesight, concentration, and reaction speed. Speed data and rankings will be provided after the game ends.",
     modeFloor: "Game Creator",
     modeFloorDesc: "The lighting modules are wireless and can be placed anywhere. Game designers can break spatial limitations, freely plan different locations and design challenge routes. Challengers need to run and tap the lit modules to complete the challenge, perfectly integrating training in eyesight, concentration, reaction speed, and running and movement!",
     
     // Vision Page
     visionTitle: "Why Create GlowHit? Our Target User",
-    visionSubtitle: "To address the challenges of seniors finding it difficult to exercise outdoors and children becoming addicted to screens. ",
+    visionSubtitle: "To address the challenges of seniors finding it difficult to exercise outdoors and children becoming addicted to screens.",
     visionOriginTitle: "1. Core Vision & Home Pain Points",
-    visionOriginDesc: "In modern urban life, we've identified two common problems in every family:<br>Difficulty for Elders to Exercise:<br>Many elderly people struggle to maintain a regular routine of going to the gym or exercising outdoors due to mobility issues, weather changes, or traffic risks. This lack of dynamic stimulation can lead to visual delays and accelerated aging of the brain's neural pathways. <br>Lack of Energy-Generating Tools for Children: <br> School-aged children are overly engrossed in mobile phones, tablets, and other electronic devices, lacking physical activity, which can lead to incomplete hand-eye coordination and poor attention span. Our initial goal in developing GlowHit was to solve these two problems. Elders don't need to go out; they can safely and enjoyably use this device in their own backyard or living room wall to train their physical reflexes and activate their surroundings. Meanwhile, children can use it as a physical plaything to generate energy, enjoying exercise through play and fostering a healthy, family-friendly lifestyle.",
+    visionOriginDesc: "In modern urban life, we've identified two common problems in every family:<br>Difficulty for Elders to Exercise:<br>Many elderly people struggle to maintain a regular routine of going to the gym or exercising outdoors due to mobility issues, weather changes, or traffic risks. This lack of dynamic stimulation can lead to visual delays and accelerated aging of the brain's neural pathways.<br>Lack of Energy-Generating Tools for Children:<br>School-aged children are overly engrossed in mobile phones, tablets, and other electronic devices, lacking physical activity, which can lead to incomplete hand-eye coordination and poor attention span. Our initial goal in developing GlowHit was to solve these two problems. Elders don't need to go out; they can safely and enjoyably use this device in their own backyard or living room wall to train their physical reflexes and activate their surroundings. Meanwhile, children can use it as a physical plaything to generate energy, enjoying exercise through play and fostering a healthy, family-friendly lifestyle.",
     visionAudienceTitle: "2. Target Customer and Benefits",
     visionTA1Title: "Exercise for seniors (home-based exercise)",
     visionTA1Desc: "When seniors are at home due to mobility issues, they can use safe, weightless light spot striking training to train their eye-hand-foot coordination and concentration, shorten neural delay, and effectively reduce the problems of falls and lack of exercise in the elderly.",
@@ -89,23 +91,38 @@ window.translations['en'] = {
     simDesc: "Experience the tactile joy of GlowHit right in your browser. Choose a mode below to test your reflexes.",
     tabSpeed: "Light speed reaction",
     tabColor: "Tap the Color",
+    tabHunt: "Game Creator",
     tabHome: "Home Decor",
     scoreLabel: "SCORE",
     timeLabel: "REMAINING",
     reactLabel: "AVG REACT",
     startBtnText: "Start Reaction Test",
     stopBtnText: "Stop Test",
+    leaderboardTitle: "Global TOP 10 Leaderboard",
+    refresh: "Refresh",
+    loading: "Loading ranking...",
+    noRecords: "No records yet. Be the first!",
+    scoreUnit: "pts",
     homeTitle: "Home Decor Control Panel",
-    homeHue: "Hue Spectrum",
-    homeSat: "Color Saturation",
-    homeBri: "Smart Brightness",
-    homeTemp: "Color Temperature",
+    homeHue: "Hue Spectrum (0-255)",
+    homeSat: "Color Saturation (0-255)",
+    homeBri: "Smart Brightness (0-255)",
+    homeTemp: "Color Temperature (0=HSV)",
+    homeRainbow: "Rainbow Flow (30ms)",
     powerMonitor: "3000mAh 5V Type-C rechargeable battery",
     powerDesc: "Powered by a stable 5V Type-C 2A rechargeable battery. The following is a dynamic load simulation with 12 modules in operation.",
     currentLoad: "Current total grid current:",
     loadPercentLabel: "Safe load capacity (maximum supported 2000mA)",
     statusSafe: "Safe working scope",
     statusLimit: "In power grid protection",
+    modalEnd: "10s Challenge Completed!",
+    modalFinalScore: "Final Score",
+    modalAvgReact: "Avg Reaction",
+    modalHits: "Total Hits",
+    modalNamePlaceholder: "Enter nickname / team (Max 24 chars)",
+    modalRetryBtn: "Try Again",
+    modalSubmitBtn: "Submit Score",
+    modalSaving: "Saving...",
 
     // Promo Video Page
     videoTitle: "GlowHit Brand Film",
@@ -115,7 +132,7 @@ window.translations['en'] = {
     videoFeat2Title: "02. Seamless Home Light Switch",
     videoFeat2Desc: "Transforms into cozy interior ambient lighting with a single touch post-workout.",
 
-
+    // Brand Page
     brandTitle: "GlowHit Brand & Logo Philosophy",
     brandSubtitle: "A visual symbol fusing technology aesthetics, sports science, and smart home living.",
     brandNameTitle: "Brand Name Origin: Glow + Hit",
@@ -167,5 +184,3 @@ window.translations['en'] = {
     alertHits: "Total Valid Hits: ",
     ms: "ms"
 };
-
-window.translations['en'] = window.translations.en;

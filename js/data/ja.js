@@ -1,5 +1,7 @@
+window.translations = window.translations || {};
+
 window.translations['ja'] = {
-    // ナビゲーション & フッター 
+    // ナビゲーション & フッター
     navHome: "ホーム", 
     navProduct: "製品構造", 
     navSimulator: "シミュレーター", 
@@ -15,7 +17,7 @@ window.translations['ja'] = {
     footerLink2: "スポーツ科学", 
     footerLink3: "開発の初衷",
     
-    // ホーム 
+    // ホーム
     heroTitle: "光を追いかけ、スマートな暮らしを。",
     heroSub: "スマートライトモジュールと運動プログラムの組み合わせで、自宅でのトレーニングをより楽しく。<br>ワイヤレスのライトモジュールはインテリアモードにも統合でき、スマートな美と健康的な暮らしを日常に溶け込ませます。",
     exploreBtn: "ハードウェア構造を見る",
@@ -34,29 +36,29 @@ window.translations['ja'] = {
     espTitle: "ESP32 超低遅延制御コア",
     espDesc: "ESP32チップと高感度マイクロスイッチを組み合わせ、死角のないタッチ感知とミリ秒単位の完璧なレスポンスを実現します。",
     
-    // インタラクティブモード 
+    // インタラクティブモード
     modesTitle: "3つの没入型インタラクティブモード",
-    modeColor: "赤青識別モード (Inhibition)",
-    modeColorDesc: "ランダムに点灯する光の中から指定された色だけを打撃するゲームです。脳の意思決定能力と判断スピードを深層から鍛えます。",
-    modeSpeed: "光速反応モード (Speed Test)",
+    modeSpeed: "光速反応",
     modeSpeedDesc: "ライトモジュールが次々とランダム点灯します。素早く叩くことで、動体視力、集中力、限界反応速度を鍛えることができます。",
-    modeFloor: "ライトチェイサー (Light Chaser)",
+    modeColor: "赤青識別",
+    modeColorDesc: "ランダムに点灯する光の中から指定された色だけを打撃するゲームです。脳の意思決定能力と判断スピードを深層から鍛えます。",
+    modeFloor: "ライトチェイサー",
     modeFloorDesc: "ワイヤレスモジュールは好きな場所に自由に配置できます。空間の限界を超えてオリジナルのコースを設計し、フットワークと反応力を同時にトレーニング！",
     
-    // 開発の初衷ページ 
+    // 開発の初衷ページ
     visionTitle: "GlowHitを開発した理由とターゲット層",
     visionSubtitle: "高齢者の運動不足と子どものスマホ依存という課題を解決するために。",
     visionOriginTitle: "1. 開発背景と市場の痛点",
     visionOriginDesc: "現代の都市生活において、あらゆる家庭に存在する2つの共通課題を発見しました：\n\n【高齢者の外出運動の難しさ】：多くの高齢者が筋力低下、天候、交通リスクなどにより屋外やジムでの運動習慣を維持できずにいます。動的な刺激が不足すると、視覚遅延や神経系の老化が加速します。\n\n【子どもの3C画面依存と運動不足】：学齢期の子どもがスマホやタブレット画面に長時間を費やし、手眼の協調発達の遅れや集中力低下を引き起こしています。\n\nGlowHitはこれら両方の問題を解決するために誕生しました。高齢者は外出せずにリビングで安全に反応力を鍛えることができ、子どもはリアルなゲームツールとして楽しく身体を動かせます。",
     visionAudienceTitle: "2. ターゲット層と主な効果",
     visionTA1Title: "シニアフィットネス（自宅運動）",
-    visionTA1Desc: "거動が不自由な高齢者でも安全な光打撃トレーニングを通じて、目・手・足の協調性と集中力を高め、神経の遅延を抑えて運動不足を解決します。",
+    visionTA1Desc: "行動が不自由な高齢者でも安全な光打撃トレーニングを通じて、目・手・足の協調性と集中力を高め、神経の遅延を抑えて運動不足を解決します。",
     visionTA2Title: "学齢期の子ども（画面から離れる）",
     visionTA2Desc: "リビングでの打撃対戦ゲームを通じて画面から離れ、遊びながら手眼協調性と脳の集中力の発達を刺激します。",
     visionTA3Title: "スマートホーム（多機能空間）",
     visionTA3Desc: "運動しない時はインテリア照明として活用でき、単一機能に留まっていた従来の運動器具の限界を克服します。",
 
-    // ブランドデザイン理念ページ
+    // ブランド理念
     brandTitle: "GlowHit ブランド & LOGO デザイン理念",
     brandSubtitle: "テクノロジー美学、スポーツ科学、スマートホームが融合したブランドビジュアルシンボル。",
     brandNameTitle: "ブランド名の由来：Glow + Hit",
@@ -74,7 +76,7 @@ window.translations['ja'] = {
     logoCoreTitle: "03. 核心的なビジュアルライトコア",
     logoCoreDesc: "視覚的なターゲット探索と手眼協調の核心的なトリガーポイントを象徴し、「脳の判断から身体の打撃まで」の神経伝達を意味します。",
 
-    // プロモーション動画ページ
+    // プロモーション動画
     videoTitle: "GlowHit 公式プロモーション動画",
     videoSubtitle: "スマートライト、極速反応トレーニング、ホーム美学が織りなす新しいライフスタイルをご体感ください。",
     videoFeat1Title: "01. 実機打撃の即時デモ",
@@ -82,7 +84,7 @@ window.translations['ja'] = {
     videoFeat2Title: "02. インテリア照明へのシームレス切り替え",
     videoFeat2Desc: "運動終了後はワンタップで温かみのある室内雰囲気照明へと変化し、現代のスマートホーム美学を完成させます。",
 
-    // 製品構造解体ページ
+    // 製品構造解体
     explodedTitle: "GlowHit ハードウェア構造解体",
     explodedSub: "内部構造の分解と精密な組み立てにより、耐久性のある物理的打撃感を実現しました。",
     partWs2812: "01. WS2812 LED ディフューザーカバー",
@@ -110,30 +112,45 @@ window.translations['ja'] = {
     layoutRandom: "変形自由配置 (Random DIY)",
     layoutRandomDesc: "枠にとらわれず、変形した壁面、廊下、オリジナルのコースに完全適応します。",
     
-    // シミュレーターページ
+    // シミュレーター
     simTitle: "GlowHit スマート制御 & インタラクティブシミュレーター",
     simDesc: "GlowHitの物理フィードバックをブラウザ上で完全再現しました！モードを選択して体感してください。",
-    tabSpeed: "光速反応 (Speed)",
-    tabColor: "赤青識別 (Inhibition)",
+    tabSpeed: "光速反応",
+    tabColor: "赤青識別",
+    tabHunt: "ライトチェイサー",
     tabHome: "インテリアモード",
     scoreLabel: "スコア",
     timeLabel: "残り時間",
     reactLabel: "平均反応速度",
-    startBtnText: "ゲーム開始",
+    startBtnText: "10秒チャレンジ開始",
     stopBtnText: "テスト停止",
+    leaderboardTitle: "グローバル TOP 10",
+    refresh: "更新",
+    loading: "ランキング読み込み中...",
+    noRecords: "記録がありません。一番乗りを目指しましょう！",
+    scoreUnit: "点",
     homeTitle: "照明連動コントロール",
-    homeHue: "色相 (Hue)",
-    homeSat: "彩度 (Saturation)",
-    homeBri: "輝度 (Brightness)",
-    homeTemp: "色温度 (Color Temp)",
+    homeHue: "色相 (0-255)",
+    homeSat: "彩度 (0-255)",
+    homeBri: "輝度 (0-255)",
+    homeTemp: "色温度 (0=HSV)",
+    homeRainbow: "レインボーフロー (30ms)",
     powerMonitor: "3000mAh 5V Type-C 充電式バッテリー",
-    powerDesc: " there 5V Type-C 2A 電源で動作します。以下は1個のモジュール動作時の動的負荷シミュレーションです。",
+    powerDesc: "5V Type-C 2A 電源で動作します。以下は1個のモジュール動作時の動的負荷シミュレーションです。",
     currentLoad: "現在のシステム総電流：",
     loadPercentLabel: "電源アダプター安全マージン (最大 2000mA 許容)",
     statusSafe: "安全動作範囲",
     statusLimit: "過負荷保護アクティブ",
+    modalEnd: "10秒チャレンジ終了！",
+    modalFinalScore: "最終スコア",
+    modalAvgReact: "平均反応速度",
+    modalHits: "ヒット数",
+    modalNamePlaceholder: "ニックネーム / チーム名 (最大24文字)",
+    modalRetryBtn: "もう一度挑戦",
+    modalSubmitBtn: "ランキング登録",
+    modalSaving: "保存中...",
     
-    // アラート & ポップアップ
+    // アラート
     alertEnd: "テスト終了！",
     alertScore: "あなたのトータルスコア：",
     alertAvgReact: "平均反応時間：",

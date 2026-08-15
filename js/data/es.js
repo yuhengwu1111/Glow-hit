@@ -1,3 +1,5 @@
+window.translations = window.translations || {};
+
 window.translations['es'] = {
     // Navegación y Pie de página
     navHome: "Inicio", 
@@ -36,10 +38,10 @@ window.translations['es'] = {
     
     // Modos Interactivos
     modesTitle: "3 Modos Interactivos Inmersivos",
-    modeColor: "Reconocimiento Rojo/Azul (Inhibición)",
-    modeColorDesc: "El sistema genera colores aleatorios; los usuarios solo deben golpear la luz del color objetivo. Entrena profundamente la toma de decisiones y la velocidad cognitiva del cerebro, ofreciendo una puntuación al finalizar.",
-    modeSpeed: "Reacción a la Velocidad de la Luz",
+    modeSpeed: "Velocidad de la Luz",
     modeSpeedDesc: "Los módulos se encienden al azar. Debes tocar rápidamente los módulos activos para entrenar la vista, la concentración y la agilidad límite con métricas de velocidad.",
+    modeColor: "Reconocimiento Rojo/Azul",
+    modeColorDesc: "El sistema genera colores aleatorios; los usuarios solo deben golpear la luz del color objetivo. Entrena profundamente la toma de decisiones y la velocidad cognitiva del cerebro, ofreciendo una puntuación al finalizar.",
     modeFloor: "Cazador de Sombras y Luz",
     modeFloorDesc: "Los módulos inalámbricos se pueden colocar libremente en cualquier lugar. Rompe los límites del espacio para diseñar rutas de desafío personalizadas que combinan visión, concentración, reacción y agilidad corporal.",
     
@@ -56,7 +58,7 @@ window.translations['es'] = {
     visionTA3Title: "Hogares Inteligentes (Espacio Multifuncional)",
     visionTA3Desc: "Se convierte en una elegante luz ambiental cuando no está en uso deportivo, expandiendo la iluminación del hogar y superando las limitaciones de los equipos de ejercicio tradicionales.",
 
-    // Página de Concepto de Marca
+    // Filosofía de Marca
     brandTitle: "Filosofía de Marca y LOGO de GlowHit",
     brandSubtitle: "Un símbolo visual que fusiona estética tecnológica, ciencia deportiva y hogar inteligente.",
     brandNameTitle: "Origen del Nombre: Glow + Hit",
@@ -113,27 +115,42 @@ window.translations['es'] = {
     // Simulador
     simTitle: "Simulador Interactivo y Control Inteligente GlowHit",
     simDesc: "¡Simulamos la respuesta física de GlowHit directamente en tu navegador! Elige un modo para probar.",
-    tabSpeed: "Velocidad de la Luz (Speed)",
-    tabColor: "Reconocimiento (Inhibition)",
+    tabSpeed: "Velocidad de la Luz",
+    tabColor: "Reconocimiento Rojo/Azul",
+    tabHunt: "Cazador de Sombras y Luz",
     tabHome: "Modo Hogar",
     scoreLabel: "Puntuación",
     timeLabel: "Tiempo Restante",
     reactLabel: "Reacción Promedio",
-    startBtnText: "Iniciar Juego",
+    startBtnText: "Iniciar Desafío 10s",
     stopBtnText: "Detener Prueba",
+    leaderboardTitle: "TOP 10 Global",
+    refresh: "Actualizar",
+    loading: "Cargando clasificación...",
+    noRecords: "¡Sin registros aún! ¡Sé el primero!",
+    scoreUnit: "pts",
     homeTitle: "Control de Iluminación",
-    homeHue: "Tono (Hue)",
-    homeSat: "Saturación (Saturation)",
-    homeBri: "Brillo Inteligente (Brightness)",
-    homeTemp: "Temperatura de Color (Color Temp)",
+    homeHue: "Tono (0-255)",
+    homeSat: "Saturación (0-255)",
+    homeBri: "Brillo (0-255)",
+    homeTemp: "Temperatura de Color (0=HSV)",
+    homeRainbow: "Flujo Arcoíris (30ms)",
     powerMonitor: "Batería Recargable 3000mAh 5V Type-C",
     powerDesc: "Alimentado por una batería estable 5V Type-C 2A. A continuación se muestra la simulación de carga con 1 módulo en funcionamiento.",
     currentLoad: "Corriente Total del Sistema:",
     loadPercentLabel: "Margen de Seguridad de la Fuente (Carga Máx 2000mA)",
     statusSafe: "Rango de Operación Seguro",
     statusLimit: "Protección de Red Activa",
+    modalEnd: "¡Desafío de 10s Completado!",
+    modalFinalScore: "Puntuación Final",
+    modalAvgReact: "Reacción Promedio",
+    modalHits: "Aciertos Totales",
+    modalNamePlaceholder: "Ingresa apodo / equipo (Máx 24 car.)",
+    modalRetryBtn: "Reintentar",
+    modalSubmitBtn: "Registrar Récord",
+    modalSaving: "Guardando...",
     
-    // Alertas y Pop-ups
+    // Alertas
     alertEnd: "¡Prueba Finalizada!",
     alertScore: "Tu Puntuación Total:",
     alertAvgReact: "Tiempo Promedio de Reacción:",

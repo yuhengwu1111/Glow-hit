@@ -1,3 +1,5 @@
+window.translations = window.translations || {};
+
 window.translations['de'] = {
     // Navigation & Fußzeile
     navHome: "Startseite", 
@@ -36,11 +38,11 @@ window.translations['de'] = {
     
     // Interaktive Modi
     modesTitle: "3 Immersive Interaktive Modi",
-    modeColor: "Farberkennung (Rot/Blau)",
-    modeColorDesc: "Das System erzeugt zufällige Farben; Benutzer dürfen nur die Zielfarbe schlagen. Trainiert Entscheidungsfähigkeit und kognitive Geschwindigkeit mit Punkteauswertung.",
-    modeSpeed: "Lichtgeschwindigkeitstest",
+    modeSpeed: "Lichtgeschwindigkeit",
     modeSpeedDesc: "Lichtmodule leuchten in rascher Folge auf. Tippen Sie so schnell wie möglich auf die aktiven Module, um Sehkraft, Fokus und Reaktionsgrenzen zu testen.",
-    modeFloor: "Licht-Jäger (Light Chaser)",
+    modeColor: "Farberkennung",
+    modeColorDesc: "Das System erzeugt zufällige Farben; Benutzer dürfen nur die Zielfarbe schlagen. Trainiert Entscheidungsfähigkeit und kognitive Geschwindigkeit mit Punkteauswertung.",
+    modeFloor: "Licht-Jäger",
     modeFloorDesc: "Die kabellosen Module können frei an Wänden oder Böden platziert werden. Sprengen Sie Raumgrenzen für individuelle Parcours, die Reaktion und Bewegung vereinen!",
     
     // Core-Vision Seite
@@ -113,27 +115,42 @@ window.translations['de'] = {
     // Simulator
     simTitle: "GlowHit Smart-Control & Interaktiver Simulator",
     simDesc: "Wir haben das physische Feedback von GlowHit direkt im Browser simuliert! Wählen Sie einen Modus.",
-    tabSpeed: "Lichtgeschwindigkeit (Speed)",
-    tabColor: "Farberkennung (Inhibition)",
+    tabSpeed: "Lichtgeschwindigkeit",
+    tabColor: "Farberkennung",
+    tabHunt: "Licht-Jäger",
     tabHome: "Home-Modus",
     scoreLabel: "Punkte",
     timeLabel: "Verbleibende Zeit",
     reactLabel: "Ø Reaktionszeit",
-    startBtnText: "Spiel Starten",
+    startBtnText: "10s-Challenge Starten",
     stopBtnText: "Test Stoppen",
+    leaderboardTitle: "Globale TOP 10",
+    refresh: "Aktualisieren",
+    loading: "Rangliste wird geladen...",
+    noRecords: "Noch keine Einträge. Sei der Erste!",
+    scoreUnit: "Pkt.",
     homeTitle: "Lichtsteuerung",
-    homeHue: "Farbton (Hue)",
-    homeSat: "Sättigung (Saturation)",
-    homeBri: "Helligkeit (Brightness)",
-    homeTemp: "Farbtemperatur (Color Temp)",
+    homeHue: "Farbton (0-255)",
+    homeSat: "Sättigung (0-255)",
+    homeBri: "Helligkeit (0-255)",
+    homeTemp: "Farbtemperatur (0=HSV)",
+    homeRainbow: "Regenbogen-Fluss (30ms)",
     powerMonitor: "3000mAh 5V Type-C Akku",
     powerDesc: "Betrieben mit stabilem 5V Type-C 2A Netzteil. Nachfolgend die dynamische Lastsimulation bei 1 aktivem Modul.",
     currentLoad: "Gesamtstrom des Systems:",
     loadPercentLabel: "Netzteil-Sicherheitsreserve (Max. 2000mA Last)",
     statusSafe: "Sicherer Betriebsbereich",
     statusLimit: "Überlastschutz Aktiv",
+    modalEnd: "10s-Challenge Beendet!",
+    modalFinalScore: "Endpunktzahl",
+    modalAvgReact: "Ø Reaktionszeit",
+    modalHits: "Treffer",
+    modalNamePlaceholder: "Spitzname / Team (Max. 24 Zeichen)",
+    modalRetryBtn: "Erneut Versuchen",
+    modalSubmitBtn: "Ergebnis Eintragen",
+    modalSaving: "Wird gespeichert...",
     
-    // Benachrichtigungen & Popups
+    // Benachrichtigungen
     alertEnd: "Test Beendet!",
     alertScore: "Ihre Gesamtzahl an Punkten:",
     alertAvgReact: "Durchschnittliche Reaktionszeit:",

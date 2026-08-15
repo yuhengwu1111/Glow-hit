@@ -1,3 +1,5 @@
+window.translations = window.translations || {};
+
 window.translations['zh'] = {
     // 導覽列與頁尾 
     navHome: "首頁", 
@@ -113,25 +115,40 @@ window.translations['zh'] = {
     // 模擬器頁面 (Simulator Page)
     simTitle: "GlowHit 智慧調控與互動模擬器",
     simDesc: "我們在網頁中完整模擬了 GlowHit 的物理回饋！可任選兩種互動模式，體驗極致快感。",
-    tabSpeed: "光速反應 (Speed)",
-    tabColor: "紅藍辨識 (Inhibition)",
+    tabSpeed: "光速反應",
+    tabColor: "紅藍辨識",
+    tabHunt: "光影追獵者",
     tabHome: "居家模式",
     scoreLabel: "得分",
     timeLabel: "剩餘時間",
     reactLabel: "平均反應",
     startBtnText: "遊戲開始",
     stopBtnText: "停止測試",
+    leaderboardTitle: "全球 TOP 10 英雄榜",
+    refresh: "刷新",
+    loading: "載入排行榜中...",
+    noRecords: "尚無紀錄，快來搶下第一！",
+    scoreUnit: "分",
     homeTitle: "燈飾聯動操控",
     homeHue: "彩光色彩 (Hue)",
     homeSat: "色彩飽和度 (Saturation)",
     homeBri: "智慧亮度 (Brightness)",
     homeTemp: "模擬色溫 (Color Temp)",
+    homeRainbow: "彩虹漸變流光 (30ms)",
     powerMonitor: "3000mAh 5V Type-C 充電電池",
     powerDesc: "使用穩定 5V Type-C 2A 充電電池供電。以下為 1組模組運作下的動態負載模擬。",
     currentLoad: "當前電網總電流：",
     loadPercentLabel: "變壓器負載安全餘量 (最大 2000mA 承載)",
     statusSafe: "安全工作範圍",
     statusLimit: "電網保護中",
+    modalEnd: "10 秒極限挑戰結束！",
+    modalFinalScore: "最終得分",
+    modalAvgReact: "平均反應",
+    modalHits: "命中數",
+    modalNamePlaceholder: "輸入暱稱 / 團隊名 (最多 24 字)",
+    modalRetryBtn: "再練一次",
+    modalSubmitBtn: "登記排行",
+    modalSaving: "儲存中...",
     
     // 遊戲提示與彈窗 (Alerts)
     alertEnd: "測試結束！",

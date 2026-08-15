@@ -1,3 +1,5 @@
+window.translations = window.translations || {};
+
 window.translations['zh-CN'] = {
     // 导航栏与页脚 
     navHome: "首页", 
@@ -112,26 +114,41 @@ window.translations['zh-CN'] = {
     
     // 模拟器页面 (Simulator Page)
     simTitle: "GlowHit 智慧调控与互动模拟器",
-    simDesc: "我们在网页中完整模拟了 GlowHit 的物理反馈！可任选两种互动模式，体验极致快感。",
-    tabSpeed: "光速反应 (Speed)",
-    tabColor: "红蓝辨识 (Inhibition)",
+    simDesc: "我们在网页中完整模拟了 GlowHit 的物理反馈！可任选互动模式，体验极致快感。",
+    tabSpeed: "光速反应",
+    tabColor: "红蓝辨识",
+    tabHunt: "光影追猎者",
     tabHome: "居家模式",
     scoreLabel: "得分",
     timeLabel: "剩余时间",
     reactLabel: "平均反应",
     startBtnText: "游戏开始",
     stopBtnText: "停止测试",
+    leaderboardTitle: "全球 TOP 10 英雄榜",
+    refresh: "刷新",
+    loading: "载入排行榜中...",
+    noRecords: "尚无纪录，快来抢下第一！",
+    scoreUnit: "分",
     homeTitle: "灯饰联动操控",
     homeHue: "彩光色彩 (Hue)",
     homeSat: "色彩饱和度 (Saturation)",
     homeBri: "智慧亮度 (Brightness)",
     homeTemp: "模拟色温 (Color Temp)",
+    homeRainbow: "彩虹渐变流光 (30ms)",
     powerMonitor: "3000mAh 5V Type-C 充电电池",
     powerDesc: "使用稳定 5V Type-C 2A 充电电池供电。以下为 1 组模块运作下的动态负载模拟。",
     currentLoad: "当前电网总电流：",
     loadPercentLabel: "变压器负载安全余量 (最大 2000mA 承载)",
     statusSafe: "安全工作范围",
     statusLimit: "电网保护中",
+    modalEnd: "10 秒极限挑战结束！",
+    modalFinalScore: "最终得分",
+    modalAvgReact: "平均反应",
+    modalHits: "命中数",
+    modalNamePlaceholder: "输入昵称 / 团队名 (最多 24 字)",
+    modalRetryBtn: "再练一次",
+    modalSubmitBtn: "登记排行",
+    modalSaving: "储存中...",
     
     // 游戏提示与弹窗 (Alerts)
     alertEnd: "测试结束！",

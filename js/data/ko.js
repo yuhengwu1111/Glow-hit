@@ -1,5 +1,7 @@
+window.translations = window.translations || {};
+
 window.translations['ko'] = {
-    // 네비게이션 및 푸터 
+    // 네비게이션 및 푸터
     navHome: "홈", 
     navProduct: "제품 구조", 
     navSimulator: "시뮬레이터", 
@@ -15,7 +17,7 @@ window.translations['ko'] = {
     footerLink2: "스포츠 과학", 
     footerLink3: "핵심 비전",
     
-    // 메인 홈 
+    // 메인 홈
     heroTitle: "빛을 따라 움직이고, 스마트한 삶을 즐기다.",
     heroSub: "스마트 조명 모듈과 맞춤형 운동 프로그램을 통해 홈 트레이닝의 즐거움을 더합니다.<br>무선 스마트 조명 모듈은 홈 모드와 통합되어 기술적 미학과 건강한 라이프스타일을 일상에 녹여냅니다.",
     exploreBtn: "하드웨어 구조 보기",
@@ -36,11 +38,11 @@ window.translations['ko'] = {
     
     // 인터랙티브 모드
     modesTitle: "3가지 몰입형 인터랙티브 모드",
-    modeColor: "색상 인지 모드 (Red/Blue)",
-    modeColorDesc: "무작위로 생성되는 색상 중 지정된 색상만 타격해야 하는 게임입니다. 뇌의 의사결정 능력과 순발력을 깊이 있게 단련하며, 종료 후 랭킹 점수를 제공합니다.",
-    modeSpeed: "광속 반응 모드 (Speed Test)",
+    modeSpeed: "광속 반응 모드",
     modeSpeedDesc: "조명 모듈이 무작위로 점등되면 빠르게 타격하는 모드입니다. 시력, 집중력, 한계 반응속도를 전방위적으로 단련할 수 있습니다.",
-    modeFloor: "라이트 체이서 (Light Chaser)",
+    modeColor: "색상 인지 모드",
+    modeColorDesc: "무작위로 생성되는 색상 중 지정된 색상만 타격해야 하는 게임입니다. 뇌의 의사결정 능력과 순발력을 깊이 있게 단련하며, 종료 후 랭킹 점수를 제공합니다.",
+    modeFloor: "라이트 체이서",
     modeFloorDesc: "무선 모듈을 원하는 위치에 자유롭게 배치할 수 있습니다. 공간의 제약을 넘어 코스를 설계할 수 있으며, 동선 이동과 순발력 트레이닝을 완벽하게 결합합니다!",
     
     // 핵심 비전 페이지
@@ -56,7 +58,7 @@ window.translations['ko'] = {
     visionTA3Title: "스마트 테크 홈 (다기능 공간)",
     visionTA3Desc: "운동하지 않을 때는 고급스러운 인테리어 무드등으로 활용되며, 단일 기능에 그치던 기존 운동기구의 한계를 극복합니다.",
 
-    // 브랜드 디자인 철학 페이지
+    // 브랜드 철학
     brandTitle: "GlowHit 브랜드 & LOGO 디자인 철학",
     brandSubtitle: "테크 미학, 스포츠 과학, 스마트 홈 라이프스타일이 융합된 브랜드 비주얼 심볼.",
     brandNameTitle: "브랜드 네이밍의 유래: Glow + Hit",
@@ -71,10 +73,10 @@ window.translations['ko'] = {
     logoGeoDesc: "GlowHit의 모듈형 퀵 조립 특성을 상징하며, 무한한 공간 적응력과 견고한 공학적 미학을 나타냅니다.",
     logoColorTitle: "02. 듀얼 스펙트럼 그라데이션",
     logoColorDesc: "딥 블루는 ESP32의 밀리초 기술력과 집중력을, 골드 옐로우는 운동 열정과 홈 모드의 따뜻한 분위기를 상징합니다.",
-    logoCoreTitle: "03. 코어 비주얼 라이트 둔",
+    logoCoreTitle: "03. 코어 비주얼 라이트 코어",
     logoCoreDesc: "시각적 타깃 탐색과 손-눈 협응의 핵심 트리거 포인트를 상징하며, '뇌의 판단부터 신체 타격까지'의 신경 연결을 의미합니다.",
 
-    // 홍보 영상 페이지
+    // 홍보 영상
     videoTitle: "GlowHit 브랜드 공식 홍보 영상",
     videoSubtitle: "스마트 조명, 극속 반응 훈련, 홈 미학이 어우러진 새로운 라이프스타일을 경험하세요.",
     videoFeat1Title: "01. 실기 타격 즉각 시연",
@@ -82,7 +84,7 @@ window.translations['ko'] = {
     videoFeat2Title: "02. 홈 무드등 무소음 전환",
     videoFeat2Desc: "운동이 끝난 후 원클릭으로 아늑한 실내 분위기 조명으로 전환되어 현대 스마트 홈 미학을 완벽히 완성합니다.",
 
-    // 제품 구조 해체 페이지
+    // 제품 구조 해체
     explodedTitle: "GlowHit 하드웨어 구조 해체",
     explodedSub: "내부 구조 분해 및 정밀 조립을 통해 견고하고 내구성 있는 타격감을 구현했습니다.",
     partWs2812: "01. WS2812 LED 디퓨저 커버",
@@ -110,30 +112,45 @@ window.translations['ko'] = {
     layoutRandom: "불규칙 자유 배치 (Random DIY)",
     layoutRandomDesc: "틀을 깨고 불규칙한 가정집 벽면, 복도, DIY 운동 목표에 완벽하게 적응합니다.",
     
-    // 시뮬레이터 페이지
+    // 시뮬레이터
     simTitle: "GlowHit 스마트 제어 & 인터랙티브 시뮬레이터",
     simDesc: "브라우저에서 GlowHit의 물리적 피드백을 완벽하게 시뮬레이션했습니다! 모드를 선택하여 체험해보세요.",
-    tabSpeed: "광속 반응 (Speed)",
-    tabColor: "색상 인지 (Inhibition)",
-    tabHome: "홈 모드 (무드등)",
+    tabSpeed: "광속 반응",
+    tabColor: "색상 인지",
+    tabHunt: "라이트 체이서",
+    tabHome: "홈 모드",
     scoreLabel: "점수",
     timeLabel: "남은 시간",
     reactLabel: "평균 반응속도",
-    startBtnText: "게임 시작",
+    startBtnText: "10초 챌린지 시작",
     stopBtnText: "테스트 중지",
+    leaderboardTitle: "글로벌 TOP 10",
+    refresh: "새로고침",
+    loading: "랭킹 불러오는 중...",
+    noRecords: "아직 기록이 없습니다. 첫 번째 기록을 남겨보세요!",
+    scoreUnit: "점",
     homeTitle: "조명 연동 제어",
-    homeHue: "색상 (Hue)",
-    homeSat: "채도 (Saturation)",
-    homeBri: "밝기 (Brightness)",
-    homeTemp: "색온도 (Color Temp)",
+    homeHue: "색상 (0-255)",
+    homeSat: "채도 (0-255)",
+    homeBri: "밝기 (0-255)",
+    homeTemp: "색온도 (0=HSV)",
+    homeRainbow: "무지개 효과 (30ms)",
     powerMonitor: "3000mAh 5V Type-C 충전식 배터리",
     powerDesc: "안정적인 5V Type-C 2A 전원으로 동작합니다. 아래는 1개 모듈 동작 시의 동적 부하 시뮬레이션입니다.",
     currentLoad: "현재 전력망 총 전류:",
     loadPercentLabel: "변압기 부하 안전 여유율 (최대 2000mA 수용)",
     statusSafe: "안전 동작 범위",
     statusLimit: "전력망 보호 중",
+    modalEnd: "10초 극한 챌린지 종료!",
+    modalFinalScore: "최종 점수",
+    modalAvgReact: "평균 반응",
+    modalHits: "타격 성공",
+    modalNamePlaceholder: "닉네임 / 팀명 입력 (최대 24자)",
+    modalRetryBtn: "다시 하기",
+    modalSubmitBtn: "기록 등록",
+    modalSaving: "저장 중...",
     
-    // 알림 및 팝업
+    // 알림
     alertEnd: "테스트 종료!",
     alertScore: "최종 점수:",
     alertAvgReact: "평균 반응 시간:",
