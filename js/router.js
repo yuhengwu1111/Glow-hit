@@ -1,16 +1,23 @@
 window.currentPage = 'home';
+window.currentLang = 'zh-TW';
 
 window.navigate = function(page) {
-    window.currentPage = page;
+    window.currentPage = page || 'home';
     const app = document.getElementById('app');
     if (!app) return;
     
-    // 1. 抓取當前語言字典
+    // 1. 抓取當前語言字典（強化大小寫相容與 Fallback）
     const langSelect = document.getElementById('langSelect');
-    const langKey = langSelect ? langSelect.value : 'zh-TW';
-    const t = window.translations[langKey] || window.translations.zh || window.translations.en;
+    const langKey = langSelect ? langSelect.value : (window.currentLang || 'zh-TW');
+    window.currentLang = langKey;
 
-    // 2. 切換分頁時，強制停止後台正在執行的遊戲倒數與計時器
+    const t = window.translations[langKey] 
+           || window.translations[langKey.toLowerCase()] 
+           || window.translations['zh-TW'] 
+           || window.translations['en'] 
+           || {};
+
+    // 2. 切換分頁時，強制停止後台計時器與進行中的遊戲
     if (window.GlowHitEngine && window.GlowHitEngine.isActive) {
         window.GlowHitEngine.endGame();
     }
@@ -19,9 +26,12 @@ window.navigate = function(page) {
         window.gameInterval = null;
     }
 
-    // 3. 即時同步導覽列與選單多語系文字
-    if (window.updateNavbarText) {
+    // 3. 即時同步導覽列與頁尾多語系文字
+    if (typeof window.updateNavbarText === 'function') {
         window.updateNavbarText();
+    }
+    if (typeof window.updateFooterText === 'function') {
+        window.updateFooterText();
     }
 
     // 4. 更新導覽列高亮選取狀態
@@ -42,7 +52,7 @@ window.navigate = function(page) {
         activeMobNav.classList.add('text-black', 'font-bold');
     }
 
-    // 5. 平滑捲動至視窗頂部
+    // 5. 視窗平滑捲動至頂部
     window.scrollTo({ top: 0, behavior: 'smooth' });
 
     // 📊 發送單頁虛擬頁面切換事件給 GA4
@@ -54,7 +64,7 @@ window.navigate = function(page) {
         });
     }
 
-    // 6. 路由分頁視圖渲染分流
+    // 6. 頁面渲染分流
     switch (page) {
         case 'home':
             if (window.renderHome) window.renderHome(app, t);
@@ -64,9 +74,6 @@ window.navigate = function(page) {
             break;
         case 'simulator':
             if (window.renderSimulator) window.renderSimulator(app, t);
-            break;
-        case 'science':
-            if (window.renderScience) window.renderScience(app, t);
             break;
         case 'vision':
             if (window.renderVision) window.renderVision(app, t);
@@ -82,7 +89,7 @@ window.navigate = function(page) {
             break;
     }
 
-    // 7. 全域自動防護鎖：確保 DOM 渲染完畢後 100% 正確驅動 Lucide Icons 顯示
+    // 7. 確保 Lucide Icons 渲染
     setTimeout(() => {
         if (typeof lucide !== 'undefined' && lucide.createIcons) {
             lucide.createIcons();
