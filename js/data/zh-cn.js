@@ -124,7 +124,7 @@ window.translations['zh-CN'] = {
     reactLabel: "平均反应",
     startBtnText: "游戏开始",
     stopBtnText: "停止测试",
-    leaderboardTitle: "全球 TOP 10 英雄榜",
+    leaderboardTitle: "全球 TOP 10 排行榜",
     refresh: "刷新",
     loading: "载入排行榜中...",
     noRecords: "尚无纪录，快来抢下第一！",

@@ -70,14 +70,17 @@ window.isRainbowMode = false;
 window.renderSimulator = function(app, t) {
     t = t || {};
 
-    // 100% 優先讀取字典檔，字典檔有定義就使用字典檔內容
+    // 100% 優先讀取字典檔，過濾括號與英文附註
+    const cleanTab = (val, fallback) => (val || fallback).replace(/\s*\([a-zA-Z\s0-9-]+\)/g, '').trim();
+    const isEn = (window.currentLang || '').startsWith('en');
+
     const txt = {
         simTitle: t.simTitle || '智慧模組反應牆模擬器',
         simDesc: t.simDesc || '體驗 10 秒極限反應訓練與智慧居家情境切換',
-        tabSpeed: t.tabSpeed || '光速反應',
-        tabColor: t.tabColor || '紅藍辨識',
-        tabHunt: t.tabHunt || '光影追獵',
-        tabHome: t.tabHome || '居家模式',
+        tabSpeed: isEn ? t.tabSpeed : cleanTab(t.tabSpeed, '光速反應'),
+        tabColor: isEn ? t.tabColor : cleanTab(t.tabColor, '紅藍辨識'),
+        tabHunt: isEn ? t.tabHunt : cleanTab(t.tabHunt, '光影追獵'),
+        tabHome: isEn ? t.tabHome : cleanTab(t.tabHome, '居家模式'),
         scoreLabel: t.scoreLabel || '累計得分',
         timeLabel: t.timeLabel || '剩餘時間',
         reactLabel: t.reactLabel || '平均反應',
@@ -89,11 +92,11 @@ window.renderSimulator = function(app, t) {
         noRecords: t.noRecords || '尚無紀錄，快來搶下第一！',
         scoreUnit: t.scoreUnit || '分',
         homeTitle: t.homeTitle || '居家氛圍燈光調節',
-        homeHue: t.homeHue || '色相 (色彩)',
-        homeSat: t.homeSat || '飽和度 (鮮豔)',
-        homeBri: t.homeBri || '亮度 (發光強度)',
-        homeTemp: t.homeTemp || '色溫模式 (0=HSV)',
-        homeRainbow: t.homeRainbow || '彩虹漸變流光 (30ms)',
+        homeHue: isEn ? t.homeHue : cleanTab(t.homeHue, '色相'),
+        homeSat: isEn ? t.homeSat : cleanTab(t.homeSat, '飽和度'),
+        homeBri: isEn ? t.homeBri : cleanTab(t.homeBri, '亮度'),
+        homeTemp: isEn ? t.homeTemp : cleanTab(t.homeTemp, '色溫模式'),
+        homeRainbow: isEn ? t.homeRainbow : cleanTab(t.homeRainbow, '彩虹漸變流光'),
         powerMonitor: t.powerMonitor || '電網負載監控',
         currentLoad: t.currentLoad || '當前電流負載',
         loadPercentLabel: t.loadPercentLabel || '負載率',
@@ -116,7 +119,7 @@ window.renderSimulator = function(app, t) {
                 <p class="text-gray-500 mt-2 text-sm">${txt.simDesc}</p>
             </div>
             
-            <!-- 4 大模式切換頁籤 (直接由字典檔控制名稱) -->
+            <!-- 4 大模式切換頁籤 -->
             <div class="flex justify-center bg-gray-200/80 p-1 rounded-full mb-8 max-w-md mx-auto">
                 <button onclick="window.setSimMode('speed')" id="tab-speed" class="flex-1 py-1.5 text-xs font-semibold rounded-full text-gray-500 transition-all cursor-pointer">${txt.tabSpeed}</button>
                 <button onclick="window.setSimMode('color')" id="tab-color" class="flex-1 py-1.5 text-xs font-semibold rounded-full text-gray-500 transition-all cursor-pointer">${txt.tabColor}</button>
@@ -125,7 +128,7 @@ window.renderSimulator = function(app, t) {
             </div>
             
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8 items-start">
-                <!-- 左側：3x3 牆面 (鎖定 1:1 正比例) -->
+                <!-- 左側：3x3 牆面 -->
                 <div class="lg:col-span-7 bg-white p-6 md:p-8 rounded-3xl border border-gray-100 shadow-sm flex flex-col items-center">
                     <div class="w-full max-w-[340px] aspect-square bg-gray-50/90 rounded-3xl border border-gray-200/80 p-4 md:p-5 flex items-center justify-center">
                         <div id="simulatedWall" class="grid grid-cols-3 gap-3.5 md:gap-4 w-full h-full items-center justify-items-center"></div>
@@ -173,23 +176,23 @@ window.renderSimulator = function(app, t) {
                             <div>
                                 <div class="flex justify-between mb-1">
                                     <span class="text-gray-500 font-medium">${txt.homeSat} (0-255)</span>
-                                    <span id="satText" class="font-bold text-indigo-600">220</span>
+                                    <span id="satText" class="font-bold text-indigo-600">255</span>
                                 </div>
-                                <input type="range" id="satRange" min="0" max="255" value="220" class="w-full cursor-pointer accent-indigo-600" oninput="window.updateHomeColor()">
+                                <input type="range" id="satRange" min="0" max="255" value="255" class="w-full cursor-pointer accent-indigo-600" oninput="window.updateHomeColor()">
                             </div>
 
                             <div>
                                 <div class="flex justify-between mb-1">
                                     <span class="text-gray-500 font-medium">${txt.homeBri} (0-255)</span>
-                                    <span id="briText" class="font-bold text-indigo-600">160</span>
+                                    <span id="briText" class="font-bold text-indigo-600">255</span>
                                 </div>
-                                <input type="range" id="briRange" min="0" max="255" value="160" class="w-full cursor-pointer accent-indigo-600" oninput="window.updateHomeColor()">
+                                <input type="range" id="briRange" min="0" max="255" value="255" class="w-full cursor-pointer accent-indigo-600" oninput="window.updateHomeColor()">
                             </div>
 
                             <div>
                                 <div class="flex justify-between mb-1">
                                     <span class="text-gray-500 font-medium">${txt.homeTemp}</span>
-                                    <span id="tempText" class="font-bold text-amber-600">0 (HSV 彩色)</span>
+                                    <span id="tempText" class="font-bold text-amber-600">0 (HSV)</span>
                                 </div>
                                 <input type="range" id="tempRange" min="0" max="255" value="0" class="w-full cursor-pointer accent-indigo-600" oninput="window.updateHomeColor()">
                             </div>
@@ -403,8 +406,9 @@ window.updateHomeColor = function() {
     }
 
     const rawHue = parseInt(document.getElementById('hueRange')?.value || 128);
-    const rawSat = parseInt(document.getElementById('satRange')?.value || 220);
-    const rawBri = parseInt(document.getElementById('briRange')?.value || 160);
+    // 將預設值都改為 255
+    const rawSat = parseInt(document.getElementById('satRange')?.value || 255);
+    const rawBri = parseInt(document.getElementById('briRange')?.value || 255);
     const rawTemp = parseInt(document.getElementById('tempRange')?.value || 0);
 
     if (document.getElementById('hueText')) document.getElementById('hueText').textContent = rawHue;
@@ -414,16 +418,16 @@ window.updateHomeColor = function() {
     const tempText = document.getElementById('tempText');
     if (tempText) {
         if (rawTemp === 0) {
-            tempText.textContent = "0 (HSV 彩色)";
+            tempText.textContent = "0 (HSV)";
             tempText.className = "font-bold text-indigo-600";
         } else if (rawTemp < 100) {
-            tempText.textContent = `${rawTemp} (暖黃光)`;
+            tempText.textContent = `${rawTemp} (Warm)`;
             tempText.className = "font-bold text-amber-500";
         } else if (rawTemp < 180) {
-            tempText.textContent = `${rawTemp} (自然光)`;
+            tempText.textContent = `${rawTemp} (Natural)`;
             tempText.className = "font-bold text-amber-700";
         } else {
-            tempText.textContent = `${rawTemp} (冷白光)`;
+            tempText.textContent = `${rawTemp} (Cold)`;
             tempText.className = "font-bold text-sky-500";
         }
     }
@@ -432,8 +436,9 @@ window.updateHomeColor = function() {
 };
 
 window.renderAmbientLights = function(baseHue, isDynamicRainbow) {
-    const rawSat = parseInt(document.getElementById('satRange')?.value || 220);
-    const rawBri = parseInt(document.getElementById('briRange')?.value || 160);
+    // 將預設值都改為 255
+    const rawSat = parseInt(document.getElementById('satRange')?.value || 255);
+    const rawBri = parseInt(document.getElementById('briRange')?.value || 255);
     const rawTemp = parseInt(document.getElementById('tempRange')?.value || 0);
 
     const briRatio = rawBri / 255;
@@ -446,7 +451,8 @@ window.renderAmbientLights = function(baseHue, isDynamicRainbow) {
         let finalR = 0, finalG = 0, finalB = 0;
 
         if (rawTemp === 0 || isDynamicRainbow) {
-            const hueVal = isDynamicRainbow ? (baseHue + i * 15) % 256 : baseHue;
+            // === 已移除偏移，確保彩虹漸變時所有模組顏色一致 ===
+            const hueVal = baseHue; 
             const hDegree = (hueVal / 255) * 360;
             const sPercent = satRatio * 100;
             const lPercent = Math.min(50, briRatio * 50);
@@ -485,7 +491,7 @@ window.updatePowerCalculation = function() {
     let totalCurrent = 180;
 
     if (window.simMode === 'home') {
-        const rawBri = parseInt(document.getElementById('briRange')?.value || 160);
+        const rawBri = parseInt(document.getElementById('briRange')?.value || 255);
         totalCurrent += Math.round(9 * 140 * (rawBri / 255)); 
     } else {
         totalCurrent += 180;
@@ -507,11 +513,11 @@ window.updatePowerCalculation = function() {
         if (loadPercent > 85) {
             pi.className = "w-2.5 h-2.5 rounded-full bg-red-500";
             pt.className = "font-medium text-red-600";
-            pt.textContent = t.statusLimit || '電網保護中';
+            pt.textContent = t.statusLimit || 'Limit Exceeded';
         } else {
             pi.className = "w-2.5 h-2.5 rounded-full bg-emerald-500";
             pt.className = "font-medium text-emerald-600";
-            pt.textContent = t.statusSafe || '安全工作範圍';
+            pt.textContent = t.statusSafe || 'Safe Zone';
         }
     }
 };
@@ -772,11 +778,11 @@ window.loadLeaderboard = async function() {
 
     if (!window.LeaderboardService) { list.innerHTML = `<div class="py-3 text-center text-gray-400 text-xs">Service Unavailable</div>`; return; }
     
-    list.innerHTML = `<div class="py-3 text-center text-gray-400 text-xs">${t.loading || '載入排行榜中...'}</div>`;
+    list.innerHTML = `<div class="py-3 text-center text-gray-400 text-xs">${t.loading || 'Loading...'}</div>`;
     const topScores = await window.LeaderboardService.getTopScores(currentMode);
     
     if (!topScores || topScores.length === 0) {
-        list.innerHTML = `<div class="py-3 text-center text-gray-400 text-xs">${t.noRecords || '尚無紀錄，快來搶下第一！'}</div>`;
+        list.innerHTML = `<div class="py-3 text-center text-gray-400 text-xs">${t.noRecords || 'No records!'}</div>`;
         return;
     }
 
@@ -791,7 +797,7 @@ window.loadLeaderboard = async function() {
                     <span class="text-[9px] px-1 py-0.2 rounded font-semibold shrink-0 ${isHardware ? 'bg-indigo-50 text-indigo-600' : 'bg-gray-100 text-gray-500'}">${isHardware ? 'ESP32' : 'Web'}</span>
                 </div>
                 <div class="text-right shrink-0">
-                    <div class="font-bold text-indigo-600 text-xs">${item.score} <span class="text-[9px] font-normal text-gray-400">${t.scoreUnit || '分'}</span></div>
+                    <div class="font-bold text-indigo-600 text-xs">${item.score} <span class="text-[9px] font-normal text-gray-400">${t.scoreUnit || 'pts'}</span></div>
                     <div class="text-[10px] text-gray-400 font-mono">${item.reactTime || item.react_time || 0}ms</div>
                 </div>
             </div>
@@ -807,11 +813,11 @@ window.submitLeaderboardScore = async function() {
     const langKey = window.currentLang || 'zh-TW';
     const t = window.translations?.[langKey] || window.translations?.['zh-TW'] || {};
 
-    if (submitBtn) { submitBtn.innerText = t.modalSaving || '儲存中...'; submitBtn.disabled = true; }
+    if (submitBtn) { submitBtn.innerText = t.modalSaving || 'Saving...'; submitBtn.disabled = true; }
 
     await window.LeaderboardService.submitScore(name, countryCode.toUpperCase(), window.gameScore, window.currentAvgReact, currentMode);
     
-    if (submitBtn) { submitBtn.innerText = t.modalSubmitBtn || '登記排行'; submitBtn.disabled = false; }
+    if (submitBtn) { submitBtn.innerText = t.modalSubmitBtn || 'Submit'; submitBtn.disabled = false; }
     document.getElementById('playerNameInput').value = '';
     window.closeResultModal();
     setTimeout(() => { window.loadLeaderboard(); }, 1500);

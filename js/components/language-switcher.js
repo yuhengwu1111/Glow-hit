@@ -28,25 +28,22 @@ function detectBrowserLanguage() {
     return 'zh-TW'; // 預設語言
 }
 
-// 取得初始語言 (LocalStorage 優先，無紀錄則自動辨識瀏覽器)
+// 每次重新整理(F5) 或進入網頁時，都強制讀取瀏覽器真實語言 (不再使用 localStorage 記憶)
 window.getInitialLanguage = function() {
-    const savedLang = localStorage.getItem('glowhit_lang');
-    if (savedLang) {
-        return savedLang;
-    }
+    // 主動清除舊版的記憶，確保不會被干擾
+    localStorage.removeItem('glowhit_lang');
     return detectBrowserLanguage();
 };
 
-// 立即設定全域當前語言（避免 router 載入前為空）
+// 立即設定全域當前語言
 window.currentLang = window.getInitialLanguage();
 
-// 使用者手動切換語言
+// 使用者手動切換語言 (僅在當前頁面操作中生效，重整即重置)
 window.changeLanguage = function() {
     const langSelect = document.getElementById('langSelect');
     const selectedLang = langSelect ? langSelect.value : window.currentLang;
     
     window.currentLang = selectedLang;
-    localStorage.setItem('glowhit_lang', selectedLang);
     document.documentElement.lang = selectedLang;
 
     if (typeof window.updateNavbarText === 'function') {
@@ -57,7 +54,7 @@ window.changeLanguage = function() {
     }
 };
 
-// 頁面載入完成時，同步下拉選單的初始選取值
+// 頁面載入完成時，同步下拉選單的初始選取值為瀏覽器語言
 document.addEventListener('DOMContentLoaded', () => {
     const initialLang = window.getInitialLanguage();
     window.currentLang = initialLang;
