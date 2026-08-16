@@ -26,7 +26,7 @@
 </head>
 <body class="overflow-x-hidden antialiased bg-gray-50/50">
 
-    <!-- Navigation Bar -->
+    <!-- Navigation Bar (固定 6 大主選單) -->
     <nav class="glass-nav fixed w-full top-0 z-50 border-b border-gray-200/80 px-3 sm:px-6 py-2.5 sm:py-3 flex justify-between items-center transition-all duration-300">
         <div class="flex items-center space-x-2 sm:space-x-3 cursor-pointer group" onclick="navigate('home')">
             <img src="assets/icons/LOGO.png" alt="GlowHit Logo" class="w-8 h-8 sm:w-10 sm:h-10 object-contain transform transition-transform group-hover:scale-105 duration-300">
@@ -58,8 +58,8 @@
                     <option value="es">Español</option>
                     <option value="fr">Français</option>
                     <option value="de">Deutsch</option>
-                    <option value="pt">Português</option> <!-- 補回 PT -->
-                    <option value="ar">العربية</option>   <!-- 補回 AR -->
+                    <option value="pt">Português</option>
+                    <option value="ar">العربية</option>
                 </select>
             </div>
             
@@ -89,25 +89,54 @@
 
     <!-- Global Footer -->
     <footer class="bg-white border-t border-gray-100 py-12 px-6">
-        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center text-xs text-gray-500 space-y-4 md:space-y-0">
-            <div>
-                <p class="font-semibold text-gray-800" id="footerTitle">GlowHit 智慧模組化光點反應牆專案</p>
-                <div class="mt-1 flex flex-wrap items-center gap-x-2 gap-y-1">
-                    <span id="footerCopyright">© 2026 Glowhit. 保留所有權利。</span>
-                    <span class="text-gray-300 hidden sm:inline">|</span>
-                    <a href="https://dctpro.com/tw/" target="_blank" rel="noopener noreferrer" class="text-indigo-600 hover:text-indigo-700 font-medium transition-colors">DCT PRO</a>
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-xs text-gray-500 items-start">
+            
+            <!-- 專案版權與技術夥伴 -->
+            <div class="space-y-1.5 text-center md:text-left">
+                <p class="font-bold text-gray-900 text-sm" id="footerTitle">GlowHit 智慧模組化光點反應牆</p>
+                <p id="footerCopyright">© 2026 Glowhit. 保留所有權利。</p>
+                <div class="pt-1 flex items-center justify-center md:justify-start space-x-2 text-gray-400">
+                    <span>技術支持夥伴：</span>
+                    <a href="https://dctpro.com/tw/" target="_blank" rel="noopener noreferrer" class="text-indigo-600 hover:text-indigo-700 font-semibold transition-colors">DCT PRO</a>
                 </div>
             </div>
-            <div class="flex space-x-6 text-gray-400 font-medium">
-                <span class="hover:text-gray-700 cursor-pointer transition-colors" onclick="navigate('product')">硬體細節</span>
-                <span class="hover:text-gray-700 cursor-pointer transition-colors" onclick="navigate('vision')">核心初衷</span>
+
+            <!-- 頁面快速導覽 -->
+            <div class="flex flex-col items-center md:items-center space-y-2">
+                <span class="font-bold text-gray-800 uppercase tracking-wider text-[11px]">快速連結</span>
+                <div class="flex flex-wrap justify-center gap-4 font-medium">
+                    <span class="hover:text-gray-900 cursor-pointer transition-colors" onclick="navigate('product')" id="footer-link1">產品解構</span>
+                    <span class="hover:text-gray-900 cursor-pointer transition-colors" onclick="navigate('vision')" id="footer-link3">核心初衷</span>
+                    <span class="hover:text-indigo-600 cursor-pointer transition-colors font-semibold" onclick="navigate('sponsor')" id="footer-sponsor">贊助夥伴</span>
+                </div>
+            </div>
+
+            <!-- 官方聯絡管道 (Email + Instagram) -->
+            <div class="flex flex-col items-center md:items-end space-y-2.5">
+                <span class="font-bold text-gray-800 uppercase tracking-wider text-[11px]">聯絡我們 / Contact</span>
+                
+                <!-- 官方 Email -->
+                <a href="mailto:glowhit.official.2026@gmail.com" class="inline-flex items-center space-x-1.5 text-gray-600 hover:text-indigo-600 transition-colors">
+                    <svg class="w-3.5 h-3.5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                    </svg>
+                    <span class="font-medium">glowhit.official.2026@gmail.com</span>
+                </a>
+
+                <!-- Instagram 官方專頁 -->
+                <a href="https://www.instagram.com/glowhit.offical.2026/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center space-x-1.5 px-3 py-1 bg-gradient-to-r from-purple-500/10 via-pink-500/10 to-amber-500/10 hover:from-purple-500/20 hover:via-pink-500/20 hover:to-amber-500/20 text-gray-700 hover:text-pink-600 rounded-full border border-pink-200/60 transition-all shadow-2xs group">
+                    <svg class="w-3.5 h-3.5 text-pink-500 fill-current shrink-0" viewBox="0 0 24 24">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                    </svg>
+                    <span class="font-semibold text-xs text-gray-700 group-hover:text-pink-600 tracking-tight">@glowhit.offical.2026</span>
+                </a>
             </div>
         </div>
     </footer>
 
     <!-- Scripts -->
     <script>window.translations = {};</script>
-    <!-- 確保這裡有引入所有語系的字典檔 -->
+    <!-- 多國語言字典檔 -->
     <script src="js/data/zh-tw.js"></script>
     <script src="js/data/en.js"></script>
     <script src="js/data/zh-cn.js"></script>
@@ -116,18 +145,24 @@
     <script src="js/data/es.js"></script>
     <script src="js/data/fr.js"></script>
     <script src="js/data/de.js"></script>
-    <script src="js/data/pt.js"></script> <!-- 如果有新增字典檔記得匯入 -->
-    <script src="js/data/ar.js"></script> <!-- 如果有新增字典檔記得匯入 -->
+    <script src="js/data/pt.js"></script>
+    <script src="js/data/ar.js"></script>
 
+    <!-- 組件與服務 -->
     <script src="js/components/navbar.js"></script>
     <script src="js/components/language-switcher.js"></script>
     <script src="js/services/leaderboard.js"></script>
+
+    <!-- 頁面腳本 -->
     <script src="js/pages/home.js"></script>
     <script src="js/pages/product.js"></script>
     <script src="js/pages/simulator.js"></script>
     <script src="js/pages/vision.js"></script> 
     <script src="js/pages/brand.js"></script>
     <script src="js/pages/video.js"></script>
+    <script src="js/pages/sponsor.js"></script>
+
+    <!-- 路由核心 -->
     <script src="js/router.js"></script>
     <script src="js/app.js"></script>
 </body>
