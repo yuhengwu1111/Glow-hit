@@ -369,7 +369,7 @@ window.setSimMode = function(mode) {
             introIcon.innerHTML = `<i data-lucide="palette" class="w-5 h-5"></i>`;
             introIcon.className = "w-10 h-10 rounded-2xl bg-red-50 text-red-600 flex items-center justify-center shrink-0";
         } else if (mode === 'hunt') {
-            introTitle.textContent = t.modeFloor || '光影追獵者 (三階連續挑戰)';
+            introTitle.textContent = t.modeFloor || '光影追獵者';
             introDesc.textContent = t.modeFloorDesc || '燈光將同時亮起「紅、橘、黃」三色。請依序依「紅 ➔ 橘 ➔ 黃」順序完成連鎖拍擊方可得分，深度鍛鍊多重目標追蹤與敏捷移動！';
             introIcon.innerHTML = `<i data-lucide="crosshair" class="w-5 h-5"></i>`;
             introIcon.className = "w-10 h-10 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center shrink-0";
