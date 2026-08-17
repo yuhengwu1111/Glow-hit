@@ -861,4 +861,4 @@ window.submitLeaderboardScore = async function() {
     document.getElementById('playerNameInput').value = '';
     window.closeResultModal();
     setTimeout(() => { window.loadLeaderboard(); }, 1500);
-};
+}; 
