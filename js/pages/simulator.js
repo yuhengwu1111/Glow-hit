@@ -70,7 +70,6 @@ window.isRainbowMode = false;
 window.renderSimulator = function(app, t) {
     t = t || {};
 
-    // 100% 優先讀取字典檔，過濾括號與英文附註
     const cleanTab = (val, fallback) => (val || fallback).replace(/\s*\([a-zA-Z\s0-9-]+\)/g, '').trim();
     const isEn = (window.currentLang || '').startsWith('en');
 
@@ -127,7 +126,7 @@ window.renderSimulator = function(app, t) {
                 <button onclick="window.setSimMode('home')" id="tab-home" class="flex-1 py-1.5 text-xs font-semibold rounded-full text-gray-500 transition-all cursor-pointer">${txt.tabHome}</button>
             </div>
 
-            <!-- 🎮 當前模式遊戲規則與玩法介紹卡片 (動態隨模式切換) -->
+            <!-- 🎮 當前模式遊戲規則與玩法介紹卡片 -->
             <div id="modeIntroCard" class="apple-card p-4 md:p-5 mb-8 flex items-center space-x-4 bg-white border border-indigo-50 max-w-3xl mx-auto shadow-xs">
                 <div id="modeIntroIcon" class="w-10 h-10 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center shrink-0">
                     <i data-lucide="zap" class="w-5 h-5"></i>
@@ -352,7 +351,6 @@ window.setSimMode = function(mode) {
         if (btn) btn.className = (m === mode) ? "flex-1 py-1.5 text-xs font-semibold rounded-full bg-white text-black shadow transition-all font-bold cursor-pointer" : "flex-1 py-1.5 text-xs font-semibold rounded-full text-gray-500 hover:text-gray-900 transition-all cursor-pointer";
     });
 
-    // 💡 動態更新遊戲介紹資訊 (標題、描述、圖示)
     const introTitle = document.getElementById('modeIntroTitle');
     const introDesc = document.getElementById('modeIntroDesc');
     const introIcon = document.getElementById('modeIntroIcon');
@@ -365,12 +363,13 @@ window.setSimMode = function(mode) {
             introIcon.className = "w-10 h-10 rounded-2xl bg-sky-50 text-sky-600 flex items-center justify-center shrink-0";
         } else if (mode === 'color') {
             introTitle.textContent = t.modeColor || '紅藍辨識挑戰';
-            introDesc.textContent = t.modeColorDesc || '系統將隨機產生紅藍雙色燈光。只能拍打「藍色燈光」得分，誤擊「紅色燈光」將扣分！考驗大腦瞬間決策與精準反應力。';
+            introDesc.textContent = '系統將隨機產生紅藍雙色燈光。只能拍打「藍色燈光」得分，誤擊「紅色燈光」將扣分！考驗大腦瞬間決策與精準反應力。';
             introIcon.innerHTML = `<i data-lucide="palette" class="w-5 h-5"></i>`;
             introIcon.className = "w-10 h-10 rounded-2xl bg-red-50 text-red-600 flex items-center justify-center shrink-0";
         } else if (mode === 'hunt') {
-            introTitle.textContent = t.modeFloor || '光影追獵者';
-            introDesc.textContent = t.modeFloorDesc || '燈光將同時亮起「紅、橘、黃」三色。請依序依「紅 ➔ 橘 ➔ 黃」順序完成連鎖拍擊方可得分，深度鍛鍊多重目標追蹤與敏捷移動！';
+            introTitle.textContent = t.modeFloor || '光影追獵者 (三階連續挑戰)';
+            // 指定的規則說明文字
+            introDesc.textContent = '燈光將同時亮起「紅、橘、黃」三色。請依序依「紅 ➔ 橘 ➔ 黃」順序完成連鎖拍擊方可得分，深度鍛鍊多重目標追蹤與敏捷移動！';
             introIcon.innerHTML = `<i data-lucide="crosshair" class="w-5 h-5"></i>`;
             introIcon.className = "w-10 h-10 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center shrink-0";
         } else if (mode === 'home') {
@@ -861,4 +860,4 @@ window.submitLeaderboardScore = async function() {
     document.getElementById('playerNameInput').value = '';
     window.closeResultModal();
     setTimeout(() => { window.loadLeaderboard(); }, 1500);
-};  
+};
