@@ -120,11 +120,25 @@ window.renderSimulator = function(app, t) {
             </div>
             
             <!-- 4 大模式切換頁籤 -->
-            <div class="flex justify-center bg-gray-200/80 p-1 rounded-full mb-8 max-w-md mx-auto">
+            <div class="flex justify-center bg-gray-200/80 p-1 rounded-full mb-6 max-w-md mx-auto">
                 <button onclick="window.setSimMode('speed')" id="tab-speed" class="flex-1 py-1.5 text-xs font-semibold rounded-full text-gray-500 transition-all cursor-pointer">${txt.tabSpeed}</button>
                 <button onclick="window.setSimMode('color')" id="tab-color" class="flex-1 py-1.5 text-xs font-semibold rounded-full text-gray-500 transition-all cursor-pointer">${txt.tabColor}</button>
                 <button onclick="window.setSimMode('hunt')" id="tab-hunt" class="flex-1 py-1.5 text-xs font-semibold rounded-full text-gray-500 transition-all cursor-pointer">${txt.tabHunt}</button>
                 <button onclick="window.setSimMode('home')" id="tab-home" class="flex-1 py-1.5 text-xs font-semibold rounded-full text-gray-500 transition-all cursor-pointer">${txt.tabHome}</button>
+            </div>
+
+            <!-- 🎮 當前模式遊戲規則與玩法介紹卡片 (動態隨模式切換) -->
+            <div id="modeIntroCard" class="apple-card p-4 md:p-5 mb-8 flex items-center space-x-4 bg-white border border-indigo-50 max-w-3xl mx-auto shadow-xs">
+                <div id="modeIntroIcon" class="w-10 h-10 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center shrink-0">
+                    <i data-lucide="zap" class="w-5 h-5"></i>
+                </div>
+                <div class="text-left flex-1 min-w-0">
+                    <div class="flex items-center space-x-2">
+                        <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full bg-indigo-50 text-indigo-600">RULE</span>
+                        <h4 id="modeIntroTitle" class="font-bold text-gray-900 text-sm"></h4>
+                    </div>
+                    <p id="modeIntroDesc" class="text-xs text-gray-500 mt-1 leading-relaxed"></p>
+                </div>
             </div>
             
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8 items-start">
@@ -313,16 +327,16 @@ document.addEventListener('click', () => {
     if (dp) dp.classList.add('hidden');
 });
 
-/* --- 模式切換邏輯 --- */
+/* --- 模式切換邏輯與遊戲介紹更新 --- */
 window.setSimMode = function(mode) {
     window.simMode = mode;
+    const langKey = window.currentLang || 'zh-TW';
+    const t = window.translations?.[langKey] || window.translations?.['zh-TW'] || {};
 
     if (window.gameInterval) {
         clearInterval(window.gameInterval); window.gameInterval = null;
         if (window.autoSwitchTimer) { clearTimeout(window.autoSwitchTimer); window.autoSwitchTimer = null; }
         const startBtn = document.getElementById('startGameBtn');
-        const langKey = window.currentLang || 'zh-TW';
-        const t = window.translations?.[langKey] || window.translations?.['zh-TW'] || {};
         if (startBtn) startBtn.textContent = t.startBtnText || '開始 10 秒極限挑戰';
     }
 
@@ -337,6 +351,35 @@ window.setSimMode = function(mode) {
         const btn = document.getElementById(`tab-${m}`);
         if (btn) btn.className = (m === mode) ? "flex-1 py-1.5 text-xs font-semibold rounded-full bg-white text-black shadow transition-all font-bold cursor-pointer" : "flex-1 py-1.5 text-xs font-semibold rounded-full text-gray-500 hover:text-gray-900 transition-all cursor-pointer";
     });
+
+    // 💡 動態更新遊戲介紹資訊 (標題、描述、圖示)
+    const introTitle = document.getElementById('modeIntroTitle');
+    const introDesc = document.getElementById('modeIntroDesc');
+    const introIcon = document.getElementById('modeIntroIcon');
+
+    if (introTitle && introDesc && introIcon) {
+        if (mode === 'speed') {
+            introTitle.textContent = t.modeSpeed || '光速反應挑戰';
+            introDesc.textContent = t.modeSpeedDesc || '系統隨機亮起藍色燈光模組，請以最快速度拍打擊中以累積得分，挑戰您的動態視覺與神經反應極限！';
+            introIcon.innerHTML = `<i data-lucide="zap" class="w-5 h-5"></i>`;
+            introIcon.className = "w-10 h-10 rounded-2xl bg-sky-50 text-sky-600 flex items-center justify-center shrink-0";
+        } else if (mode === 'color') {
+            introTitle.textContent = t.modeColor || '紅藍辨識挑戰';
+            introDesc.textContent = t.modeColorDesc || '系統將隨機產生紅藍雙色燈光。只能拍打「藍色燈光」得分，誤擊「紅色燈光」將扣分！考驗大腦瞬間決策與精準反應力。';
+            introIcon.innerHTML = `<i data-lucide="palette" class="w-5 h-5"></i>`;
+            introIcon.className = "w-10 h-10 rounded-2xl bg-red-50 text-red-600 flex items-center justify-center shrink-0";
+        } else if (mode === 'hunt') {
+            introTitle.textContent = t.modeFloor || '光影追獵者 (三階連續挑戰)';
+            introDesc.textContent = t.modeFloorDesc || '燈光將同時亮起「紅、橘、黃」三色。請依序依「紅 ➔ 橘 ➔ 黃」順序完成連鎖拍擊方可得分，深度鍛鍊多重目標追蹤與敏捷移動！';
+            introIcon.innerHTML = `<i data-lucide="crosshair" class="w-5 h-5"></i>`;
+            introIcon.className = "w-10 h-10 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center shrink-0";
+        } else if (mode === 'home') {
+            introTitle.textContent = t.highlightHomeTitle || '居家智能氛圍燈模式';
+            introDesc.textContent = t.highlightHomeDesc || '運動結束，一鍵無縫化身為精緻牆面燈飾。可自由調節 RGB 色相、飽和度、亮度或色溫模式，支援同步彩虹漸變流光效果。';
+            introIcon.innerHTML = `<i data-lucide="home" class="w-5 h-5"></i>`;
+            introIcon.className = "w-10 h-10 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center shrink-0";
+        }
+    }
 
     const homePanel = document.getElementById('homeControlPanel');
     const gameDashboard = document.getElementById('gameDashboard');
@@ -406,7 +449,6 @@ window.updateHomeColor = function() {
     }
 
     const rawHue = parseInt(document.getElementById('hueRange')?.value || 128);
-    // 將預設值都改為 255
     const rawSat = parseInt(document.getElementById('satRange')?.value || 255);
     const rawBri = parseInt(document.getElementById('briRange')?.value || 255);
     const rawTemp = parseInt(document.getElementById('tempRange')?.value || 0);
@@ -436,7 +478,6 @@ window.updateHomeColor = function() {
 };
 
 window.renderAmbientLights = function(baseHue, isDynamicRainbow) {
-    // 將預設值都改為 255
     const rawSat = parseInt(document.getElementById('satRange')?.value || 255);
     const rawBri = parseInt(document.getElementById('briRange')?.value || 255);
     const rawTemp = parseInt(document.getElementById('tempRange')?.value || 0);
@@ -451,7 +492,6 @@ window.renderAmbientLights = function(baseHue, isDynamicRainbow) {
         let finalR = 0, finalG = 0, finalB = 0;
 
         if (rawTemp === 0 || isDynamicRainbow) {
-            // === 已移除偏移，確保彩虹漸變時所有模組顏色一致 ===
             const hueVal = baseHue; 
             const hDegree = (hueVal / 255) * 360;
             const sPercent = satRatio * 100;
