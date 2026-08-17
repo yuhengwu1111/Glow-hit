@@ -19,17 +19,15 @@ window.renderSponsor = function(app, t) {
             <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight text-gray-900">${txt.title}</h2>
             <p class="text-gray-500 mt-3 text-sm md:text-base max-w-lg mx-auto leading-relaxed">${txt.subtitle}</p>
 
-            <!-- 贊助商列表（正方形白框 + 下方文字） -->
+            <!-- 贊助商列表 -->
             <div class="mt-12 flex flex-wrap justify-center gap-8">
                 
-                <!-- 贊助商項目 -->
+                <!-- 贊助商項目 (白底正方外框 + 下方字體) -->
                 <div class="flex flex-col items-center group">
-                    <!-- 白色正方形 LOGO 外框 -->
                     <div class="w-56 h-56 sm:w-64 sm:h-64 bg-white border border-gray-200 rounded-sm p-6 sm:p-8 flex items-center justify-center shadow-xs transition-all duration-300 group-hover:shadow-md group-hover:-translate-y-1">
-                        <img src="assets/icons/dacian-logo.png" alt="Dacian technology Logo" class="max-w-full max-h-full object-contain" onerror="this.src='assets/icons/LOGO.png'">
+                        <img src="assets/iaon/dacianlogo.png" alt="Dacian technology Logo" class="max-w-full max-h-full object-contain" onerror="this.src='assets/icons/LOGO.png'">
                     </div>
                     
-                    <!-- 外框正下方文字標題 -->
                     <span class="mt-4 text-lg sm:text-xl font-bold text-[#004b87] tracking-wide">
                         Dacian technology
                     </span>

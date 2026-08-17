@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="css/simulator.css">
     <link rel="stylesheet" href="css/animations.css">
 
-    <!-- GA4 -->
+    <!-- GA4 追蹤代碼 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-SK3WC44J9Q"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -26,7 +26,7 @@
 </head>
 <body class="overflow-x-hidden antialiased bg-gray-50/50">
 
-    <!-- Navigation Bar (固定 6 大主選單) -->
+    <!-- 頂部導覽列 (固定 6 大主選單) -->
     <nav class="glass-nav fixed w-full top-0 z-50 border-b border-gray-200/80 px-3 sm:px-6 py-2.5 sm:py-3 flex justify-between items-center transition-all duration-300">
         <div class="flex items-center space-x-2 sm:space-x-3 cursor-pointer group" onclick="navigate('home')">
             <img src="assets/icons/LOGO.png" alt="GlowHit Logo" class="w-8 h-8 sm:w-10 sm:h-10 object-contain transform transition-transform group-hover:scale-105 duration-300">
@@ -43,7 +43,7 @@
             <span class="nav-link text-gray-500 hover:text-black transition cursor-pointer" id="nav-video" onclick="navigate('video')">Video</span>
         </div>
 
-        <!-- Language Selector & Actions -->
+        <!-- 語言切換與試玩按鈕 -->
         <div class="flex items-center space-x-2 sm:space-x-3">
             <div class="flex items-center space-x-1 sm:space-x-1.5 border border-gray-200 rounded-full px-2 sm:px-3 py-1 bg-white shadow-xs hover:border-gray-300 transition-colors">
                 <i data-lucide="globe" class="w-3.5 h-3.5 text-gray-500 shrink-0"></i>
@@ -67,7 +67,7 @@
                 試玩體驗
             </button>
 
-            <!-- Mobile Hamburger Button -->
+            <!-- 手機版漢堡按鈕 -->
             <button onclick="toggleMobileMenu()" class="md:hidden p-1 text-gray-600 hover:text-black focus:outline-none" aria-label="Toggle Menu">
                 <span id="menuIconContainer"><i data-lucide="menu" class="w-5 h-5 sm:w-6 sm:h-6"></i></span>
             </button>
@@ -84,14 +84,14 @@
         <span class="mob-nav-link text-gray-600 py-2 border-b border-gray-100" id="mob-nav-video" onclick="navigate('video'); toggleMobileMenu();">Video</span>
     </div>
 
-    <!-- Main Content Mount -->
+    <!-- 主要掛載容器 -->
     <main id="app" class="pt-20 pb-16 min-h-screen"></main>
 
-    <!-- Global Footer -->
+    <!-- 頁尾 -->
     <footer class="bg-white border-t border-gray-100 py-12 px-6">
         <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-xs text-gray-500 items-start">
             
-            <!-- 專案版權與技術夥伴 -->
+            <!-- 專案版權與支持夥伴 -->
             <div class="space-y-1.5 text-center md:text-left">
                 <p class="font-bold text-gray-900 text-sm" id="footerTitle">GlowHit 智慧模組化光點反應牆</p>
                 <p id="footerCopyright">© 2026 Glowhit. 保留所有權利。</p>
@@ -134,9 +134,8 @@
         </div>
     </footer>
 
-    <!-- Scripts -->
+    <!-- 腳本引入區塊 -->
     <script>window.translations = {};</script>
-    <!-- 多國語言字典檔 -->
     <script src="js/data/zh-tw.js"></script>
     <script src="js/data/en.js"></script>
     <script src="js/data/zh-cn.js"></script>
@@ -148,12 +147,10 @@
     <script src="js/data/pt.js"></script>
     <script src="js/data/ar.js"></script>
 
-    <!-- 組件與服務 -->
     <script src="js/components/navbar.js"></script>
     <script src="js/components/language-switcher.js"></script>
     <script src="js/services/leaderboard.js"></script>
 
-    <!-- 頁面腳本 -->
     <script src="js/pages/home.js"></script>
     <script src="js/pages/product.js"></script>
     <script src="js/pages/simulator.js"></script>
@@ -162,7 +159,6 @@
     <script src="js/pages/video.js"></script>
     <script src="js/pages/sponsor.js"></script>
 
-    <!-- 路由核心 -->
     <script src="js/router.js"></script>
     <script src="js/app.js"></script>
 </body>
