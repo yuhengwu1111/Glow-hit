@@ -149,6 +149,15 @@ window.translations['ko'] = {
     modalRetryBtn: "다시 하기",
     modalSubmitBtn: "기록 등록",
     modalSaving: "저장 중...",
+
+    modeSpeed: "광속 반응 챌린지",
+    modeSpeedDesc: "파란색으로 켜지는 모듈을 최대한 빠르게 터치하여 점수를 획득하고 반응 속도의 한계에 도전하세요!",
+    modeColor: "레드/블루 식별 챌린지",
+    modeColorDesc: "빨간색과 파란색 불빛이 무작위로 켜집니다. '파란색'만 터치해야 점수를 얻으며, '빨간색'을 터치하면 감점됩니다!",
+    modeFloor: "섀도우 체이서 (3단계 연속 도전)",
+    modeFloorDesc: "불빛이 '빨강, 주황, 노랑'으로 동시에 켜집니다. 반드시 '빨강 ➔ 주황 ➔ 노랑' 순서로 연속 터치해야 점수를 획득할 수 있습니다.",
+    highlightHomeTitle: "스마트 홈 무드등 모드",
+    highlightHomeDesc: "운동이 끝나면 세련된 인테리어 조명으로 변신합니다. RGB 색상, 채도, 밝기, 색온도를 조절할 수 있으며 무지개 그라데이션을 지원합니다.",
     
     // 알림
     alertEnd: "테스트 종료!",

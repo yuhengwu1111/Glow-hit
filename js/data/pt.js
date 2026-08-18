@@ -150,6 +150,15 @@ window.translations['pt'] = {
     modalSubmitBtn: "Registrar Recorde",
     modalSaving: "Salvando...",
     
+    modeSpeed: "Reação na Velocidade da Luz",
+    modeSpeedDesc: "Módulos azuis acendem aleatoriamente. Toque o mais rápido possível para pontuar e desafiar seus reflexos!",
+    modeColor: "Desafio Azul vs. Vermelho",
+    modeColorDesc: "Luzes vermelhas e azuis acendem aleatoriamente. Toque apenas no «azul» para pontuar; o «vermelho» desconta pontos!",
+    modeFloor: "Caçador de Sombras (Combo de 3 Etapas)",
+    modeFloorDesc: "Luzes vermelha, laranja e amarela acendem juntas. Toque na sequência «Vermelho ➔ Laranja ➔ Amarelo» para pontuar!",
+    highlightHomeTitle: "Modo de Iluminação Ambiente Inteligente",
+    highlightHomeDesc: "Após o treino, transforma-se em iluminação decorativa elegante. Ajuste tom RGB, saturação, brilho ou fluxo arco-íris dinâmico.",    
+    
     // Alertas
     alertEnd: "Teste Concluído!",
     alertScore: "Sua Pontuação Total:",

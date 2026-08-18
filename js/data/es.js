@@ -149,6 +149,15 @@ window.translations['es'] = {
     modalRetryBtn: "Reintentar",
     modalSubmitBtn: "Registrar Récord",
     modalSaving: "Guardando...",
+
+    modeSpeed: "Reacción a la Velocidad de la Luz",
+    modeSpeedDesc: "Los módulos azules se iluminan al azar. ¡Golpéalos lo más rápido posible para sumar puntos y desafiar tus reflejos!",
+    modeColor: "Desafío Rojo vs. Azul",
+    modeColorDesc: "El sistema genera luces rojas y azules al azar. ¡Toca solo el «azul» para puntuar; tocar el «rojo» resta puntos! Pon a prueba tu toma de decisiones.",
+    modeFloor: "Cazador de Sombras (Combo de 3 Fases)",
+    modeFloorDesc: "Se iluminarán luces rojas, naranjas y amarillas simultáneamente. ¡Tócalas en orden: «Rojo ➔ Naranja ➔ Amarillo» para puntuar!",
+    highlightHomeTitle: "Modo de Iluminación Ambiental Inteligente",
+    highlightHomeDesc: "Tras entrenar, se transforma en una elegante lámpara de pared. Ajusta tono RGB, saturación, brillo o temperatura de color con modo arcoíris dinámico.",
     
     // Alertas
     alertEnd: "¡Prueba Finalizada!",

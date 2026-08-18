@@ -176,6 +176,19 @@ window.translations['en'] = {
     milestone3: "2026/08 - Competing in Osaka World Championship with a 12-module real-time interactive demo wall.",
     slideOf: "Slide", 
     slideOfMax: "of 5",
+
+    // 遊戲模式規則翻譯
+    modeSpeed: "Light Speed Reaction",
+    modeSpeedDesc: "The system randomly lights up blue modules. Tap them as fast as possible to score and challenge your visual reflexes!",
+    
+    modeColor: "Color Shift Challenge",
+    modeColorDesc: "The system randomly generates red and blue lights. Only tap \"blue\" to score. Tapping \"red\" deducts points! Tests your instant decision-making.",
+    
+    modeFloor: "Shadow Chaser (Combo Challenge)",
+    modeFloorDesc: "Lights will simultaneously show Red, Orange, and Yellow. Tap them in the exact sequence of \"Red ➔ Orange ➔ Yellow\" to score!",
+    
+    highlightHomeTitle: "Smart Home Ambient Mode",
+    highlightHomeDesc: "Seamlessly transforms into ambient lighting after a workout. Adjust RGB hue, saturation, brightness, or switch to dynamic rainbow mode.",
     
     // Alerts
     alertEnd: "Test Finished!",

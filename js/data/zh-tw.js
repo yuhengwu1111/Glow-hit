@@ -149,6 +149,18 @@ window.translations['zh'] = {
     modalRetryBtn: "再練一次",
     modalSubmitBtn: "登記排行",
     modalSaving: "儲存中...",
+
+    modeSpeed: "光速反應挑戰",
+    modeSpeedDesc: "系統隨機亮起藍色燈光模組，請以最快速度拍打擊中以累積得分，挑戰您的動態視覺與神經反應極限！",
+    
+    modeColor: "紅藍辨識挑戰",
+    modeColorDesc: "系統將隨機產生紅藍雙色燈光。只能拍打「藍色燈光」得分，誤擊「紅色燈光」將扣分！考驗大腦瞬間決策與精準反應力。",
+    
+    modeFloor: "光影追獵者 (三階連續挑戰)",
+    modeFloorDesc: "燈光將同時亮起「紅、橘、黃」三色。請依序依「紅 ➔ 橘 ➔ 黃」順序完成連鎖拍擊方可得分，深度鍛鍊多重目標追蹤與敏捷移動！",
+    
+    highlightHomeTitle: "居家智能氛圍燈模式",
+    highlightHomeDesc: "運動結束，一鍵無縫化身為精緻牆面燈飾。可自由調節 RGB 色相、飽和度、亮度或色溫模式，支援同步彩虹漸變流光效果。",
     
     // 遊戲提示與彈窗 (Alerts)
     alertEnd: "測試結束！",

@@ -149,6 +149,14 @@ window.translations['de'] = {
     modalRetryBtn: "Erneut Versuchen",
     modalSubmitBtn: "Ergebnis Eintragen",
     modalSaving: "Wird gespeichert...",
+    modeSpeed: "Lichtgeschwindigkeits-Reaktion",
+    modeSpeedDesc: "Blaue Module leuchten zufällig auf. Treffe sie so schnell wie möglich, um Punkte zu sammeln und deine Reflexe zu testen!",
+    modeColor: "Rot-Blau-Unterscheidung",
+    modeColorDesc: "Rote und blaue Lichter erscheinen zufällig. Tippe nur auf „Blau“ für Punkte; „Rot“ gibt Punktabzug! Testet deine schnelle Entscheidungsfindung.",
+    modeFloor: "Schattenjäger (3-Stufen-Kombination)",
+    modeFloorDesc: "Rot, Orange und Gelb leuchten gleichzeitig auf. Schlage sie in der Reihenfolge „Rot ➔ Orange ➔ Gelb“, um zu punkten!",
+    highlightHomeTitle: "Smart-Home Stimmungslicht",
+    highlightHomeDesc: "Verwandelt sich nach dem Training in ein stilvolles Wandlicht. RGB-Farbton, Sättigung, Helligkeit oder Regenbogen-Farbverlauf frei einstellbar.",
     
     // Benachrichtigungen
     alertEnd: "Test Beendet!",

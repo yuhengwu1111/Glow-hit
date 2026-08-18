@@ -150,6 +150,15 @@ window.translations['fr'] = {
     modalSubmitBtn: "Enregistrer le Score",
     modalSaving: "Enregistrement...",
 
+    modeSpeed: "Vitesse Lumière",
+    modeSpeedDesc: "Des modules bleus s'allument aléatoirement. Frappez-les le plus vite possible pour marquer des points et tester vos réflexes !",
+    modeColor: "Défi Rouge & Bleu",
+    modeColorDesc: "Des lumières rouges et bleues apparaissent. Touchez uniquement le « bleu » pour marquer ; toucher le « rouge » retire des points !",
+    modeFloor: "Chasseur d'Ombre (Combo en 3 Étapes)",
+    modeFloorDesc: "Les lumières s'allument en rouge, orange et jaune. Touchez-les dans l'ordre : « Rouge ➔ Orange ➔ Jaune » pour marquer !",
+    highlightHomeTitle: "Mode Éclairage d'Ambiance Connecté",
+    highlightHomeDesc: "Après l'entraînement, transformez le mur en luminaire décoratif. Ajustez la teinte RGB, la saturation, la luminosité ou le dégradé arc-en-ciel.",
+
     // Alertes
     alertEnd: "Test terminé !",
     alertScore: "Votre score total :",
