@@ -22,12 +22,30 @@ window.renderSponsor = function(app, t) {
             <!-- 贊助商列表 -->
             <div class="mt-12 flex flex-wrap justify-center gap-8">
                 
-                <!-- 贊助商項目 (白底正方外框 + 下方字體) -->
+                <!-- 贊助商卡片：Dacian technology -->
                 <div class="flex flex-col items-center group">
-                    <div class="w-56 h-56 sm:w-64 sm:h-64 bg-white border border-gray-200 rounded-sm p-6 sm:p-8 flex items-center justify-center shadow-xs transition-all duration-300 group-hover:shadow-md group-hover:-translate-y-1">
-                        <img src="assets/iaon/dacianlogo.png" alt="Dacian technology Logo" class="max-w-full max-h-full object-contain" onerror="this.src='assets/icons/LOGO.png'">
+                    <!-- 白色正方形 LOGO 外框 -->
+                    <div class="w-56 h-56 sm:w-64 sm:h-64 bg-white border border-gray-200 rounded-sm p-6 flex flex-col items-center justify-center shadow-xs transition-all duration-300 group-hover:shadow-md group-hover:-translate-y-1">
+                        
+                        <!-- 實體圖片 (若存在則顯示) -->
+                        <img src="assets/icons/dacian-logo.jpg" 
+                             alt="Dacian technology Logo" 
+                             class="max-w-full max-h-full object-contain"
+                             onerror="this.style.display='none'; document.getElementById('dc-vector-logo').classList.remove('hidden');">
+                        
+                        <!-- 向量備用 LOGO (:dc 克微粒) -->
+                        <div id="dc-vector-logo" class="hidden flex flex-col items-center justify-center text-gray-900 select-none">
+                            <div class="flex items-center space-x-1.5 font-black text-4xl sm:text-5xl tracking-tighter">
+                                <span class="text-3xl sm:text-4xl leading-none">:</span>
+                                <span class="font-extrabold tracking-tight">dc</span>
+                                <span class="text-xs font-bold self-start mt-1">®</span>
+                            </div>
+                            <span class="text-[9px] sm:text-[10px] tracking-tight font-medium text-gray-500 mt-1 uppercase text-center scale-90">Microparticle Stopper Mask</span>
+                            <span class="text-lg sm:text-xl font-bold tracking-widest text-gray-900 mt-1">克微粒</span>
+                        </div>
                     </div>
                     
+                    <!-- 外框下方文字標題 -->
                     <span class="mt-4 text-lg sm:text-xl font-bold text-[#004b87] tracking-wide">
                         Dacian technology
                     </span>

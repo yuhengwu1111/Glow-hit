@@ -1,4 +1,4 @@
-// 全球 190+ 國家清單
+// 🌍 全球 190+ 完整國家清單 (純英文標準名 + FlagCDN 圖示)
 const COUNTRY_LIST = [
     { code: 'tw', name: 'Taiwan' }, { code: 'us', name: 'United States' }, { code: 'jp', name: 'Japan' },
     { code: 'kr', name: 'South Korea' }, { code: 'de', name: 'Germany' }, { code: 'gb', name: 'United Kingdom' },
@@ -42,6 +42,7 @@ const COUNTRY_LIST = [
     { code: 'un', name: 'Other (Global)' }
 ];
 
+// 全域狀態變數
 window.currentAvgReact = 0;
 window.audioCtx = null;
 window.gameInterval = null; 
@@ -51,14 +52,17 @@ window.speedTimer = 0;
 window.reactionSum = 0; 
 window.totalHits = 0;
 
+// 光速/色彩干擾變數
 window.targetBlueId = null;
 window.targetRedId = null;
 window.autoSwitchTimer = null;
 
+// 🎯 光影追獵者變數
 window.huntStep = 1;
 window.huntBoxes = { red: null, orange: null, yellow: null };
 window.prevHuntBoxes = { red: null, orange: null, yellow: null };
 
+// 居家彩虹模式動態變數
 window.rainbowInterval = null;
 window.currentRainbowHue = 0;
 window.isRainbowMode = false;
@@ -114,6 +118,7 @@ window.renderSimulator = function(app, t) {
                 <p class="text-gray-500 mt-2 text-sm">${txt.simDesc}</p>
             </div>
             
+            <!-- 4 大模式切換頁籤 -->
             <div class="flex justify-center bg-gray-200/80 p-1 rounded-full mb-6 max-w-md mx-auto">
                 <button onclick="window.setSimMode('speed')" id="tab-speed" class="flex-1 py-1.5 text-xs font-semibold rounded-full text-gray-500 transition-all cursor-pointer">${txt.tabSpeed}</button>
                 <button onclick="window.setSimMode('color')" id="tab-color" class="flex-1 py-1.5 text-xs font-semibold rounded-full text-gray-500 transition-all cursor-pointer">${txt.tabColor}</button>
@@ -121,7 +126,7 @@ window.renderSimulator = function(app, t) {
                 <button onclick="window.setSimMode('home')" id="tab-home" class="flex-1 py-1.5 text-xs font-semibold rounded-full text-gray-500 transition-all cursor-pointer">${txt.tabHome}</button>
             </div>
 
-            <!-- 當前模式遊戲規則卡片 -->
+            <!-- 🎮 當前模式遊戲規則與玩法介紹卡片 -->
             <div id="modeIntroCard" class="apple-card p-4 md:p-5 mb-8 flex items-center space-x-4 bg-white border border-indigo-50 max-w-3xl mx-auto shadow-xs">
                 <div id="modeIntroIcon" class="w-10 h-10 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center shrink-0">
                     <i data-lucide="zap" class="w-5 h-5"></i>
@@ -136,7 +141,7 @@ window.renderSimulator = function(app, t) {
             </div>
             
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8 items-start">
-                <!-- 左側：3x3 模擬牆面 -->
+                <!-- 左側：3x3 牆面 -->
                 <div class="lg:col-span-7 bg-white p-6 md:p-8 rounded-3xl border border-gray-100 shadow-sm flex flex-col items-center">
                     <div class="w-full max-w-[340px] aspect-square bg-gray-50/90 rounded-3xl border border-gray-200/80 p-4 md:p-5 flex items-center justify-center">
                         <div id="simulatedWall" class="grid grid-cols-3 gap-3.5 md:gap-4 w-full h-full items-center justify-items-center"></div>
@@ -156,7 +161,7 @@ window.renderSimulator = function(app, t) {
                 <!-- 右側：居家控制面板、排行榜與電網負載 -->
                 <div class="lg:col-span-5 space-y-5">
                     
-                    <!-- 居家燈光面板 -->
+                    <!-- 🏠 5 大居家燈光參數調節面板 -->
                     <div id="homeControlPanel" class="apple-card p-5 hidden">
                         <div class="flex items-center justify-between mb-3.5">
                             <h4 class="font-bold text-sm flex items-center space-x-2 text-gray-900">
@@ -207,7 +212,7 @@ window.renderSimulator = function(app, t) {
                         </div>
                     </div>
 
-                    <!-- 排行榜 -->
+                    <!-- 🏆 排行榜卡片 -->
                     <div class="apple-card p-5" id="leaderboardCard">
                         <div class="flex items-center justify-between mb-3">
                             <div class="flex items-center space-x-2">
@@ -225,7 +230,7 @@ window.renderSimulator = function(app, t) {
                         </div>
                     </div>
 
-                    <!-- 電網安全監視器 -->
+                    <!-- ⚡ 電網安全監視器 -->
                     <div class="apple-card p-5">
                         <div class="flex justify-between items-center mb-2">
                             <h4 class="font-bold text-sm flex items-center space-x-1.5"><i data-lucide="zap" class="w-4 h-4 text-amber-500"></i><span>${txt.powerMonitor}</span></h4>
@@ -242,7 +247,7 @@ window.renderSimulator = function(app, t) {
                 </div>
             </div>
 
-            <!-- 結算彈窗 -->
+            <!-- 結算彈窗 Modal -->
             <div id="resultModal" class="hidden fixed inset-0 z-50 bg-black/50 backdrop-blur-sm flex items-center justify-center p-4">
                 <div class="bg-white rounded-3xl p-6 md:p-8 max-w-sm w-full text-center shadow-2xl border border-gray-100">
                     <div class="w-14 h-14 bg-amber-50 rounded-full flex items-center justify-center mx-auto mb-3"><i data-lucide="award" class="w-7 h-7 text-amber-500"></i></div>
@@ -288,6 +293,7 @@ window.renderSimulator = function(app, t) {
     window.setSimMode(window.simMode || 'speed');
 };
 
+/* --- 國家快速篩選 --- */
 window.filterCountries = function() {
     const q = document.getElementById('countrySearchInput').value.toLowerCase().trim();
     document.querySelectorAll('.country-option').forEach(opt => {
@@ -320,6 +326,7 @@ document.addEventListener('click', () => {
     if (dp) dp.classList.add('hidden');
 });
 
+/* --- 模式切換邏輯與遊戲介紹更新 --- */
 window.setSimMode = function(mode) {
     window.simMode = mode;
     const langKey = window.currentLang || 'zh-TW';
@@ -396,6 +403,7 @@ window.setSimMode = function(mode) {
     if (typeof lucide !== 'undefined' && lucide.createIcons) lucide.createIcons();
 };
 
+/* --- 牆面渲染 --- */
 window.initSimWall = function() {
     const wall = document.getElementById('simulatedWall');
     if(!wall) return;
@@ -409,6 +417,7 @@ window.initAmbientWall = function() {
     wall.innerHTML = Array.from({length:9}).map((_,i) => `<div id="pad-${i}" class="w-full h-full aspect-square max-w-[80px] max-h-[80px] bg-gray-900 rounded-[1.25rem] octagon flex items-center justify-center transition-all duration-300 shadow-md shrink-0"><div class="w-[52%] h-[52%] aspect-square bg-gray-200 rounded-lg pentagon shadow-sm transition-all duration-300 pointer-events-none" id="inner-pad-${i}"></div></div>`).join('');
 }; 
 
+/* --- 5 大居家燈光參數調節核心 --- */
 window.toggleRainbowMode = function(isOn) {
     window.isRainbowMode = isOn;
     const hueGroup = document.getElementById('hueControlGroup');
@@ -515,6 +524,7 @@ window.renderAmbientLights = function(baseHue, isDynamicRainbow) {
     window.updatePowerCalculation();
 };
 
+/* --- 電網負載監控 --- */
 window.updatePowerCalculation = function() {
     let totalCurrent = 180;
 
@@ -550,6 +560,7 @@ window.updatePowerCalculation = function() {
     }
 };
 
+/* --- Web Audio 音效 --- */
 window.playSound = function(type) {
     if (!window.audioCtx) window.audioCtx = new (window.AudioContext || window.webkitAudioContext)();
     const now = window.audioCtx.currentTime;
@@ -586,6 +597,7 @@ window.playSound = function(type) {
     }
 };
 
+/* --- 10 秒挑戰主流程 --- */
 window.toggleGame = function() {
     const startBtn = document.getElementById('startGameBtn');
     const langKey = window.currentLang || 'zh-TW';
@@ -621,6 +633,7 @@ window.toggleGame = function() {
     }
 };
 
+/* --- 隨機出題演算法 --- */
 window.nextTarget = function() {
     if (window.autoSwitchTimer) clearTimeout(window.autoSwitchTimer);
 
@@ -687,6 +700,7 @@ window.nextTarget = function() {
     window.updatePowerCalculation();
 };
 
+/* --- 拍擊判斷 --- */
 window.hitPad = function(id) {
     if (!window.gameInterval) return;
 
@@ -762,6 +776,7 @@ window.hitPad = function(id) {
     }
 };
 
+/* --- 結算與排行榜 --- */
 window.showResultModal = function() {
     window.playSound('success');
     window.currentAvgReact = window.totalHits > 0 ? Math.round(window.reactionSum / window.totalHits) : 0;
@@ -791,6 +806,7 @@ function parseCountryCode(countryStr) {
     return (match && match[1]) ? match[1] : 'un';
 }
 
+/* 🎯 排行榜同名同國家「合併取最高分」演算法 */
 window.loadLeaderboard = async function() {
     const list = document.getElementById('leaderboardList');
     if (!list) return;
@@ -802,13 +818,57 @@ window.loadLeaderboard = async function() {
     if (!window.LeaderboardService) { list.innerHTML = `<div class="py-3 text-center text-gray-400 text-xs">Service Unavailable</div>`; return; }
     
     list.innerHTML = `<div class="py-3 text-center text-gray-400 text-xs">${t.loading || 'Loading...'}</div>`;
-    const topScores = await window.LeaderboardService.getTopScores(currentMode);
+    const rawScores = await window.LeaderboardService.getTopScores(currentMode);
     
-    if (!topScores || topScores.length === 0) {
+    if (!rawScores || rawScores.length === 0) {
         list.innerHTML = `<div class="py-3 text-center text-gray-400 text-xs">${t.noRecords || 'No records!'}</div>`;
         return;
     }
 
+    // 💡 1. 建立 Map，利用「名字_國家」當作唯一 Key，過濾掉分數較差的重複資料
+    const uniqueMap = new Map();
+    rawScores.forEach(item => {
+        const name = (item.name || '').trim().toLowerCase();
+        const country = (item.country || '').trim().toLowerCase();
+        const key = `${name}_${country}`;
+        
+        if (!uniqueMap.has(key)) {
+            uniqueMap.set(key, item);
+        } else {
+            const existing = uniqueMap.get(key);
+            const currentScore = parseInt(item.score) || 0;
+            const existingScore = parseInt(existing.score) || 0;
+            const currentReact = parseInt(item.reactTime || item.react_time) || 9999;
+            const existingReact = parseInt(existing.reactTime || existing.react_time) || 9999;
+            
+            // 如果新分數比舊分數高 ➔ 替換
+            // 或者分數一樣，但新反應時間比較短 ➔ 替換
+            if (currentScore > existingScore || (currentScore === existingScore && currentReact < existingReact)) {
+                uniqueMap.set(key, item);
+            }
+        }
+    });
+
+    // 💡 2. 重新排序，只取最後合併後的前 10 名
+    const topScores = Array.from(uniqueMap.values())
+        .sort((a, b) => {
+            const aScore = parseInt(a.score) || 0;
+            const bScore = parseInt(b.score) || 0;
+            if (bScore !== aScore) return bScore - aScore; // 分數高的在前
+            
+            const aReact = parseInt(a.reactTime || a.react_time) || 9999;
+            const bReact = parseInt(b.reactTime || b.react_time) || 9999;
+            return aReact - bReact; // 分數相同，反應快的在前
+        })
+        .slice(0, 10);
+
+    // 如果過濾完發現沒資料了 (極少見狀況)
+    if (topScores.length === 0) {
+        list.innerHTML = `<div class="py-3 text-center text-gray-400 text-xs">${t.noRecords || 'No records!'}</div>`;
+        return;
+    }
+
+    // 💡 3. 渲染到畫面上
     list.innerHTML = topScores.map((item, index) => {
         const isHardware = item.device && item.device.includes('ESP32');
         return `
