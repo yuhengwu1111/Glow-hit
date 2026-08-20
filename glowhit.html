@@ -3,19 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GlowHit | 智慧模組化光點反應牆</title>
+    
+    <!-- 搜尋引擎 SEO 核心標籤 -->
+    <title>GlowHit | 智慧模組化光點反應牆 - 動態視力與敏捷反射訓練</title>
+    <meta name="description" content="GlowHit 智慧模組化光點反應牆結合專業敏捷反應訓練、體感節奏光影遊戲與居家智慧氛圍燈。採用專利卡扣磁吸模組架構，支援全球線上即時連線排行榜。">
+    <meta name="keywords" content="GlowHit, 光點反應牆, 反應牆, 敏捷訓練, 動態視力, 體感遊戲, 智能家居, 氛圍燈, ESP32, 反應速度訓練">
+    <meta name="author" content="GlowHit Team">
+    <meta name="robots" content="index, follow">
+
+    <!-- 社群分享預覽標籤 (Open Graph / Facebook / LINE) -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="GlowHit | 智慧模組化光點反應牆">
+    <meta property="og:description" content="把牆面變成你的敏捷訓練場與光影遊戲室！結合專業動態視力訓練、實體體感闖關與居家氛圍美學。">
+    <meta property="og:image" content="assets/icons/LOGO.png">
+    <meta property="og:site_name" content="GlowHit">
+
+    <!-- Twitter 預覽卡片 -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="GlowHit | 智慧模組化光點反應牆">
+    <meta name="twitter:description" content="結合動態視力訓練、敏捷反射鍛鍊與居家智慧氛圍燈光的一體化模組系統。">
+    <meta name="twitter:image" content="assets/icons/LOGO.png">
+
+    <!-- Favicon 圖標 -->
     <link class="brand-favicon" rel="icon" href="assets/icons/LOGO.png" type="image/png">
     
     <!-- Tailwind CSS & Lucide Icons -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     
-    <!-- Custom Styles -->
+    <!-- 自訂樣式表 -->
     <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/simulator.css">
     <link rel="stylesheet" href="css/animations.css">
 
-    <!-- GA4 追蹤代碼 -->
+    <!-- Google Analytics 4 (GA4) 追蹤代碼 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-SK3WC44J9Q"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -33,7 +54,7 @@
             <span class="text-lg sm:text-xl font-bold tracking-tight text-gray-900 group-hover:text-indigo-600 transition-colors">GlowHit</span>
         </div>
         
-        <!-- Desktop Nav Links -->
+        <!-- 桌機版選單項目 -->
         <div class="hidden md:flex space-x-8 text-sm font-medium tracking-wide">
             <span class="nav-link text-gray-500 hover:text-black transition cursor-pointer" id="nav-home" onclick="navigate('home')">Home</span>
             <span class="nav-link text-gray-500 hover:text-black transition cursor-pointer" id="nav-product" onclick="navigate('product')">Product</span>
@@ -74,7 +95,7 @@
         </div>
     </nav>
 
-    <!-- Mobile Fullscreen Overlay -->
+    <!-- 手機版展開選單 -->
     <div id="mobileMenu" class="hidden fixed inset-x-0 top-[57px] bottom-0 z-40 glass-nav border-b border-gray-200 md:hidden flex flex-col px-8 py-8 space-y-6 text-lg font-medium">
         <span class="mob-nav-link text-gray-600 py-2 border-b border-gray-100" id="mob-nav-home" onclick="navigate('home'); toggleMobileMenu();">Home</span>
         <span class="mob-nav-link text-gray-600 py-2 border-b border-gray-100" id="mob-nav-product" onclick="navigate('product'); toggleMobileMenu();">Product</span>
@@ -84,14 +105,14 @@
         <span class="mob-nav-link text-gray-600 py-2 border-b border-gray-100" id="mob-nav-video" onclick="navigate('video'); toggleMobileMenu();">Video</span>
     </div>
 
-    <!-- 主要掛載容器 -->
+    <!-- 主要頁面掛載點 -->
     <main id="app" class="pt-20 pb-16 min-h-screen"></main>
 
-    <!-- 頁尾 -->
+    <!-- 全站頁尾 (包含版權、技術夥伴、快速連結、Email 與 Instagram) -->
     <footer class="bg-white border-t border-gray-100 py-12 px-6">
         <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-xs text-gray-500 items-start">
             
-            <!-- 專案版權與支持夥伴 -->
+            <!-- 版權與技術支持夥伴 -->
             <div class="space-y-1.5 text-center md:text-left">
                 <p class="font-bold text-gray-900 text-sm" id="footerTitle">GlowHit 智慧模組化光點反應牆</p>
                 <p id="footerCopyright">© 2026 Glowhit. 保留所有權利。</p>
@@ -134,7 +155,7 @@
         </div>
     </footer>
 
-    <!-- 腳本引入區塊 -->
+    <!-- 腳本載入 -->
     <script>window.translations = {};</script>
     <script src="js/data/zh-tw.js"></script>
     <script src="js/data/en.js"></script>
@@ -147,10 +168,12 @@
     <script src="js/data/pt.js"></script>
     <script src="js/data/ar.js"></script>
 
+    <!-- 組件與服務 -->
     <script src="js/components/navbar.js"></script>
     <script src="js/components/language-switcher.js"></script>
     <script src="js/services/leaderboard.js"></script>
 
+    <!-- 各分頁邏輯 -->
     <script src="js/pages/home.js"></script>
     <script src="js/pages/product.js"></script>
     <script src="js/pages/simulator.js"></script>
@@ -159,6 +182,7 @@
     <script src="js/pages/video.js"></script>
     <script src="js/pages/sponsor.js"></script>
 
+    <!-- 路由與核心初始化 -->
     <script src="js/router.js"></script>
     <script src="js/app.js"></script>
 </body>
