@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GlowHit 全球英雄榜 | 即時戰況看板</title>
+    <link rel="icon" href="assets/icons/LOGO.png" type="image/png">
+    
+    <!-- Tailwind CSS & Lucide Icons -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap');
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .font-mono { font-family: 'JetBrains Mono', monospace; }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(229, 231, 235, 0.8);
+        }
+        .glow-gold { box-shadow: 0 10px 30px -5px rgba(245, 158, 11, 0.25); }
+        .glow-silver { box-shadow: 0 10px 25px -5px rgba(156, 163, 175, 0.2); }
+        .glow-bronze { box-shadow: 0 10px 25px -5px rgba(217, 119, 6, 0.2); }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-gray-50 via-slate-100 to-indigo-50/40 min-h-screen text-gray-900 pb-16 antialiased">
+
+    <!-- 頂部資訊列 -->
+    <header class="border-b border-gray-200/80 bg-white/70 backdrop-blur-md sticky top-0 z-30 px-4 sm:px-8 py-3.5">
+        <div class="max-w-6xl mx-auto flex items-center justify-between">
+            <div class="flex items-center space-x-3 cursor-pointer" onclick="location.href='glowhit.html'">
+                <img src="assets/icons/LOGO.png" alt="Logo" class="w-8 h-8 object-contain">
+                <div>
+                    <h1 class="text-base font-extrabold tracking-tight text-gray-900 leading-none">GlowHit</h1>
+                    <span class="text-[10px] font-bold uppercase tracking-widest text-indigo-600">Global Leaderboard</span>
+                </div>
+            </div>
+
+            <!-- 即時動態指示器與手動刷新 -->
+            <div class="flex items-center space-x-3">
+                <div class="flex items-center space-x-1.5 px-2.5 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-semibold">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                    <span>LIVE</span>
+                    <span id="autoTimer" class="text-[10px] text-emerald-600/80 font-mono ml-1">15s</span>
+                </div>
+                <button onclick="fetchLeaderboardData()" class="p-1.5 rounded-full hover:bg-gray-100 text-gray-600 transition-colors" title="立即刷新">
+                    <i data-lucide="refresh-cw" class="w-4 h-4" id="refreshIcon"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-4 sm:px-8 pt-8 sm:pt-12">
+        <!-- 標題與模式切換頁籤 -->
+        <div class="text-center max-w-2xl mx-auto mb-8">
+            <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-gray-900">極限反應排行榜</h2>
+            <p class="text-xs sm:text-sm text-gray-500 mt-2">即時同步全球網頁挑戰者與 ESP32 實體連線裝置成績</p>
+
+            <!-- 模式切換按鈕 -->
+            <div class="inline-flex p-1.5 bg-gray-200/70 rounded-2xl mt-6 shadow-inner gap-1">
+                <button onclick="changeMode('speed')" id="tab-speed" class="px-5 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer">⚡ 光速反應</button>
+                <button onclick="changeMode('color')" id="tab-color" class="px-5 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer">🎨 紅藍辨識</button>
+                <button onclick="changeMode('hunt')" id="tab-hunt" class="px-5 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer">🎯 光影追獵</button>
+            </div>
+        </div>
+
+        <!-- 🏆 前三名頒獎台 (Podium Cards) -->
+        <div id="podiumContainer" class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8 items-end max-w-4xl mx-auto"></div>
+
+        <!-- 📊 完整排行榜清單 (第 4 名以後) -->
+        <div class="glass-card rounded-3xl p-4 sm:p-6 shadow-sm max-w-4xl mx-auto">
+            <div class="flex items-center justify-between pb-3 border-b border-gray-100 text-xs font-bold text-gray-400 px-3">
+                <span>名次 / 挑戰者</span>
+                <span>成績 / 反應時間</span>
+            </div>
+            <div id="boardList" class="divide-y divide-gray-100 mt-1">
+                <div class="py-12 text-center text-gray-400 text-sm">載入即時戰況中...</div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 載入排行榜後端服務 -->
+    <script src="js/services/leaderboard.js"></script>
+
+    <script>
+        let currentMode = 'speed';
+        let refreshSeconds = 15;
+        let countdownInterval = null;
+
+        function parseCountryCode(countryStr) {
+            if (!countryStr) return 'un';
+            const clean = countryStr.toLowerCase().trim();
+            if (clean.length === 2) return clean;
+            const match = clean.match(/\b([a-z]{2})\b/);
+            return (match && match[1]) ? match[1] : 'un';
+        }
+
+        function changeMode(mode) {
+            currentMode = mode;
+            ['speed', 'color', 'hunt'].forEach(m => {
+                const btn = document.getElementById(`tab-${m}`);
+                if (btn) {
+                    btn.className = (m === mode)
+                        ? "px-5 py-2 rounded-xl text-xs font-bold bg-white text-indigo-600 shadow-sm cursor-pointer"
+                        : "px-5 py-2 rounded-xl text-xs font-semibold text-gray-600 hover:text-gray-900 cursor-pointer";
+                }
+            });
+            fetchLeaderboardData();
+        }
+
+        async function fetchLeaderboardData() {
+            const icon = document.getElementById('refreshIcon');
+            if (icon) icon.classList.add('animate-spin');
+
+            const podium = document.getElementById('podiumContainer');
+            const list = document.getElementById('boardList');
+
+            let rawScores = [];
+            if (window.LeaderboardService && window.LeaderboardService.getTopScores) {
+                rawScores = await window.LeaderboardService.getTopScores(currentMode) || [];
+            }
+
+            // 同名同國籍去重合併
+            const uniqueMap = new Map();
+            rawScores.forEach(item => {
+                const key = `${(item.name || '').trim().toLowerCase()}_${(item.country || '').trim().toLowerCase()}`;
+                if (!uniqueMap.has(key)) {
+                    uniqueMap.set(key, item);
+                } else {
+                    const exist = uniqueMap.get(key);
+                    const curScore = parseInt(item.score) || 0;
+                    const existScore = parseInt(exist.score) || 0;
+                    const curReact = parseInt(item.reactTime || item.react_time) || 9999;
+                    const existReact = parseInt(exist.reactTime || exist.react_time) || 9999;
+                    if (curScore > existScore || (curScore === existScore && curReact < existReact)) {
+                        uniqueMap.set(key, item);
+                    }
+                }
+            });
+
+            const sorted = Array.from(uniqueMap.values()).sort((a, b) => {
+                const aScore = parseInt(a.score) || 0;
+                const bScore = parseInt(b.score) || 0;
+                if (bScore !== aScore) return bScore - aScore;
+                return (parseInt(a.reactTime || a.react_time) || 9999) - (parseInt(b.reactTime || b.react_time) || 9999);
+            });
+
+            renderPodium(sorted.slice(0, 3));
+            renderList(sorted.slice(3, 20));
+
+            refreshSeconds = 15;
+            if (icon) setTimeout(() => icon.classList.remove('animate-spin'), 600);
+            if (typeof lucide !== 'undefined') lucide.createIcons();
+        }
+
+        function renderPodium(top3) {
+            const container = document.getElementById('podiumContainer');
+            if (!container) return;
+
+            if (top3.length === 0) {
+                container.innerHTML = '';
+                return;
+            }
+
+            const p1 = top3[0];
+            const p2 = top3[1];
+            const p3 = top3[2];
+
+            const renderCard = (player, rank, style, badgeBg, badgeText) => {
+                if (!player) return `<div class="hidden md:block"></div>`;
+                const isHw = player.device && player.device.includes('ESP32');
+                const cCode = parseCountryCode(player.country);
+
+                return `
+                    <div class="glass-card rounded-3xl p-5 text-center relative ${style} flex flex-col items-center">
+                        <div class="absolute -top-3.5 px-3 py-0.5 rounded-full ${badgeBg} ${badgeText} text-[11px] font-black tracking-wider uppercase shadow-xs">
+                            ${rank === 1 ? '👑 1ST CHAMPION' : rank === 2 ? '🥈 2ND PLACE' : '🥉 3RD PLACE'}
+                        </div>
+                        <img src="https://flagcdn.com/w80/${cCode}.png" class="w-12 h-8 object-cover rounded-md shadow-md mt-2 mb-3" onerror="this.src='https://flagcdn.com/w80/un.png'">
+                        <h4 class="font-extrabold text-base text-gray-900 truncate max-w-[160px]" title="${player.name}">${player.name}</h4>
+                        <div class="inline-flex items-center space-x-1 mt-1">
+                            <span class="text-[9px] px-1.5 py-0.5 rounded-full font-bold ${isHw ? 'bg-indigo-100 text-indigo-700' : 'bg-gray-100 text-gray-500'}">${isHw ? 'ESP32' : 'Web'}</span>
+                        </div>
+                        <div class="mt-4 pt-3 border-t border-gray-200/50 w-full flex justify-around">
+                            <div><div class="text-[10px] text-gray-400 font-bold uppercase">Score</div><div class="text-xl font-black text-indigo-600">${player.score}</div></div>
+                            <div><div class="text-[10px] text-gray-400 font-bold uppercase">React</div><div class="text-sm font-mono font-bold text-gray-700 mt-1">${player.reactTime || player.react_time || 0}ms</div></div>
+                        </div>
+                    </div>
+                `;
+            };
+
+            container.innerHTML = `
+                <!-- 2nd Place -->
+                <div class="order-2 md:order-1">${renderCard(p2, 2, 'glow-silver border-gray-300 md:translate-y-2', 'bg-slate-200', 'text-slate-700')}</div>
+                <!-- 1st Place -->
+                <div class="order-1 md:order-2">${renderCard(p1, 1, 'glow-gold border-amber-300 ring-2 ring-amber-400/30 scale-105 z-10', 'bg-amber-400', 'text-amber-950')}</div>
+                <!-- 3rd Place -->
+                <div class="order-3 md:order-3">${renderCard(p3, 3, 'glow-bronze border-amber-200 md:translate-y-4', 'bg-amber-100', 'text-amber-800')}</div>
+            `;
+        }
+
+        function renderList(rest) {
+            const list = document.getElementById('boardList');
+            if (!list) return;
+
+            if (rest.length === 0) {
+                list.innerHTML = `<div class="py-8 text-center text-gray-400 text-xs">暫無更多排名資料</div>`;
+                return;
+            }
+
+            list.innerHTML = rest.map((item, idx) => {
+                const rank = idx + 4;
+                const isHw = item.device && item.device.includes('ESP32');
+                const cCode = parseCountryCode(item.country);
+
+                return `
+                    <div class="py-3 px-3 flex items-center justify-between hover:bg-white/50 rounded-2xl transition-colors">
+                        <div class="flex items-center space-x-3.5 min-w-0">
+                            <span class="w-6 text-center font-mono font-bold text-gray-400 text-sm shrink-0">${rank}</span>
+                            <img src="https://flagcdn.com/w40/${cCode}.png" class="w-5 h-3.5 object-cover rounded shadow-xs shrink-0" onerror="this.src='https://flagcdn.com/w40/un.png'">
+                            <span class="font-bold text-gray-800 text-sm truncate max-w-[140px] sm:max-w-[240px]">${item.name}</span>
+                            <span class="text-[9px] px-1.5 py-0.5 rounded font-semibold shrink-0 ${isHw ? 'bg-indigo-50 text-indigo-600' : 'bg-gray-100 text-gray-500'}">${isHw ? 'ESP32' : 'Web'}</span>
+                        </div>
+                        <div class="text-right shrink-0 flex items-center space-x-4">
+                            <div class="font-mono text-xs text-gray-400 hidden sm:block">${item.reactTime || item.react_time || 0}ms</div>
+                            <div class="font-black text-indigo-600 text-sm sm:text-base">${item.score} <span class="text-[10px] font-normal text-gray-400">pts</span></div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // 自動刷新計時器 (每秒遞減，歸零時請求 API)
+        function startAutoRefresh() {
+            if (countdownInterval) clearInterval(countdownInterval);
+            countdownInterval = setInterval(() => {
+                refreshSeconds--;
+                const timerElem = document.getElementById('autoTimer');
+                if (timerElem) timerElem.textContent = `${refreshSeconds}s`;
+
+                if (refreshSeconds <= 0) {
+                    fetchLeaderboardData();
+                }
+            }, 1000);
+        }
+
+        window.onload = () => {
+            changeMode('speed');
+            startAutoRefresh();
+        };
+    </script>
+</body>
+</html>
