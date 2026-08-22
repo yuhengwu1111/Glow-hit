@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="zh-TW" id="htmlRoot">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GlowHit 全球英雄榜 | 即時戰況看板</title>
+    <title>GlowHit Global Leaderboard | 極限反應英雄榜</title>
     <link rel="icon" href="assets/icons/LOGO.png" type="image/png">
     
     <!-- Tailwind CSS & Lucide Icons -->
@@ -26,25 +26,49 @@
 </head>
 <body class="bg-gradient-to-br from-gray-50 via-slate-100 to-indigo-50/40 min-h-screen text-gray-900 pb-16 antialiased">
 
-    <!-- 頂部資訊列 -->
-    <header class="border-b border-gray-200/80 bg-white/70 backdrop-blur-md sticky top-0 z-30 px-4 sm:px-8 py-3.5">
-        <div class="max-w-6xl mx-auto flex items-center justify-between">
-            <div class="flex items-center space-x-3 cursor-pointer" onclick="location.href='glowhit.html'">
-                <img src="assets/icons/LOGO.png" alt="Logo" class="w-8 h-8 object-contain">
+    <!-- 頂部資訊與導覽列 -->
+    <header class="border-b border-gray-200/80 bg-white/80 backdrop-blur-md sticky top-0 z-30 px-4 sm:px-8 py-3">
+        <div class="max-w-6xl mx-auto flex items-center justify-between gap-2">
+            <!-- 品牌與返回主站 -->
+            <div class="flex items-center space-x-3 cursor-pointer group" onclick="location.href='glowhit.html'">
+                <img src="assets/icons/LOGO.png" alt="Logo" class="w-8 h-8 object-contain transform group-hover:scale-105 transition-transform">
                 <div>
-                    <h1 class="text-base font-extrabold tracking-tight text-gray-900 leading-none">GlowHit</h1>
-                    <span class="text-[10px] font-bold uppercase tracking-widest text-indigo-600">Global Leaderboard</span>
+                    <h1 class="text-base font-extrabold tracking-tight text-gray-900 leading-none flex items-center gap-1.5">
+                        <span>GlowHit</span>
+                        <span class="text-[10px] px-1.5 py-0.2 rounded bg-indigo-50 text-indigo-600 font-bold border border-indigo-100 hidden sm:inline-block" id="ui-live-badge">GLOBAL</span>
+                    </h1>
+                    <span class="text-[10px] font-bold uppercase tracking-widest text-indigo-600" id="ui-sub-brand">LEADERBOARD</span>
                 </div>
             </div>
 
-            <!-- 即時動態指示器與手動刷新 -->
-            <div class="flex items-center space-x-3">
+            <!-- 控制區：10 國語言選擇、即時連線燈、手動刷新 -->
+            <div class="flex items-center space-x-2 sm:space-x-3">
+                <!-- 10 國語言切換下拉選單 -->
+                <div class="flex items-center space-x-1 border border-gray-200 rounded-full px-2 sm:px-3 py-1 bg-white shadow-2xs">
+                    <i data-lucide="globe" class="w-3.5 h-3.5 text-gray-500 shrink-0"></i>
+                    <select id="langSelect" onchange="switchLanguage(this.value)" class="bg-transparent text-[11px] sm:text-xs font-medium outline-none cursor-pointer text-gray-700">
+                        <option value="zh-TW">繁體中文</option>
+                        <option value="en">English</option>
+                        <option value="zh-CN">简体中文</option>
+                        <option value="ja">日本語</option>
+                        <option value="ko">한국어</option>
+                        <option value="es">Español</option>
+                        <option value="fr">Français</option>
+                        <option value="de">Deutsch</option>
+                        <option value="pt">Português</option>
+                        <option value="ar">العربية</option>
+                    </select>
+                </div>
+
+                <!-- 即時動態倒數指示器 -->
                 <div class="flex items-center space-x-1.5 px-2.5 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-semibold">
                     <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                    <span>LIVE</span>
-                    <span id="autoTimer" class="text-[10px] text-emerald-600/80 font-mono ml-1">15s</span>
+                    <span id="ui-live-text">LIVE</span>
+                    <span id="autoTimer" class="text-[10px] text-emerald-600/80 font-mono ml-0.5">15s</span>
                 </div>
-                <button onclick="fetchLeaderboardData()" class="p-1.5 rounded-full hover:bg-gray-100 text-gray-600 transition-colors" title="立即刷新">
+
+                <!-- 手動刷新按鈕 -->
+                <button onclick="fetchLeaderboardData()" class="p-1.5 rounded-full hover:bg-gray-100 text-gray-600 transition-colors cursor-pointer" title="Refresh">
                     <i data-lucide="refresh-cw" class="w-4 h-4" id="refreshIcon"></i>
                 </button>
             </div>
@@ -52,41 +76,217 @@
     </header>
 
     <main class="max-w-6xl mx-auto px-4 sm:px-8 pt-8 sm:pt-12">
-        <!-- 標題與模式切換頁籤 -->
+        <!-- 主標題與模式切換標籤 -->
         <div class="text-center max-w-2xl mx-auto mb-8">
-            <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-gray-900">極限反應排行榜</h2>
-            <p class="text-xs sm:text-sm text-gray-500 mt-2">即時同步全球網頁挑戰者與 ESP32 實體連線裝置成績</p>
+            <h2 id="ui-main-title" class="text-3xl sm:text-4xl font-extrabold tracking-tight text-gray-900">全球反應英雄榜</h2>
+            <p id="ui-main-subtitle" class="text-xs sm:text-sm text-gray-500 mt-2">即時同步全球挑戰者與 ESP32 硬體連線成績</p>
 
             <!-- 模式切換按鈕 -->
-            <div class="inline-flex p-1.5 bg-gray-200/70 rounded-2xl mt-6 shadow-inner gap-1">
-                <button onclick="changeMode('speed')" id="tab-speed" class="px-5 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer">⚡ 光速反應</button>
-                <button onclick="changeMode('color')" id="tab-color" class="px-5 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer">🎨 紅藍辨識</button>
-                <button onclick="changeMode('hunt')" id="tab-hunt" class="px-5 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer">🎯 光影追獵</button>
+            <div class="inline-flex p-1.5 bg-gray-200/70 rounded-2xl mt-6 shadow-inner gap-1 max-w-full overflow-x-auto">
+                <button onclick="changeMode('speed')" id="tab-speed" class="px-4 sm:px-5 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer whitespace-nowrap">⚡ 光速反應</button>
+                <button onclick="changeMode('color')" id="tab-color" class="px-4 sm:px-5 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer whitespace-nowrap">🎨 紅藍辨識</button>
+                <button onclick="changeMode('hunt')" id="tab-hunt" class="px-4 sm:px-5 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer whitespace-nowrap">🎯 光影追獵</button>
             </div>
         </div>
 
-        <!-- 🏆 前三名頒獎台 (Podium Cards) -->
+        <!-- 🏆 前三名頒獎台 (Podium) -->
         <div id="podiumContainer" class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8 items-end max-w-4xl mx-auto"></div>
 
         <!-- 📊 完整排行榜清單 (第 4 名以後) -->
         <div class="glass-card rounded-3xl p-4 sm:p-6 shadow-sm max-w-4xl mx-auto">
             <div class="flex items-center justify-between pb-3 border-b border-gray-100 text-xs font-bold text-gray-400 px-3">
-                <span>名次 / 挑戰者</span>
-                <span>成績 / 反應時間</span>
+                <span id="ui-th-user">名次 / 挑戰者</span>
+                <span id="ui-th-score">成績 / 反應時間</span>
             </div>
             <div id="boardList" class="divide-y divide-gray-100 mt-1">
-                <div class="py-12 text-center text-gray-400 text-sm">載入即時戰況中...</div>
+                <div class="py-12 text-center text-gray-400 text-sm" id="ui-loading-text">載入即時戰況中...</div>
             </div>
         </div>
     </main>
 
-    <!-- 載入排行榜後端服務 -->
+    <!-- 引用排行榜資料服務 -->
     <script src="js/services/leaderboard.js"></script>
 
     <script>
+        // 🌍 完整 10 國語言多國語系字典檔
+        const I18N = {
+            'zh-TW': {
+                mainTitle: '全球反應英雄榜',
+                mainSubtitle: '即時同步全球挑戰者與 ESP32 硬體連線成績',
+                tabSpeed: '⚡ 光速反應',
+                tabColor: '🎨 紅藍辨識',
+                tabHunt: '🎯 光影追獵',
+                thUser: '名次 / 挑戰者',
+                thScore: '成績 / 反應時間',
+                score: '得分',
+                react: '反應',
+                pts: '分',
+                p1: '👑 冠軍 1ST',
+                p2: '🥈 亞軍 2ND',
+                p3: '🥉 季軍 3RD',
+                loading: '載入即時戰況中...',
+                noData: '尚無紀錄，快來搶下第一！'
+            },
+            'en': {
+                mainTitle: 'Global Reflex Leaderboard',
+                mainSubtitle: 'Real-time sync of global challengers and ESP32 hardware records',
+                tabSpeed: '⚡ Light Speed',
+                tabColor: '🎨 Color Shift',
+                tabHunt: '🎯 Shadow Hunt',
+                thUser: 'Rank / Challenger',
+                thScore: 'Score / Reflex Time',
+                score: 'Score',
+                react: 'React',
+                pts: 'pts',
+                p1: '👑 1ST CHAMPION',
+                p2: '🥈 2ND PLACE',
+                p3: '🥉 3RD PLACE',
+                loading: 'Loading real-time scores...',
+                noData: 'No records yet. Be the first!'
+            },
+            'zh-CN': {
+                mainTitle: '全球反应英雄榜',
+                mainSubtitle: '即时同步全球挑战者与 ESP32 硬件联机成绩',
+                tabSpeed: '⚡ 光速反应',
+                tabColor: '🎨 红蓝辨识',
+                tabHunt: '🎯 光影追猎',
+                thUser: '名次 / 挑战者',
+                thScore: '成绩 / 反应时间',
+                score: '得分',
+                react: '反应',
+                pts: '分',
+                p1: '👑 冠军 1ST',
+                p2: '🥈 亚军 2ND',
+                p3: '🥉 季军 3RD',
+                loading: '载入即时战况中...',
+                noData: '暂无记录，快来拿下第一！'
+            },
+            'ja': {
+                mainTitle: 'グローバル・リアクション・ランキング',
+                mainSubtitle: '全世界の挑戦者とESP32実機スコアをリアルタイム同期',
+                tabSpeed: '⚡ 光速反応',
+                tabColor: '🎨 カラー識別',
+                tabHunt: '🎯 シャドウ追跡',
+                thUser: '順位 / チャレンジャー',
+                thScore: 'スコア / 反応速度',
+                score: 'スコア',
+                react: '反応',
+                pts: '点',
+                p1: '👑 優勝 1ST',
+                p2: '🥈 準優勝 2ND',
+                p3: '🥉 第3位 3RD',
+                loading: 'ランキングを読み込み中...',
+                noData: '記録がありません。1位を目指しましょう！'
+            },
+            'ko': {
+                mainTitle: '글로벌 반응속도 리더보드',
+                mainSubtitle: '글로벌 도전자 및 ESP32 하드웨어 연동 점수 실시간 동기화',
+                tabSpeed: '⚡ 광속 반응',
+                tabColor: '🎨 색상 식별',
+                tabHunt: '🎯 섀도우 체이서',
+                thUser: '순위 / 도전자',
+                thScore: '점수 / 반응 속도',
+                score: '점수',
+                react: '반응',
+                pts: '점',
+                p1: '👑 1위 챔피언',
+                p2: '🥈 2위',
+                p3: '🥉 3위',
+                loading: '실시간 점수 불러오는 중...',
+                noData: '기록이 없습니다. 첫 번째 챔피언이 되어보세요!'
+            },
+            'es': {
+                mainTitle: 'Clasificación Global de Reflejos',
+                mainSubtitle: 'Sincronización en tiempo real de retadores globales y hardware ESP32',
+                tabSpeed: '⚡ Velocidad Luz',
+                tabColor: '🎨 Cambio de Color',
+                tabHunt: '🎯 Caza Sombras',
+                thUser: 'Puesto / Retador',
+                thScore: 'Puntaje / Tiempo de Reacción',
+                score: 'Puntos',
+                react: 'Reacción',
+                pts: 'pts',
+                p1: '👑 1.º CAMPEÓN',
+                p2: '🥈 2.º PUESTO',
+                p3: '🥉 3.º PUESTO',
+                loading: 'Cargando puntajes en tiempo real...',
+                noData: '¡Sin registros aún, sé el primero!'
+            },
+            'fr': {
+                mainTitle: 'Classement Mondial des Réflexes',
+                mainSubtitle: 'Synchronisation en direct des scores Web et du matériel ESP32',
+                tabSpeed: '⚡ Vitesse Lumière',
+                tabColor: '🎨 Défi Couleurs',
+                tabHunt: '🎯 Chasseur d\'Ombre',
+                thUser: 'Rang / Challenger',
+                thScore: 'Score / Temps Réflexe',
+                score: 'Score',
+                react: 'Réflexe',
+                pts: 'pts',
+                p1: '👑 1ER CHAMPION',
+                p2: '🥈 2ÈME PLACE',
+                p3: '🥉 3ÈME PLACE',
+                loading: 'Chargement des scores en direct...',
+                noData: 'Aucun record pour le moment !'
+            },
+            'de': {
+                mainTitle: 'Globale Reflex-Bestenliste',
+                mainSubtitle: 'Echtzeit-Synchronisierung von weltweiten Spielern und ESP32-Geräten',
+                tabSpeed: '⚡ Lichtgeschw.',
+                tabColor: '🎨 Farbwechsel',
+                tabHunt: '🎯 Schattenjagd',
+                thUser: 'Rang / Herausforderer',
+                thScore: 'Punkte / Reaktionszeit',
+                score: 'Punkte',
+                react: 'Reaktion',
+                pts: 'Pkt',
+                p1: '👑 1. PLATZ MEISTER',
+                p2: '🥈 2. PLATZ',
+                p3: '🥉 3. PLATZ',
+                loading: 'Lade Live-Ergebnisse...',
+                noData: 'Noch keine Einträge vorhanden!'
+            },
+            'pt': {
+                mainTitle: 'Classificação Global de Reflexos',
+                mainSubtitle: 'Sincronização em tempo real de desafiantes globais e hardware ESP32',
+                tabSpeed: '⚡ Velocidade Luz',
+                tabColor: '🎨 Mudança de Cor',
+                tabHunt: '🎯 Caçador Sombra',
+                thUser: 'Posição / Desafiante',
+                thScore: 'Pontos / Tempo de Reação',
+                score: 'Pontos',
+                react: 'Reação',
+                pts: 'pts',
+                p1: '👑 1º CAMPEÃO',
+                p2: '🥈 2º LUGAR',
+                p3: '🥉 3º LUGAR',
+                loading: 'Carregando pontuações ao vivo...',
+                noData: 'Nenhum registro ainda, seja o primeiro!'
+            },
+            'ar': {
+                mainTitle: 'لوحة المتصدرين العالمية لسرعة الاستجابة',
+                mainSubtitle: 'مزامنة مباشرة لنتائج المتحدين حول العالم وأجهزة ESP32',
+                tabSpeed: '⚡ سرعة الضوء',
+                tabColor: '🎨 تمييز الألوان',
+                tabHunt: '🎯 صيد الظلال',
+                thUser: 'الترتيب / المتحدي',
+                thScore: 'النتيجة / وقت الاستجابة',
+                score: 'النقاط',
+                react: 'الاستجابة',
+                pts: 'نقطة',
+                p1: '👑 المركز الأول',
+                p2: '🥈 المركز الثاني',
+                p3: '🥉 المركز الثالث',
+                loading: 'جاري تحميل النتائج المباشرة...',
+                noData: 'لا توجد تسجيلات بعد، كن أول المتصدرين!'
+            }
+        };
+
+        let currentLang = localStorage.getItem('glowhit_lang') || 'zh-TW';
         let currentMode = 'speed';
         let refreshSeconds = 15;
         let countdownInterval = null;
+        let lastScoresData = [];
 
         function parseCountryCode(countryStr) {
             if (!countryStr) return 'un';
@@ -96,14 +296,41 @@
             return (match && match[1]) ? match[1] : 'un';
         }
 
+        function switchLanguage(lang) {
+            currentLang = lang;
+            localStorage.setItem('glowhit_lang', lang);
+            
+            // RTL 佈局判定（阿拉伯語支援）
+            document.getElementById('htmlRoot').dir = (lang === 'ar') ? 'rtl' : 'ltr';
+            document.getElementById('langSelect').value = lang;
+
+            applyLanguageTexts();
+            renderPodium(lastScoresData.slice(0, 3));
+            renderList(lastScoresData.slice(3, 20));
+        }
+
+        function applyLanguageTexts() {
+            const t = I18N[currentLang] || I18N['en'];
+            document.getElementById('ui-main-title').textContent = t.mainTitle;
+            document.getElementById('ui-main-subtitle').textContent = t.mainSubtitle;
+            document.getElementById('tab-speed').textContent = t.tabSpeed;
+            document.getElementById('tab-color').textContent = t.tabColor;
+            document.getElementById('tab-hunt').textContent = t.tabHunt;
+            document.getElementById('ui-th-user').textContent = t.thUser;
+            document.getElementById('ui-th-score').textContent = t.thScore;
+            
+            const loadText = document.getElementById('ui-loading-text');
+            if (loadText) loadText.textContent = t.loading;
+        }
+
         function changeMode(mode) {
             currentMode = mode;
             ['speed', 'color', 'hunt'].forEach(m => {
                 const btn = document.getElementById(`tab-${m}`);
                 if (btn) {
                     btn.className = (m === mode)
-                        ? "px-5 py-2 rounded-xl text-xs font-bold bg-white text-indigo-600 shadow-sm cursor-pointer"
-                        : "px-5 py-2 rounded-xl text-xs font-semibold text-gray-600 hover:text-gray-900 cursor-pointer";
+                        ? "px-4 sm:px-5 py-2 rounded-xl text-xs font-bold bg-white text-indigo-600 shadow-sm cursor-pointer whitespace-nowrap"
+                        : "px-4 sm:px-5 py-2 rounded-xl text-xs font-semibold text-gray-600 hover:text-gray-900 cursor-pointer whitespace-nowrap";
                 }
             });
             fetchLeaderboardData();
@@ -112,9 +339,6 @@
         async function fetchLeaderboardData() {
             const icon = document.getElementById('refreshIcon');
             if (icon) icon.classList.add('animate-spin');
-
-            const podium = document.getElementById('podiumContainer');
-            const list = document.getElementById('boardList');
 
             let rawScores = [];
             if (window.LeaderboardService && window.LeaderboardService.getTopScores) {
@@ -139,15 +363,15 @@
                 }
             });
 
-            const sorted = Array.from(uniqueMap.values()).sort((a, b) => {
+            lastScoresData = Array.from(uniqueMap.values()).sort((a, b) => {
                 const aScore = parseInt(a.score) || 0;
                 const bScore = parseInt(b.score) || 0;
                 if (bScore !== aScore) return bScore - aScore;
                 return (parseInt(a.reactTime || a.react_time) || 9999) - (parseInt(b.reactTime || b.react_time) || 9999);
             });
 
-            renderPodium(sorted.slice(0, 3));
-            renderList(sorted.slice(3, 20));
+            renderPodium(lastScoresData.slice(0, 3));
+            renderList(lastScoresData.slice(3, 20));
 
             refreshSeconds = 15;
             if (icon) setTimeout(() => icon.classList.remove('animate-spin'), 600);
@@ -163,19 +387,20 @@
                 return;
             }
 
+            const t = I18N[currentLang] || I18N['en'];
             const p1 = top3[0];
             const p2 = top3[1];
             const p3 = top3[2];
 
-            const renderCard = (player, rank, style, badgeBg, badgeText) => {
+            const renderCard = (player, rank, style, badgeBg, badgeText, badgeTitle) => {
                 if (!player) return `<div class="hidden md:block"></div>`;
                 const isHw = player.device && player.device.includes('ESP32');
                 const cCode = parseCountryCode(player.country);
 
                 return `
                     <div class="glass-card rounded-3xl p-5 text-center relative ${style} flex flex-col items-center">
-                        <div class="absolute -top-3.5 px-3 py-0.5 rounded-full ${badgeBg} ${badgeText} text-[11px] font-black tracking-wider uppercase shadow-xs">
-                            ${rank === 1 ? '👑 1ST CHAMPION' : rank === 2 ? '🥈 2ND PLACE' : '🥉 3RD PLACE'}
+                        <div class="absolute -top-3.5 px-3 py-0.5 rounded-full ${badgeBg} ${badgeText} text-[10px] sm:text-[11px] font-black tracking-wider uppercase shadow-xs">
+                            ${badgeTitle}
                         </div>
                         <img src="https://flagcdn.com/w80/${cCode}.png" class="w-12 h-8 object-cover rounded-md shadow-md mt-2 mb-3" onerror="this.src='https://flagcdn.com/w80/un.png'">
                         <h4 class="font-extrabold text-base text-gray-900 truncate max-w-[160px]" title="${player.name}">${player.name}</h4>
@@ -183,8 +408,8 @@
                             <span class="text-[9px] px-1.5 py-0.5 rounded-full font-bold ${isHw ? 'bg-indigo-100 text-indigo-700' : 'bg-gray-100 text-gray-500'}">${isHw ? 'ESP32' : 'Web'}</span>
                         </div>
                         <div class="mt-4 pt-3 border-t border-gray-200/50 w-full flex justify-around">
-                            <div><div class="text-[10px] text-gray-400 font-bold uppercase">Score</div><div class="text-xl font-black text-indigo-600">${player.score}</div></div>
-                            <div><div class="text-[10px] text-gray-400 font-bold uppercase">React</div><div class="text-sm font-mono font-bold text-gray-700 mt-1">${player.reactTime || player.react_time || 0}ms</div></div>
+                            <div><div class="text-[10px] text-gray-400 font-bold uppercase">${t.score}</div><div class="text-xl font-black text-indigo-600">${player.score}</div></div>
+                            <div><div class="text-[10px] text-gray-400 font-bold uppercase">${t.react}</div><div class="text-sm font-mono font-bold text-gray-700 mt-1">${player.reactTime || player.react_time || 0}ms</div></div>
                         </div>
                     </div>
                 `;
@@ -192,11 +417,11 @@
 
             container.innerHTML = `
                 <!-- 2nd Place -->
-                <div class="order-2 md:order-1">${renderCard(p2, 2, 'glow-silver border-gray-300 md:translate-y-2', 'bg-slate-200', 'text-slate-700')}</div>
+                <div class="order-2 md:order-1">${renderCard(p2, 2, 'glow-silver border-gray-300 md:translate-y-2', 'bg-slate-200', 'text-slate-700', t.p2)}</div>
                 <!-- 1st Place -->
-                <div class="order-1 md:order-2">${renderCard(p1, 1, 'glow-gold border-amber-300 ring-2 ring-amber-400/30 scale-105 z-10', 'bg-amber-400', 'text-amber-950')}</div>
+                <div class="order-1 md:order-2">${renderCard(p1, 1, 'glow-gold border-amber-300 ring-2 ring-amber-400/30 scale-105 z-10', 'bg-amber-400', 'text-amber-950', t.p1)}</div>
                 <!-- 3rd Place -->
-                <div class="order-3 md:order-3">${renderCard(p3, 3, 'glow-bronze border-amber-200 md:translate-y-4', 'bg-amber-100', 'text-amber-800')}</div>
+                <div class="order-3 md:order-3">${renderCard(p3, 3, 'glow-bronze border-amber-200 md:translate-y-4', 'bg-amber-100', 'text-amber-800', t.p3)}</div>
             `;
         }
 
@@ -204,8 +429,10 @@
             const list = document.getElementById('boardList');
             if (!list) return;
 
-            if (rest.length === 0) {
-                list.innerHTML = `<div class="py-8 text-center text-gray-400 text-xs">暫無更多排名資料</div>`;
+            const t = I18N[currentLang] || I18N['en'];
+
+            if (rest.length === 0 && lastScoresData.length === 0) {
+                list.innerHTML = `<div class="py-8 text-center text-gray-400 text-xs">${t.noData}</div>`;
                 return;
             }
 
@@ -224,14 +451,13 @@
                         </div>
                         <div class="text-right shrink-0 flex items-center space-x-4">
                             <div class="font-mono text-xs text-gray-400 hidden sm:block">${item.reactTime || item.react_time || 0}ms</div>
-                            <div class="font-black text-indigo-600 text-sm sm:text-base">${item.score} <span class="text-[10px] font-normal text-gray-400">pts</span></div>
+                            <div class="font-black text-indigo-600 text-sm sm:text-base">${item.score} <span class="text-[10px] font-normal text-gray-400">${t.pts}</span></div>
                         </div>
                     </div>
                 `;
             }).join('');
         }
 
-        // 自動刷新計時器 (每秒遞減，歸零時請求 API)
         function startAutoRefresh() {
             if (countdownInterval) clearInterval(countdownInterval);
             countdownInterval = setInterval(() => {
@@ -246,6 +472,7 @@
         }
 
         window.onload = () => {
+            switchLanguage(currentLang);
             changeMode('speed');
             startAutoRefresh();
         };
